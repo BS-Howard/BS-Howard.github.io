@@ -19,6 +19,7 @@
         opacity: 75%;
         text-align: center;
         font-size: 0px;
+        
       }
 
       .header a {
@@ -27,11 +28,12 @@
         color: white;
         padding: 20px;
         font-size: 16px;
+        transition: .5s;
       }
 
       .header a:hover {
         background-color: rgb(253, 159, 37);
-        transition: .5s;
+        
       }
 
       .banner img {
@@ -198,8 +200,8 @@
       }
 
       .item:hover .picup{
+        
         opacity: 1;
-        transition: .7s;
       }
 
       .item:hover::after{
@@ -223,12 +225,13 @@
         z-index: 2;
       } */
 
-      .button-pic .picup{
+      .picup{
         position: absolute;
         top: 0px;
         left: 0px;
         opacity: 0;
         z-index: 2;
+        transition: .3s;
       }
 
       .button-pic .join:hover{
