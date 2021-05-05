@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        background-color: rgb(240, 58, 58);
+      }
+      .wrap {
+        width: 1200px;
+        display: flex;
+        margin: auto;
+      }
+      .item {
+        width: 366px;
+        height: 100%;
+        text-align: center;
+        margin: 0px 15px;
+        border: 2px solid rgb(146, 146, 146);
+        background-color: #fff;
+        transform: translateY(0px);
+        transition: 0.5s;
+      }
+      .item img {
+        width: 100%;
+        vertical-align: middle;
+      }
+      .txt {
+        margin: 15px;
+        position: relative;
+      }
+      .txt h2 {
+        height: 33px;
+        transition: 0.5s;
+      }
+
+      .txt h2::after {
+        content: "";
+        width: 0px;
+        height: 1px;
+        position: absolute;
+        top: 35px;
+        left: 0px;
+        background-color: rgb(255, 0, 0);
+        transition: 0.5s 0.5s;
+      }
+      .item:hover h2::after {
+        width: 330px;
+      }
+
+      .txt p {
+        transition: 0.5s;
+        line-height: 2em;
+      }
+
+      .txt::after {
+        position: absolute;
+        top: -14px;
+        left: -15px;
+        content: "";
+        width: 0px;
+        height: 0px;
+        border-top: 60px solid transparent;
+        border-left: 183px solid #fff;
+        border-right: 183px solid #fff;
+        transition: 0.5s;
+        transform: translateY(-100%);
+      }
+      .item:hover {
+        background-color: rgb(44, 219, 152);
+        transform: translateY(-50px);
+      }
+
+      .item:hover .txt::after {
+        border-top: 55px solid transparent;
+        border-left: 183px solid rgb(44, 219, 152);
+        border-right: 183px solid rgb(44, 219, 152);
+      }
+
+      .item:hover h2 {
+        color: white;
+      }
+      .item:hover p {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="item">
+        <img src="https://picsum.photos/300/300?random=10" />
+        <div class="txt">
+          <h2>CSS可樂</h2>
+          <p>
+            一個優質的技術型 Youtube
+            頻道，旨在讓更多網路新手跳坑學習網站開發技術，平日用簡單易懂的教學方式讓新手能跨進網頁設計領域，並開設知名的網路課程「網頁設計暴力入門班」用紮實的原理解析讓新手能學習到深入的網頁製作技術及知識。知識。
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="https://picsum.photos/300/300?random=20" />
+        <div class="txt">
+          <h2>Amos</h2>
+          <p>
+            現任 Youtube CSScoke
+            頻道直播主，屬緣分系直播主，平日不定時會突然發懶不直播（過分！），頻道內分享業界實務技巧，不定時邀請業界大神免費分享實用技巧與經驗，有機會跟到直播的話表示你我有緣，何不斗內支持直播主製作更多優質節目呢。
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="https://picsum.photos/300/300?random=30" />
+        <div class="txt">
+          <h2>推坑大魔王</h2>
+          <p>
+            不是路不平！而是坑太多！閒暇時看到好東西就會推坑給周遭朋友，不管是好物或是好書甚至是好課，無一不推！看似抽庸很大卻是一毛不取，一個佛系推坑方式，希望能讓周遭朋友用較低的負擔獲得更多技術，並努力轉換成收入，讓所有周遭的朋友發大財！
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
