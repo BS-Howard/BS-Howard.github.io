@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LINE｜始終陪伴在你身旁。</title>
+    <link rel="stylesheet" href="reset.css" />
+    <script
+      src="https://kit.fontawesome.com/3524cb55bc.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      .icon a {
+        display: flex;
+        align-items: center;
+      }
+      .icon a img {
+        width: 70%;
+      }
+      .main-nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px 25px;
+        box-sizing: border-box;
+        background-color: rgb(245, 245, 245, 0.95);
+        position: fixed;
+        z-index: 10;
+      }
+      .main-nav nav a {
+        text-decoration: none;
+        color: #000;
+        margin: 0px 50px;
+        font-weight: 700;
+        position: relative;
+      }
+      .main-nav nav a:first-child:after {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 0%;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background-color: #000;
+      }
+      #lang {
+        position: absolute;
+        z-index: -1;
+      }
+      .main-nav .language label :hover {
+        cursor: pointer;
+      }
+      .language ul {
+        width: 60px;
+        top: 50px;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #000;
+        display: none;
+      }
+      .language ul li {
+        text-align: center;
+        padding: 5px;
+      }
+      .language li a {
+        text-decoration: none;
+        color: #000;
+      }
+      #lang:checked + .main-nav ul {
+        display: block;
+      }
+      .banner {
+        width: 100%;
+      }
+      .banner img {
+        width: 100%;
+        height: 720px;
+        object-fit: cover;
+      }
+      .banner .txt {
+        position: absolute;
+        top: 0;
+        left: 15%;
+        top: 30%;
+        color: #fff;
+      }
+      .banner .txt h2 {
+        font-size: 120px;
+        font-weight: 900;
+      }
+      .banner .txt p {
+        font-size: 40px;
+        padding: 20px 0px 60px;
+      }
+      .banner .download {
+        position: absolute;
+        top: 0;
+        left: 15%;
+        top: 70%;
+        color: #fff;
+      }
+      .banner .download i {
+        width: 25px;
+        height: 25px;
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 18px;
+        line-height: 25px;
+        position: relative;
+      }
+      .download i::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        background-color: rgb(78, 197, 98);
+        background-image: url("download-solid.svg");
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: none;
+      }
+      .download i:hover::after {
+        display: block;
+        cursor: pointer;
+      }
+      .banner .highlight {
+        text-align: center;
+        margin: 50px;
+      }
+      .highlight h2 {
+        font-size: 60px;
+        font-weight: 900;
+      }
+      .highlight p {
+        margin: 20px 0px 200px;
+        font-weight: 600;
+      }
+      .wrap {
+        width: 960px;
+        margin: auto;
+      }
+      .wrap .item {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 200px;
+      }
+      .item .txt {
+        width: 380px;
+        padding: 0px 50px;
+        margin: auto;
+        position: relative;
+      }
+      .item .txt > i {
+        border: 1px solid #000;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .item .txt h3 {
+        margin: 20px 0px;
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .item .txt h5 {
+        font-size: 12px;
+        font-weight: 700;
+        color: rgb(12, 145, 79);
+      }
+      .item .txt p {
+        font-size: 12px;
+        font-weight: 700;
+        margin: 10px 0px 50px;
+        line-height: 18px;
+      }
+      .item .txt a i:hover {
+        background-color: rgb(78, 197, 98);
+        color: #fff;
+      }
+      .item .txt a .fab {
+        color: #000;
+        border: 1px solid rgb(141, 141, 141);
+        padding: 10px;
+        font-size: 8px;
+        margin-right: 5px;
+      }
+      .item .txt a .fas {
+        color: #000;
+        border: 1px solid rgb(141, 141, 141);
+        padding: 10px;
+        font-size: 8px;
+      }
+      .item .pic {
+        width: 50%;
+        position: relative;
+      }
+      .item .pic img {
+        width: 100%;
+        object-fit: contain;
+      }
+      .wrap .item:nth-child(even) {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      .wrap .item:first-child .pic::before {
+        content: "";
+        position: absolute;
+        height: 900%;
+        left: 0;
+        top: 0;
+        border-left: 1px dotted black;
+        z-index: 2;
+      }
+      .wrap .item:first-child .pic::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -100px;
+        height: 100px;
+        border-left: 1px dotted black;
+      }
+      .item:nth-child(even) .pic::after {
+        position: absolute;
+        content: "";
+        top: -100px;
+        left: 99.5%;
+        border-radius: 50%;
+        width: 5px;
+        height: 5px;
+        border: 1px solid #000;
+        background-color: #fff;
+        z-index: 3;
+      }
+      .item:nth-child(odd) .txt::after {
+        position: absolute;
+        content: "";
+        border-radius: 50%;
+        top: -150px;
+        left: 99.5%;
+        width: 5px;
+        height: 5px;
+        border: 1px solid #000;
+        background-color: #fff;
+        z-index: 3;
+      }
+      .wrap .item:last-child .pic::before{
+        position: absolute;
+        content: "";
+        border-radius: 50%;
+        top: 140%;
+        left: -0.5%;
+        width: 5px;
+        height: 5px;
+        border: 1px solid #000;
+        background-color: #fff;
+        z-index: 3;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" name="" id="lang" />
+    <div class="main-nav">
+      <div class="icon">
+        <a href="#">
+          <img src="icon-title-pc.png" />
+        </a>
+      </div>
+      <nav>
+        <a href="#">Life on LINE</a>
+        <a href="#">通訊軟體</a>
+        <a href="#">服務總覽</a>
+      </nav>
+      <div class="language">
+        <label for="lang"><i class="fas fa-globe"> TW-</i></label>
+        <ul>
+          <li><a href="#">EN</a></li>
+          <li><a href="#">JP</a></li>
+          <li><a href="#">KR</a></li>
+          <li><a href="#">TW</a></li>
+          <li><a href="#">TH</a></li>
+          <li><a href="#">ID</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="banner">
+      <img src="Line_Pad_008.jpg" />
+      <div class="txt">
+        <h2>Life on Line</h2>
+        <p>LINE始終陪伴在你身旁。</p>
+        <i class="fab fa-line"> 下載</i>
+      </div>
+      <div class="download">
+        <i class="fab fa-apple"></i>
+        <i class="fab fa-google-play"></i>
+        <i class="fa fa-tv"></i>
+      </div>
+      <div class="highlight">
+        <h2>Life on LINE</h2>
+        <p>
+          超越通訊軟體，LINE為用戶建構全新的溝通型態與豐富的數位生活，成為用戶生活中不可或缺的平台。
+        </p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="item">
+        <div class="txt">
+          <i class="fab fa-apple"></i>
+          <h3>LINE TODAY</h3>
+          <h5>隨點隨看 生活快充</h5>
+          <p>
+            最即時的新聞、影音、運動賽事和娛樂內容直播，讓你話題永不斷線，LINE
+            TODAY陪伴您的每一天！
+          </p>
+          <a href="#"
+            ><i class="fas fa-external-link-square-alt"> 其他詳細資訊</i></a
+          >
+        </div>
+        <div class="pic">
+          <img src="p1.png" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="txt">
+          <i class="fab fa-apple"></i>
+          <h3>LINE貼文串</h3>
+          <h5>探索樂趣，分享生活</h5>
+          <p>
+            在貼文串追蹤你的最愛．有感內容不錯過。
+            打造你的個人閱知頻道，探索生活大小事。
+            分享所見所聞，串連人際、啟發創意的無限可能！
+          </p>
+          <a href="#"
+            ><i class="fas fa-external-link-square-alt">其他詳細資訊</i></a
+          >
+        </div>
+        <div class="pic">
+          <img src="p2.png" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="txt">
+          <i class="fab fa-apple"></i>
+          <h3>LINE Pay</h3>
+          <h5>付款、轉帳、生活繳費，輕鬆簡單又便利！</h5>
+          <p>
+            付款簡單又便利，還能輕鬆轉帳給LINE好友，動動手指輕鬆完成日常生活各種帳單繳費，
+            免出門省時又省力。
+          </p>
+          <a href="#">
+            <i class="fab fa-apple"></i><i class="fab fa-google-play"></i
+            ><i class="fas fa-external-link-square-alt">其他詳細資訊</i></a
+          >
+        </div>
+        <div class="pic">
+          <img src="p3.png" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="txt">
+          <i class="fab fa-apple"></i>
+          <h3>LINE購物</h3>
+          <h5>先LINE購物再購物</h5>
+          <p>
+            涵蓋各大購物、拍賣、精品、通路、旅遊、及票券商店，輕鬆貨比五百家，一站比價三千萬筆商品，再享LINE
+            POINTS回饋賺不停！
+          </p>
+          <a href="#">
+            <i class="fab fa-apple"></i><i class="fab fa-google-play"></i
+            ><i class="fas fa-external-link-square-alt">其他詳細資訊</i></a
+          >
+        </div>
+        <div class="pic">
+          <img src="p4.png" />
+        </div>
+      </div>
+      <div class="item">
+        <div class="txt">
+          <i class="fab fa-apple"></i>
+          <h3>LINE TV</h3>
+          <h5>共享追劇生活</h5>
+          <p>
+            和朋友一起追劇，不錯過最新、最熱門、最潮的話題大劇，即時分享娛樂影音，展開精彩生活故事，LINE
+            TV是您的追劇第一選擇！
+          </p>
+          <a href="#">
+            <i class="fab fa-apple"></i><i class="fab fa-google-play"></i
+            ><i class="fas fa-external-link-square-alt">其他詳細資訊</i></a
+          >
+        </div>
+        <div class="pic">
+          <img src="p5.png" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

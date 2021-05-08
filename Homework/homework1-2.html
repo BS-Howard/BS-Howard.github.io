@@ -100,30 +100,32 @@
         position: relative;
         font-size: 0px;
         text-align: center;
+        display: flex;
       }
 
       .link a {
-        display: inline-block;
-        margin: 5px;
-        padding: 2px;
+        display: block;
+        padding: 20px;
         text-decoration: none;
         color: #000;
         font-size: 18px;
+        border-bottom: 1px solid transparent;
+        transition: .3s ;
+      }
+
+      .link a.active {
+        border-bottom-color: rgb(224, 147, 31);
       }
 
       .link a:hover{
-          color: red;
-          font-weight: bold;
+        border-bottom-color: rgb(224, 147, 31);
       }
 
-      .link a:first-child::after {
-        content: "";
-        position: absolute;
-        top: 30px;
-        left: 0px;
-        width: 25px;
-        height: 3px;
-        background-color: rgba(252, 169, 16, 0.918);
+      .link:hover a.active{
+        border-bottom-color: transparent;
+      }
+      .link a.active:hover{
+        border-bottom-color: rgb(224, 147, 31);
       }
 
       .foot {
@@ -377,7 +379,7 @@
           </div>
         </div>
       <div class="link">
-        <a href="#">1</a>
+        <a href="#" class="active">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
@@ -501,7 +503,7 @@
           </div>
         </div>
       <div class="link">
-        <a href="#">1</a>
+        <a href="#" class="active">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
@@ -624,7 +626,7 @@
           </div>
         </div>
       <div class="link">
-        <a href="#">1</a>
+        <a href="#" class="active">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
@@ -691,7 +693,7 @@
           </div>
         </div>
       <div class="link">
-        <a href="#">1</a>
+        <a href="#" class="active">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">>></a>
