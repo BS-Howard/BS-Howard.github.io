@@ -162,55 +162,55 @@
         width: 100%;
         margin-bottom: 200px;
       }
-      .item .txt {
+      .wrap .item .txt {
         width: 380px;
         padding: 0px 50px;
         margin: auto;
         position: relative;
       }
-      .item .txt > i {
+      .wrap .item .txt > i {
         border: 1px solid #000;
         padding: 20px;
         border-radius: 10px;
       }
-      .item .txt h3 {
+      .wrap .item .txt h3 {
         margin: 20px 0px;
         font-size: 24px;
         font-weight: 700;
       }
-      .item .txt h5 {
+      .wrap .item .txt h5 {
         font-size: 12px;
         font-weight: 700;
         color: rgb(12, 145, 79);
       }
-      .item .txt p {
+      .wrap .item .txt p {
         font-size: 12px;
         font-weight: 700;
         margin: 10px 0px 50px;
         line-height: 18px;
       }
-      .item .txt a i:hover {
+      .wrap .item .txt a i:hover {
         background-color: rgb(78, 197, 98);
         color: #fff;
       }
-      .item .txt a .fab {
+      .wrap .item .txt a .fab {
         color: #000;
         border: 1px solid rgb(141, 141, 141);
         padding: 10px;
         font-size: 8px;
         margin-right: 5px;
       }
-      .item .txt a .fas {
+      .wrap .item .txt a .fas {
         color: #000;
         border: 1px solid rgb(141, 141, 141);
         padding: 10px;
         font-size: 8px;
       }
-      .item .pic {
+      .wrap .item .pic {
         width: 50%;
         position: relative;
       }
-      .item .pic img {
+      .wrap .item .pic img {
         width: 100%;
         object-fit: contain;
       }
@@ -221,7 +221,7 @@
       .wrap .item:first-child .pic::before {
         content: "";
         position: absolute;
-        height: 900%;
+        height: 915%;
         left: 0;
         top: 0;
         border-left: 1px dotted black;
@@ -235,7 +235,7 @@
         height: 100px;
         border-left: 1px dotted black;
       }
-      .item:nth-child(even) .pic::after {
+      .wrap .item:nth-child(even) .pic::after {
         position: absolute;
         content: "";
         top: -100px;
@@ -247,7 +247,7 @@
         background-color: #fff;
         z-index: 3;
       }
-      .item:nth-child(odd) .txt::after {
+      .wrap .item:nth-child(odd) .txt::after {
         position: absolute;
         content: "";
         border-radius: 50%;
@@ -259,11 +259,11 @@
         background-color: #fff;
         z-index: 3;
       }
-      .wrap .item:last-child .pic::before{
+      .wrap .item:last-child .pic::before {
         position: absolute;
         content: "";
         border-radius: 50%;
-        top: 140%;
+        top: 155%;
         left: -0.5%;
         width: 5px;
         height: 5px;
@@ -271,6 +271,212 @@
         background-color: #fff;
         z-index: 3;
       }
+      .com {
+        padding: 100px;
+        background-color: rgb(221, 227, 255);
+      }
+      .com .txt {
+        text-align: center;
+      }
+      .com .txt h2 {
+        font-size: 60px;
+        font-weight: 900;
+        margin-top: 100px;
+      }
+      .com .txt p {
+        margin: 30px 0px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .com .container {
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 1200px;
+      }
+      .com .container .item {
+        width: 360px;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .container .item .pic img {
+        width: 100%;
+      }
+      .container .item h5 {
+        font-size: 24px;
+        font-weight: 900;
+        margin: 20px 0px;
+      }
+      .container .item p {
+        line-height: 2em;
+      }
+      .second-banner {
+        text-decoration: none;
+      }
+      .second-banner .txt {
+        color: #fff;
+        height: 320px;
+        background-image: url("banner2.png");
+        text-align: center;
+        line-height: 320px;
+        font-size: 60px;
+        font-weight: 900;
+      }
+      .service {
+        background-color: rgb(221, 227, 255);
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 100px;
+      }
+      .service h2 {
+        text-align: center;
+        width: 100%;
+        padding: 100px 0px 50px;
+        font-size: 60px;
+        font-weight: 900;
+      }
+      .service .wrap {
+        width: 1200px;
+        display: flex;
+      }
+      .service .wrap .list {
+        width: 300px;
+      }
+      .service .wrap .list li span:hover {
+        background-color: rgb(78, 197, 98);
+        color: #fff;
+        cursor: default;
+      }
+      .service .wrap .list li span {
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 10px 20px;
+        border: 1px solid #000;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+      .service .wrap .box {
+        width: 900px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .service .wrap .box .item2 {
+        position: relative;
+        width: 280px;
+        background-color: #fff;
+        box-sizing: border-box;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 3px 5px 3px rgb(182, 167, 167);
+      }
+      .item2 i {
+        font-size: 60px;
+      }
+      .item2 h5 {
+        font-size: 24px;
+        margin: 20px 0px;
+        font-weight: 900;
+      }
+      .item2 p {
+        line-height: 2em;
+      }
+      .item2 span {
+        display: inline-block;
+        font-size: 36px;
+        margin: 70px 0px 0px 0px;
+      }
+      .item2 .cover {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0, 0.8);
+        opacity: 0;
+        border-radius: 5px;
+        transition: 0.3s;
+      }
+      .item2 .cover a {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 15%;
+      }
+      .item2 .cover a i {
+        font-size: 24px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        color: #fff;
+        padding: 10px;
+        transition: 0.3s;
+      }
+      .item2:hover .cover {
+        opacity: 100;
+      }
+      .item2 .cover a:hover i {
+        background-color: rgb(12, 145, 79);
+      }
+      footer {
+        width: 1200px;
+        height: 150px;
+        margin: auto;
+      }
+      footer .link ol {
+        height: 75px;
+        line-height: 75px;
+        border-bottom: 1px solid #000;
+        display: flex;
+      }
+      footer .link i {
+        font-size: 30px;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-right: 20px;
+      }
+      footer .link li {
+        margin-right: 30px;
+      }
+      footer .link a {
+        text-decoration: none;
+        color: #000;
+      }
+      footer .copyright ol {
+        display: flex;
+      }
+      footer .copyright li {
+        padding-right: 30px;
+      }
+      footer .copyright a {
+        line-height: 75px;
+        text-decoration: none;
+        color: #000;
+      }
+      footer li {
+        position: relative;
+      }
+      footer .link li + li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -15px;
+        bottom: 0;
+        margin: auto;
+        border-right: 1px solid #000;
+        height: 20%;
+      }
+      footer .copyright li + li::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -15px;
+        bottom: 0;
+        margin: auto;
+        border-right: 1px solid #000;
+        height: 20%;
       }
     </style>
   </head>
@@ -409,5 +615,145 @@
         </div>
       </div>
     </div>
+    <div class="com">
+      <div class="txt">
+        <h2>通訊軟體</h2>
+        <p>
+          一款全新型態的通訊軟體，讓您隨時隨地享受免費傳訊、免費通話等溝通樂趣。
+        </p>
+      </div>
+      <div class="container">
+        <div class="item">
+          <div class="pic">
+            <img src="s1.png" />
+          </div>
+          <h5>聊天、語音通話&視訊通話</h5>
+          <p>能夠和好友一對一或多人群組訊息聊天，或是進行語音、視訊通話。</p>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <img src="s2.png" />
+          </div>
+          <h5>貼圖＆表情貼＆主題</h5>
+          <p>使用有趣的貼圖或表情貼豐富聊天，也能更換超讚的主題來表達自己。</p>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <img src="s3.png" />
+          </div>
+          <h5>主頁</h5>
+          <p>可以快速連結 LINE 的各種服務，包含貼圖等多樣的內容資訊。</p>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <img src="s4.png" />
+          </div>
+          <h5>社群</h5>
+          <p>輕鬆分享共同興趣、開心聊出好麻吉。</p>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <img src="s5.png" />
+          </div>
+          <h5>貼文串</h5>
+          <p>
+            供你分享你的近況，或是瞭解好友的最新消息。透過「探索」功能，能找到更多你喜愛的內容。
+          </p>
+        </div>
+        <div class="item">
+          <div class="pic">
+            <img src="s6.png" />
+          </div>
+          <h5>錢包</h5>
+          <p>
+            使用「 LINE Pay
+            」可以進行安全方便的行動付款或轉帳，也能使用其他金融相關服務。
+          </p>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="second-banner">
+      <div class="txt">
+        <span>企業服務</span>
+      </div>
+    </a>
+    <div class="service">
+      <h2>服務總覽</h2>
+      <div class="wrap">
+        <div class="list">
+          <ol>
+            <li><span>All Product</span></li>
+            <li><span>通訊</span></li>
+            <li><span>娛樂</span></li>
+            <li><span>生活</span></li>
+            <li><span>購物</span></li>
+          </ol>
+        </div>
+        <div class="box">
+          <div class="item2">
+            <i class="fab fa-apple"></i>
+            <h5>Line</h5>
+            <p>
+              供你分享你的近況，或是瞭解好友的最新消息。透過「探索」功能，能找到更多你喜愛的內容。
+            </p>
+            <span>...</span>
+            <div class="cover">
+              <a href="#"
+                ><i class="fas fa-external-link-square-alt"> 其他詳細資訊</i></a
+              >
+            </div>
+          </div>
+          <div class="item2">
+            <i class="fab fa-apple"></i>
+            <h5>Line</h5>
+            <p>
+              供你分享你的近況，或是瞭解好友的最新消息。透過「探索」功能，能找到更多你喜愛的內容。
+            </p>
+            <span>...</span>
+            <div class="cover">
+              <a href="#"
+                ><i class="fas fa-external-link-square-alt"> 其他詳細資訊</i></a
+              >
+            </div>
+          </div>
+          <div class="item2">
+            <i class="fab fa-apple"></i>
+            <h5>Line</h5>
+            <p>
+              供你分享你的近況，或是瞭解好友的最新消息。透過「探索」功能，能找到更多你喜愛的內容。
+            </p>
+            <span>...</span>
+            <div class="cover">
+              <a href="#"
+                ><i class="fas fa-external-link-square-alt"> 其他詳細資訊</i></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="link">
+        <ol>
+          <i class="fab fa-apple"></i>
+          <li><a href="#">App Store</a></li>
+          <li><a href="#">Google Play</a></li>
+          <li><a href="#">Desktop</a></li>
+          <li><a href="#">Windows Store</a></li>
+          <li><a href="#">Chrome</a></li>
+          <li><a href="#">APK</a></li>
+          <li><a href="#">Screen Saver</a></li>
+        </ol>
+      </div>
+      <div class="copyright">
+        <ol>
+          <li><a href="#">© LINE Corporation</a></li>
+          <li><a href="#">常見問題</a></li>
+          <li><a href="#">服務條款</a></li>
+          <li><a href="#">隱私權政策</a></li>
+          <li><a href="#">註冊及移動帳號</a></li>
+        </ol>
+      </div>
+    </footer>
   </body>
 </html>
