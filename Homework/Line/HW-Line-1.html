@@ -66,16 +66,17 @@
         text-align: center;
         padding: 5px;
       }
-      .language ul li:nth-child(4){
+      .language ul li:nth-child(4) {
         font-size: 18px;
         font-weight: 700;
       }
       #lang,
       .language li a {
         text-decoration: none;
-        color: #000;}
+        color: #000;
+      }
 
-      #lang:focus + ul{
+      #lang:focus + ul {
         display: block;
       }
       .banner {
@@ -94,22 +95,22 @@
         top: 30%;
         color: #fff;
       }
-      .banner .txt::after{
+      .banner .txt::after {
         content: "scroll";
         position: absolute;
         top: 155%;
         left: 80%;
-        animation: updown .5s linear infinite alternate;
+        animation: updown 0.5s linear infinite alternate;
       }
-      @keyframes updown{
-        from{
+      @keyframes updown {
+        from {
           transform: translateY(0);
         }
-        to{
+        to {
           transform: translateY(10px);
         }
       }
-      .banner .txt::before{
+      .banner .txt::before {
         content: "";
         position: absolute;
         top: 165%;
@@ -119,11 +120,11 @@
         background-color: rgb(255, 255, 255);
         animation: sky 1s linear infinite backwards;
       }
-      @keyframes sky{
-        from{
+      @keyframes sky {
+        from {
           transform: translateY(0);
         }
-        to{
+        to {
           transform: translateY(90px);
         }
       }
@@ -526,7 +527,7 @@
         <a href="#service">服務總覽</a>
       </nav>
       <div class="language">
-        <a href="#" id="lang"><i class="fas fa-globe"> TW-</i></a>
+        <a href="#" id="lang"><i class="fas fa-globe"> TW▾</i></a>
         <ul>
           <li><a href="#">EN</a></li>
           <li><a href="#">JP</a></li>
