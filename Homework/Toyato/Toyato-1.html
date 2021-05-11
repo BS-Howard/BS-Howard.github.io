@@ -76,7 +76,7 @@
         align-items: center;
         position: sticky;
         top: 0px;
-        z-index: 1;
+        z-index: 10;
       }
       .nav-sub a {
         text-decoration: none;
@@ -116,7 +116,7 @@
         top: 70%;
         left: 20%;
         opacity: 0;
-        transition: 0.3s;
+        transition: 0.5s;
       }
       .main img:nth-child(6) {
         position: absolute;
@@ -128,7 +128,7 @@
         top: 60%;
         left: 60%;
         opacity: 0;
-        transition: 0.3s;
+        transition: 0.5s;
       }
       .main img:nth-child(4):hover,
       .main img:nth-child(6):hover {
@@ -332,6 +332,158 @@
         left: 31%;
         background-color: rgb(247, 52, 52);
       }
+      .wrap > :last-child {
+        display: inline-block;
+        background-color: #000;
+        padding: 30px 80px;
+        color: #fff;
+        margin: 30px 0;
+        font-size: 26px;
+        float: right;
+        text-decoration: none;
+        position: relative;
+      }
+      .wrap > :last-child h5 {
+        position: relative;
+        z-index: 3;
+      }
+      .wrap > :last-child::after {
+        content: "";
+        width: 75%;
+        height: 50px;
+        background-color: #e7211b;
+        position: absolute;
+        top: 22%;
+        left: 0;
+      }
+      .wrap > :last-child::before {
+        content: "";
+        width: 55%;
+        height: 2px;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70%;
+        left: 25%;
+        z-index: 6;
+      }
+      .wrap > :last-child h5::before {
+        content: "\\";
+        color: #ffffff;
+        position: absolute;
+        top: 40%;
+        left: 120%;
+        z-index: 6;
+      }
+      .wrap > :last-child:hover::before,
+      .wrap > :last-child:hover h5::before {
+        animation: moveright 0.5s linear alternate forwards;
+      }
+      @keyframes moveright {
+        from {
+          transform: translateX(0px);
+        }
+        to {
+          transform: translateX(20px);
+        }
+      }
+      .video h3 {
+        text-align: center;
+        font-size: 46px;
+        font-weight: 900;
+        padding: 50px 0;
+        position: relative;
+      }
+      .video h3::after {
+        content: "";
+        width: 3%;
+        height: 5px;
+        position: absolute;
+        top: 80%;
+        left: 48.5%;
+        background-color: #000;
+      }
+      .video iframe {
+        width: 100%;
+        height: 620px;
+      }
+      .choice {
+        width: 100%;
+      }
+      .choice .show {
+        width: 100%;
+        display: flex;
+      }
+      .choice .show img {
+        width: 100%;
+      }
+      .choice .show .car h4 {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 20px;
+        font-weight: 900;
+      }
+      .choice .show .car .link {
+        display: flex;
+        justify-content: center;
+      }
+      .choice .show .car a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 5px;
+        background-color: rgb(208, 17, 17);
+        color: #fff;
+        margin: 0px 3px;
+        border-radius: 5px;
+      }
+      .choice > span {
+        display: block;
+        text-align: center;
+        margin: 100px 0;
+        font-size: 12px;
+        color: rgb(159, 159, 159);
+      }
+      footer {
+        width: 100%;
+        height: 87px;
+        background-color: #333333;
+        color: #fff;
+        text-align: center;
+      }
+      footer .main-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        padding-top: 25px;
+      }
+      footer .main-footer img {
+        width: 90px;
+        height: 16px;
+        padding: 0 15px;
+      }
+      footer .main-footer a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 15px;
+      }
+      footer .main-footer a:hover {
+        border-bottom: 1px solid #fff;
+      }
+      footer > span {
+        line-height: 40px;
+        font-size: 14px;
+        color: rgb(175, 175, 175);
+      }
+      .main img:nth-child(8) {
+        position: absolute;
+        top: 54%;
+        left: 61%;
+      }
+      .main img:nth-child(9) {
+        position: absolute;
+        top: 63%;
+        left: 38%;
+      }
     </style>
   </head>
   <body>
@@ -352,12 +504,12 @@
     </div>
     <div class="nav-sub">
       <a href="#">核心理念</a>
-      <a href="#">五大優勢</a>
-      <a href="#">46 THINGS</a>
-      <a href="#">影片演示</a>
-      <a href="#">搭載車款</a>
+      <a href="#five">五大優勢</a>
+      <a href="#46thing">46 THINGS</a>
+      <a href="#video">影片演示</a>
+      <a href="#choice">搭載車款</a>
     </div>
-    <div class="main">
+    <div class="main" id="core">
       <img src="main-car.png" />
       <img src="main-txt.png" />
       <img src="main-bg.png" />
@@ -365,17 +517,19 @@
       <img src="main-txt-1.png" />
       <img src="main-point.png" />
       <img src="main-txt-2.png" />
+      <img src="main-style.png" />
+      <img src="main-core.png" />
     </div>
-    <div class="wrap">
+    <div class="wrap" id="five">
       <h1>五大優勢</h1>
       <nav>
-        <a href="#">操控樂趣</a>
-        <a href="#">安全守護</a>
-        <a href="#">乘坐舒適</a>
-        <a href="#">以人為本</a>
-        <a href="#">引以為傲</a>
+        <a href="#item1">操控樂趣</a>
+        <a href="#item2">安全守護</a>
+        <a href="#item3">乘坐舒適</a>
+        <a href="#item4">以人為本</a>
+        <a href="#item5">引以為傲</a>
       </nav>
-      <div class="item">
+      <div class="item" id="item1">
         <a href="#"><img src="car-1.png" /></a>
         <a href="#"><img src="youtube.png" /></a>
         <div class="main-txt">
@@ -410,7 +564,7 @@
           </p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" id="item2">
         <a href="#"><img src="car-2.png" /></a>
         <a href="#"><img src="youtube.png" /></a>
         <div class="main-txt">
@@ -438,7 +592,7 @@
           </p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" id="item3">
         <a href="#"><img src="car-3.png" /></a>
         <a href="#"><img src="youtube.png" /></a>
         <div class="main-txt">
@@ -472,7 +626,7 @@
           </p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" id="item4">
         <a href="#"><img src="car-4.png" /></a>
         <a href="#"><img src="youtube.png" /></a>
         <div class="main-txt">
@@ -502,7 +656,7 @@
           </p>
         </div>
       </div>
-      <div class="item">
+      <div class="item" id="item5">
         <a href="#"><img src="car-5.png" /></a>
         <a href="#"><img src="youtube.png" /></a>
         <div class="main-txt">
@@ -532,6 +686,91 @@
           </p>
         </div>
       </div>
+      <img src="4G.svg" id="46thing" />
+      <a href="#">
+        <h5>深入了解</h5>
+      </a>
+    </div>
+    <div class="video" id="video">
+      <h3>影片演示</h3>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/EeXAHTMdDCA"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <div class="choice" id="choice">
+        <h3>搭載車款</h3>
+        <div class="show">
+          <div class="car">
+            <img src="ia_100000077.png" />
+            <h4>ALTIS</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+          <div class="car">
+            <img src="ia_100000078.png" />
+            <h4>ALTIS GR SPORT</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+          <div class="car">
+            <img src="ia_100000079.png" />
+            <h4>PRIUS PHV</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+          <div class="car">
+            <img src="ia_100000080.png" />
+            <h4>CAMRY</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+          <div class="car">
+            <img src="ia_100000081.png" />
+            <h4>COROLLA SPORT</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+          <div class="car">
+            <img src="ia_100000082.png" />
+            <h4>PRIUS</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+          <div class="car">
+            <img src="ia_100000083.png" />
+            <h4>RAV4</h4>
+            <div class="link">
+              <a href="#">預約試乘</a> <a href="#">車款展示間</a>
+            </div>
+          </div>
+        </div>
+        <span
+          >*「TOYOTA新世代造車工藝」詳細內容依不同車型略有差異，本網頁文字說明僅供選購參考，請以實車及規格配備表為主。
+        </span>
+      </div>
+      <footer>
+        <div class="main-footer">
+          <div class="pic"><img src="header-Toyata.png" /></div>
+          <h6>© HOTAI MOTOR CO., LTD. 和泰汽車股份有限公司</h6>
+          <a href="#">常見問題</a>
+          <a href="#">聯絡我們</a>
+          <a href="#">隱私權說明</a>
+          <a href="#">版權聲明</a>
+          <span>客服專線 0800221345、(02)5599-7299</span>
+        </div>
+        <span>建議使用 IE11 以上，或 chrome 瀏覽器，以達最佳瀏覽效果。</span>
+      </footer>
     </div>
   </body>
 </html>
