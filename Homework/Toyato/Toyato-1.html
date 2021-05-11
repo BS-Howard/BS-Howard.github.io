@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+      }
+      .wrap {
+        width: 960px;
+        height: 100%;
+        margin: 100px auto;
+      }
+      .item {
+        width: 100%;
+        position: relative;
+        margin-bottom: 35%;
+      }
+      .item > a {
+        display: block;
+        margin-right: 90px;
+        margin-left: 180px;
+        padding-top: 150px;
+      }
+      .wrap .item:nth-child(even) > a {
+        margin-left: 10px;
+        margin-right: 260px;
+      }
+      .item > a img {
+        width: 100%;
+      }
+      .item .main-txt {
+        position: absolute;
+        width: 355px;
+        top: 30px;
+        left: 0;
+      }
+      .wrap .item:nth-child(even) .main-txt {
+        left: calc(100% - 355px);
+      }
+      .main-txt .num {
+        text-align: center;
+        display: flex;
+        background-color: rgb(187, 25, 25);
+        font-size: 56px;
+        color: #fff;
+        height: 120px;
+      }
+      .wrap .item:nth-child(even) .main-txt .num {
+        flex-direction: row-reverse;
+      }
+      .main-txt .num h2 {
+        transform: rotate(90deg);
+        font-size: 120px;
+        margin-left: -20px;
+      }
+      .wrap .item:nth-child(even) .main-txt .num h2 {
+        margin-left: 0;
+      }
+      .main-txt .num h3 {
+        line-height: 120px;
+      }
+      .main-txt .num-content {
+        background-color: #000;
+        color: #fff;
+        padding: 10px;
+      }
+      .num-content h5 {
+        font-size: 28px;
+        padding-top: 20px;
+      }
+      .num-content p {
+        line-height: 30px;
+        font-size: 20px;
+        padding-top: 10px;
+        padding-bottom: 50px;
+        letter-spacing: 1px;
+        color: rgb(211, 209, 209);
+      }
+      .item a:nth-child(2) {
+        position: absolute;
+        top: 34%;
+        right: -12px;
+      }
+      .wrap .item:nth-child(even) a:nth-child(2) {
+        left: -10px;
+        right: 67%;
+        z-index: 2;
+      }
+      .item::after {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        content: "";
+        width: 440px;
+        height: 290px;
+        background-color: rgb(252, 248, 248);
+        z-index: -1;
+      }
+      .wrap .item:nth-child(even)::after {
+        right: 25%;
+      }
+      .item .second-txt {
+        position: absolute;
+        top: 95%;
+        left: 5%;
+        width: 682px;
+        padding: 15px 20px;
+        padding-right: 10px;
+        font-size: 20px;
+        background-color: rgb(226, 218, 218);
+        box-sizing: border-box;
+      }
+      .wrap .item:nth-child(even) .second-txt {
+        left: 29%;
+      }
+      .second-txt h5 {
+        position: relative;
+        color: rgb(247, 52, 52);
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+      .second-txt h3 span {
+        background-color: #000;
+        border-radius: 5px;
+        border: 1px solid #000;
+        color: #fff;
+        padding: 3px;
+      }
+      .second-txt p {
+        font-size: 17px;
+        padding: 10px;
+        line-height: 1.3em;
+      }
+      .second-txt p:last-child {
+        padding-bottom: 0px;
+      }
+      .second-txt h5::after {
+        content: "";
+        width: 66%;
+        height: 2px;
+        position: absolute;
+        top: 30%;
+        left: 31%;
+        background-color: rgb(247, 52, 52);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="item">
+        <a href="#"><img src="car-1.png" /></a>
+        <a href="#"><img src="youtube.png" /></a>
+        <div class="main-txt">
+          <div class="num">
+            <h2>01</h2>
+            <h3>操控樂趣</h3>
+          </div>
+          <div class="num-content">
+            <h5>人人滿意的駕駛體驗</h5>
+            <p>
+              透過最佳重量分配,實現平順起步、直線穩定加速,過彎同時保持
+              車身平穩,帶給駕駛更靈敏的道路反饋,享受隨心馳騁的行駛快感。
+            </p>
+          </div>
+        </div>
+        <div class="second-txt">
+          <h5>因為我們做了這些革新</h5>
+          <h3><span>低重心設計</span></h3>
+          <p>
+            ·
+            透過低重心設計,不僅呈現更低伏的外觀,更能減少車身側傾,保持高速行駛穩定性。
+          </p>
+          <h3><span>車體剛性強化</span></h3>
+          <p>
+            ·
+            車身結構採用超高強度鋼材,提高車輛穩定性,同時藉由雷射強化焊接技術,大幅增加焊點數量,提升車身抗扭剛性,強化駕駛穩定性及安全性。
+          </p>
+          <h3><span>四輪獨立懸吊</span></h3>
+          <p>
+            ·
+            搭載全新四輪獨立懸吊設定,透過懸吊的高承載強度,保持輪胎抓地力,同時兼顧轉向靈敏度與清晰路感回饋,提升駕駛樂趣。
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#"><img src="car-2.png" /></a>
+        <a href="#"><img src="youtube.png" /></a>
+        <div class="main-txt">
+          <div class="num">
+            <h2>02</h2>
+            <h3>安全守護</h3>
+          </div>
+          <div class="num-content">
+            <h5>行車更安心的高剛性車體</h5>
+            <p>
+              您的愛車會妥善保護您,強悍穩固的車身可使您安全無虞。世界級的安全功能讓您輕鬆自如享受旅程毫無後顧之憂。
+            </p>
+          </div>
+        </div>
+        <div class="second-txt">
+          <h5>因為我們做了這些革新</h5>
+          <h3><span>主動安全</span></h3>
+          <p>
+            · 以先進的TSS 系統,主動偵測路況,輔助駕駛判斷路況並維持行車安全。
+          </p>
+          <h3><span>被動安全</span></h3>
+          <p>
+            ·
+            堅固的高剛性車體,使用熱沖壓材料的高強度抗扭鋼板,強化座艙對意外事故的保護力。
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#"><img src="car-3.png" /></a>
+        <a href="#"><img src="youtube.png" /></a>
+        <div class="main-txt">
+          <div class="num">
+            <h2>03</h2>
+            <h3>乘坐舒適</h3>
+          </div>
+          <div class="num-content">
+            <h5>令人放鬆舒適的車室空間</h5>
+            <p>
+              車室空間設計著重人體工學,透過方向盤、踏板等位置優化,追求更舒適的駕駛位置,並以新型座椅設計,提高座椅包覆性,致力實現長途駕駛不疲勞的舒適駕駛體驗。
+            </p>
+          </div>
+        </div>
+        <div class="second-txt">
+          <h5>因為我們做了這些革新</h5>
+          <h3><span>駕駛位置最佳化</span></h3>
+          <p>
+            ·
+            針對駕駛位置進行徹底的修改,讓駕駛者可如同握手般自然且舒適地操控方向盤。
+          </p>
+          <h3><span>駕駛視野佳</span></h3>
+          <p>
+            ·
+            考量駕駛坐進車內的高度,透過前擋風玻璃位置的調整,達到盲區極小化,使駕駛視野更開闊,同步提升駕駛安全。
+          </p>
+          <h3><span>更寧靜的車室</span></h3>
+          <p>
+            ·
+            採用最新三層結構的隔音材料,與引擎、變速箱的零件改革,將座艙的震動抑制在最小限度,提供乘客舒適安靜的感受。
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#"><img src="car-4.png" /></a>
+        <a href="#"><img src="youtube.png" /></a>
+        <div class="main-txt">
+          <div class="num">
+            <h2>04</h2>
+            <h3>以人為本</h3>
+          </div>
+          <div class="num-content">
+            <h5>使用者導向的貼心設計</h5>
+            <p>
+              藉由高度人性化的介面整合、傳遞 車輛資訊,豐富日常駕駛體驗。
+              從提升油耗表現到行李廂空間最適 化,均細心考量,更加貼近使用者
+              真正所需與習慣,並給予即時回應。
+            </p>
+          </div>
+        </div>
+        <div class="second-txt">
+          <h5>因為我們做了這些革新</h5>
+          <h3><span>優異油耗表現</span></h3>
+          <p>
+            · 以AURIS
+            為例,更強勁的高效引擎將熱效率提升至40%,達到世界級水準,屢屢突破燃油效率新境界。
+          </p>
+          <h3><span>行李箱空間最適化</span></h3>
+          <p>
+            · PRIUS 為例,透過將電池位置移到後座下方,讓行李廂擁有更大的空間。
+          </p>
+        </div>
+      </div>
+      <div class="item">
+        <a href="#"><img src="car-5.png" /></a>
+        <a href="#"><img src="youtube.png" /></a>
+        <div class="main-txt">
+          <div class="num">
+            <h2>05</h2>
+            <h3>引以為傲</h3>
+          </div>
+          <div class="num-content">
+            <h5>極具吸引力的精心設計</h5>
+            <p>
+              TNGA
+              車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕駛快感!不僅讓車主能展現個人風格,也能讓擁有者都能引以為傲。
+            </p>
+          </div>
+        </div>
+        <div class="second-txt">
+          <h5>因為我們做了這些革新</h5>
+          <h3><span>設計概念</span></h3>
+          <p>
+            · TNGA
+            低重心設計,不僅呈現更低伏的運動化外觀,更講究高品質內裝的一致性。
+          </p>
+          <h3><span>環保概念</span></h3>
+          <p>
+            ·
+            為了對環境保護盡一份心力,我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
