@@ -337,7 +337,6 @@
         background-color: #000;
         padding: 30px 80px;
         color: #fff;
-        margin: 30px 0;
         font-size: 26px;
         float: right;
         text-decoration: none;
@@ -365,6 +364,7 @@
         top: 70%;
         left: 25%;
         z-index: 6;
+        animation: moveleft 0.3s linear alternate forwards;
       }
       .wrap > :last-child h5::before {
         content: "\\";
@@ -373,6 +373,7 @@
         top: 40%;
         left: 120%;
         z-index: 6;
+        animation: moveleft 0.3s linear alternate forwards;
       }
       .wrap > :last-child:hover::before,
       .wrap > :last-child:hover h5::before {
@@ -384,6 +385,14 @@
         }
         to {
           transform: translateX(20px);
+        }
+      }
+      @keyframes moveleft {
+        from {
+          transform: translateX(20px);
+        }
+        to {
+          transform: translateX(0px);
         }
       }
       .video h3 {
@@ -483,6 +492,24 @@
         position: absolute;
         top: 63%;
         left: 38%;
+      }
+      .wrap .mp4{
+        width: 900px;
+        height: 600px;
+        position: relative;
+        margin: auto;
+      }
+      .wrap .mp4 img{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: -1px;
+        left: 0;
+        object-fit: cover;
+      }
+      .wrap .mp4 video{
+        width: 100%;
+        height: 580px;
       }
     </style>
   </head>
@@ -686,7 +713,10 @@
           </p>
         </div>
       </div>
-      <img src="4G.svg" id="46thing" />
+      <div class="mp4">
+        <video src="https://www.toyota.com.tw/asset/file/tech_tnga/banner_bg.mp4" autoplay loop></video>
+        <img src="圖片4.png" id="46thing" />
+      </div>
       <a href="#">
         <h5>深入了解</h5>
       </a>
