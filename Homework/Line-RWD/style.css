@@ -7,7 +7,7 @@
 }
 
 .main-nav {
-  width: 100vw;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -520,13 +520,13 @@
     width: 100%;
   }
   .wrap .item .pic {
-    width: 100%;
+    width: 90%;
     position: relative;
   }
   .wrap .item .pic img {
     width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
+    -o-object-fit: contain;
+       object-fit: contain;
     vertical-align: middle;
   }
   .wrap .item:nth-child(even) {
