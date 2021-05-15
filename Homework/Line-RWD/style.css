@@ -1002,7 +1002,9 @@ footer .copyright li + li::after {
     padding-right: 0px;
   }
   footer .link,
-  footer li + li::after,
+  footer li + li::after {
+    display: none;
+  }
   footer li + li::after {
     display: none;
   }

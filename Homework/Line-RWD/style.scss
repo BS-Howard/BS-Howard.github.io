@@ -786,7 +786,9 @@ footer {
       padding-right: 0px;
     }
     .link,
-    li + li::after,
+    li + li::after {
+      display: none;
+    }
     li + li::after {
       display: none;
     }
