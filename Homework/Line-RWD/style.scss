@@ -113,7 +113,7 @@
     top: 30%;
     color: #fff;
     h2 {
-      font-size: 120px;
+      font-size: 40px;
       font-weight: 900;
     }
     p {
@@ -121,7 +121,7 @@
       padding: 20px 0px 60px;
     }
     i {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
   .pic::after {
@@ -205,7 +205,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 20px 25px;
+  padding: 20px 10px 25px;
   box-sizing: border-box;
   background-color: rgb(245, 245, 245);
   position: sticky;
@@ -277,8 +277,8 @@
         padding: 10px 60px 10px 10px;
         border-radius: 5px;
       }
-      i:hover{
-          cursor: pointer;
+      i:hover {
+        cursor: pointer;
       }
     }
     .pic::after,
@@ -403,6 +403,24 @@
       .txt {
         width: 100%;
         padding-top: 20px;
+        i {
+          font-size: 20px;
+          padding: 10px;
+        }
+        h3 {
+          font-size: 32px;
+        }
+        h5 {
+          font-size: 24px;
+          line-height: 1.2em;
+        }
+        p {
+          font-size: 16px;
+        }
+        a i {
+          font-size: 16px;
+          padding: 10px;
+        }
       }
       .pic {
         width: 90%;
@@ -481,10 +499,11 @@
     .txt {
       h2 {
         font-size: 40px;
-        margin-top: 0px;
+        margin-top: 10px;
       }
       p {
         font-size: 20px;
+        line-height: 1.5em;
       }
     }
     .container {
@@ -632,6 +651,10 @@
     width: 100%;
     box-sizing: border-box;
     padding-bottom: 20px;
+    h2 {
+      font-size: 40px;
+      padding: 50px 0;
+    }
     .wrap {
       width: 100%;
       flex-direction: column;
@@ -641,9 +664,11 @@
           display: flex;
           flex-direction: row;
           justify-content: center;
-        }
-        li span {
-          margin: 0px 5px;
+          li span{
+            padding: 10px;
+            margin: 0 6px;
+            font-size: 14px;
+          }
         }
       }
       .box {
@@ -717,13 +742,15 @@ footer .copyright li + li::after {
 @media screen and (max-width: 768px) {
   footer {
     width: 100%;
-    height: 50px;
+    height: 30px;
     box-sizing: border-box;
     .copyright ol {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       li {
-        padding: 0px 10px;
+        font-size: 14px;
+        margin: 0 15px;
       }
       a {
         line-height: 75px;
