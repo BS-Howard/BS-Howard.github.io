@@ -564,9 +564,9 @@
   }
   .wrap::after {
     top: 105px;
-    left: 11%;
+    left: 5%;
     z-index: -1;
-    display: none;
+    border-right: 1px dotted #969393;
   }
 }
 
@@ -706,18 +706,19 @@
   font-weight: 900;
 }
 
-.service .wrap {
+.service .wrap-service {
   width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: auto;
 }
 
-.service .wrap .list {
+.service .wrap-service .list {
   width: 300px;
 }
 
-.service .wrap .list li span {
+.service .wrap-service .list li span {
   display: inline-block;
   margin: 20px 0px;
   padding: 10px 20px;
@@ -728,13 +729,13 @@
   transition: 0.3s;
 }
 
-.service .wrap .list li span:hover {
+.service .wrap-service .list li span:hover {
   background-color: #4ec562;
   color: #fff;
   cursor: default;
 }
 
-.service .wrap .box {
+.service .wrap-service .box {
   width: 900px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -743,7 +744,7 @@
       flex-wrap: wrap;
 }
 
-.service .wrap .box .item2 {
+.service .wrap-service .box .item2 {
   position: relative;
   width: 280px;
   background-color: #fff;
@@ -756,27 +757,27 @@
           box-shadow: 3px 5px 3px #b6a7a7;
 }
 
-.service .wrap .box .item2 i {
+.service .wrap-service .box .item2 i {
   font-size: 60px;
 }
 
-.service .wrap .box .item2 h5 {
+.service .wrap-service .box .item2 h5 {
   font-size: 24px;
   margin: 20px 0px;
   font-weight: 900;
 }
 
-.service .wrap .box .item2 p {
+.service .wrap-service .box .item2 p {
   line-height: 2em;
 }
 
-.service .wrap .box .item2 span {
+.service .wrap-service .box .item2 span {
   display: inline-block;
   font-size: 36px;
   margin: 70px 0px 0px 0px;
 }
 
-.service .wrap .box .item2 .cover {
+.service .wrap-service .box .item2 .cover {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -789,14 +790,14 @@
   transition: 0.3s;
 }
 
-.service .wrap .box .item2 .cover a {
+.service .wrap-service .box .item2 .cover a {
   display: block;
   position: absolute;
   top: 50%;
   left: 15%;
 }
 
-.service .wrap .box .item2 .cover a i {
+.service .wrap-service .box .item2 .cover a i {
   font-size: 24px;
   border: 1px solid #fff;
   border-radius: 5px;
@@ -806,11 +807,11 @@
   transition: 0.3s;
 }
 
-.service .wrap .box .item2:hover .cover {
+.service .wrap-service .box .item2:hover .cover {
   opacity: 100;
 }
 
-.service .wrap .box .item2:hover .cover a:hover i {
+.service .wrap-service .box .item2:hover .cover a:hover i {
   background-color: #0c914f;
 }
 
@@ -825,17 +826,17 @@
     font-size: 40px;
     padding: 50px 0;
   }
-  .service .wrap {
+  .service .wrap-service {
     width: 100%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .service .wrap .list {
+  .service .wrap-service .list {
     width: 100%;
   }
-  .service .wrap .list ol {
+  .service .wrap-service .list ol {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -847,18 +848,58 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .service .wrap .list ol li span {
+  .service .wrap-service .list ol li span {
     padding: 10px;
     margin: 0 6px;
     font-size: 14px;
   }
-  .service .wrap .box {
-    width: 300px;
+  .service .wrap-service .box {
+    width: 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     margin: auto;
     padding-top: 30px;
+  }
+  .service .wrap-service .box .item2 {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 20% 80%;
+        grid-template-columns: 20% 80%;
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    height: 100px;
+  }
+  .service .wrap-service .box .item2 i {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 1/1/3/2;
+  }
+  .service .wrap-service .box .item2 h5 {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 1/2/2/3;
+    margin: 5px 0px;
+  }
+  .service .wrap-service .box .item2 p {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-area: 2/2/3/3;
+    line-height: 1.2em;
+    font-size: 14px;
+  }
+  .service .wrap-service .box .item2 span {
+    display: none;
+  }
+  .service .wrap-service .item2:hover .cover {
+    display: none;
   }
 }
 
@@ -877,18 +918,19 @@ footer .link ol {
   display: flex;
 }
 
-footer .link i {
+footer .link ol i {
   font-size: 30px;
   margin-top: auto;
   margin-bottom: auto;
   padding-right: 20px;
 }
 
-footer .link li {
+footer .link ol li {
   margin-right: 30px;
+  position: relative;
 }
 
-footer .link a {
+footer .link ol li a {
   text-decoration: none;
   color: #000;
 }
@@ -899,18 +941,15 @@ footer .copyright ol {
   display: flex;
 }
 
-footer .copyright li {
+footer .copyright ol li {
   padding-right: 30px;
+  position: relative;
 }
 
-footer .copyright a {
+footer .copyright ol li a {
   line-height: 75px;
   text-decoration: none;
   color: #000;
-}
-
-footer li {
-  position: relative;
 }
 
 footer .link li + li::after {
@@ -952,7 +991,7 @@ footer .copyright li + li::after {
   }
   footer .copyright ol li {
     font-size: 14px;
-    margin: 0 15px;
+    margin: 0 10px;
   }
   footer .copyright ol a {
     line-height: 75px;
