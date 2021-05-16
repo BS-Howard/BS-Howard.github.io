@@ -1,9 +1,20 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+@font-face {
+  font-family: "easy";
+  src: url("清松手寫體2.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: "Noto Sans TC", sans-serif;
+  font-family: "easy";
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "easy";
 }
 
 .main-nav {
@@ -45,6 +56,7 @@
   color: #000;
   margin: 0px 50px;
   font-weight: 700;
+  font-size: 22px;
   position: relative;
 }
 
@@ -55,7 +67,7 @@
   left: 0%;
   width: 100%;
   height: 3px;
-  background-color: #000;
+  background-color: black;
 }
 
 .main-nav .language a {
@@ -115,37 +127,6 @@
   position: relative;
 }
 
-.banner .pic img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  vertical-align: middle;
-  -webkit-animation: big 5s ease-in-out infinite alternate;
-          animation: big 5s ease-in-out infinite alternate;
-}
-
-.banner .txt {
-  position: absolute;
-  left: 15%;
-  top: 30%;
-  color: #fff;
-}
-
-.banner .txt h2 {
-  font-size: 40px;
-  font-weight: 900;
-}
-
-.banner .txt p {
-  font-size: 40px;
-  padding: 20px 0px 60px;
-}
-
-.banner .txt i {
-  font-size: 20px;
-}
-
 .banner .pic::after {
   content: "scroll";
   position: absolute;
@@ -173,6 +154,37 @@
   z-index: 1;
   -webkit-animation: sky 1s linear infinite backwards;
           animation: sky 1s linear infinite backwards;
+}
+
+.banner .pic img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+  -webkit-animation: big 5s ease-in-out infinite alternate;
+          animation: big 5s ease-in-out infinite alternate;
+}
+
+.banner .txt {
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  color: #fff;
+}
+
+.banner .txt h2 {
+  font-size: 120px;
+  font-weight: 900;
+}
+
+.banner .txt p {
+  font-size: 40px;
+  padding: 20px 0px 60px;
+}
+
+.banner .txt i {
+  font-size: 20px;
 }
 
 .banner .download {
@@ -385,6 +397,16 @@
   position: relative;
 }
 
+.wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  border-right: 1px dotted black;
+}
+
 .wrap .item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,11 +418,46 @@
   position: relative;
 }
 
+.wrap .item:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.wrap .item:last-child .txt::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  bottom: -5px;
+  z-index: 2;
+  width: 3px;
+  height: 3px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: black;
+  -webkit-box-shadow: 0px 0px 0px 7px white, 0px 0px 0px 8px black;
+          box-shadow: 0px 0px 0px 7px white, 0px 0px 0px 8px black;
+}
+
 .wrap .item .txt {
   width: 50%;
   padding: 0px 5%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.wrap .item .txt::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 2.5px);
+  width: 6px;
+  height: 6px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 2;
 }
 
 .wrap .item .txt > i {
@@ -429,11 +486,6 @@
   line-height: 1.5em;
 }
 
-.wrap .item .txt a i:hover {
-  background-color: #4ec562;
-  color: #fff;
-}
-
 .wrap .item .txt a i {
   display: inline-block;
   color: #000;
@@ -442,6 +494,11 @@
   font-size: 20px;
   padding: 20px;
   margin-right: 10px;
+}
+
+.wrap .item .txt a i:hover {
+  background-color: #4ec562;
+  color: #fff;
 }
 
 .wrap .item .pic {
@@ -456,51 +513,6 @@
   vertical-align: middle;
 }
 
-.wrap .item:nth-child(even) {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-}
-
-.wrap .item .txt::after {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: calc(50% - 2.5px);
-  width: 6px;
-  height: 6px;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: #fff;
-  z-index: 2;
-}
-
-.wrap .item:last-child .txt::before {
-  position: absolute;
-  content: "";
-  left: 50%;
-  bottom: -5px;
-  z-index: 2;
-  width: 3px;
-  height: 3px;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: black;
-  -webkit-box-shadow: 0px 0px 0px 7px white, 0px 0px 0px 8px black;
-          box-shadow: 0px 0px 0px 7px white, 0px 0px 0px 8px black;
-}
-
-.wrap::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 100%;
-  border-right: 1px dotted black;
-}
-
 @media screen and (max-width: 768px) {
   .wrap {
     width: 100%;
@@ -513,6 +525,12 @@
     padding: 20px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+  }
+  .wrap .item:nth-child(even) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
   .wrap .item .txt {
     width: 100%;
@@ -546,21 +564,9 @@
        object-fit: contain;
     vertical-align: middle;
   }
-  .wrap .item:nth-child(even) {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-  }
   .wrap .item .txt::after,
   .wrap .item:last-child .txt::before {
     display: none;
-  }
-  .wrap .item:nth-child(even) {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
   }
   .wrap::after {
     top: 105px;
@@ -729,7 +735,7 @@
   transition: 0.3s;
 }
 
-.service .wrap-service .list li span:hover {
+.service .wrap-service .list li span :hover {
   background-color: #4ec562;
   color: #fff;
   cursor: default;
@@ -755,6 +761,10 @@
   border-radius: 5px;
   -webkit-box-shadow: 3px 5px 3px #b6a7a7;
           box-shadow: 3px 5px 3px #b6a7a7;
+}
+
+.service .wrap-service .box .item2:hover .cover {
+  opacity: 100;
 }
 
 .service .wrap-service .box .item2 i {
@@ -797,6 +807,10 @@
   left: 15%;
 }
 
+.service .wrap-service .box .item2 .cover a:hover i {
+  background-color: #0c914f;
+}
+
 .service .wrap-service .box .item2 .cover a i {
   font-size: 24px;
   border: 1px solid #fff;
@@ -805,14 +819,6 @@
   padding: 10px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-}
-
-.service .wrap-service .box .item2:hover .cover {
-  opacity: 100;
-}
-
-.service .wrap-service .box .item2:hover .cover a:hover i {
-  background-color: #0c914f;
 }
 
 @media screen and (max-width: 768px) {
@@ -871,6 +877,9 @@
     width: 100%;
     height: 100px;
   }
+  .service .wrap-service .box .item2:hover .cover {
+    display: none;
+  }
   .service .wrap-service .box .item2 i {
     -ms-grid-row: 1;
     -ms-grid-row-span: 2;
@@ -896,9 +905,6 @@
     font-size: 14px;
   }
   .service .wrap-service .box .item2 span {
-    display: none;
-  }
-  .service .wrap-service .item2:hover .cover {
     display: none;
   }
 }
@@ -930,6 +936,17 @@ footer .link ol li {
   position: relative;
 }
 
+footer .link ol li + li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -15px;
+  bottom: 0;
+  margin: auto;
+  border-right: 1px solid black;
+  height: 20%;
+}
+
 footer .link ol li a {
   text-decoration: none;
   color: #000;
@@ -946,32 +963,21 @@ footer .copyright ol li {
   position: relative;
 }
 
+footer .copyright ol li + li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -15px;
+  bottom: 0;
+  margin: auto;
+  border-right: 1px solid #000;
+  height: 20%;
+}
+
 footer .copyright ol li a {
   line-height: 75px;
   text-decoration: none;
   color: #000;
-}
-
-footer .link li + li::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -15px;
-  bottom: 0;
-  margin: auto;
-  border-right: 1px solid #000;
-  height: 20%;
-}
-
-footer .copyright li + li::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -15px;
-  bottom: 0;
-  margin: auto;
-  border-right: 1px solid #000;
-  height: 20%;
 }
 
 @media screen and (max-width: 768px) {
@@ -1002,9 +1008,7 @@ footer .copyright li + li::after {
     padding-right: 0px;
   }
   footer .link,
-  footer li + li::after {
-    display: none;
-  }
+  footer li + li::after,
   footer li + li::after {
     display: none;
   }
