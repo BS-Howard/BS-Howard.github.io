@@ -118,7 +118,7 @@ nav .logo img {
 
 .banner {
   position: relative;
-  background-image: url("/pic/banner.webp");
+  background-image: url("banner.webp");
   width: 100%;
   height: 6rem;
   background-repeat: no-repeat;
