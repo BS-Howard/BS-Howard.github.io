@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:100,300,400,500,700,900&display=swap");
+* {
+  font-family: "Noto Sans TC", sans-serif;
+}
+
 nav {
   background-color: rgba(177, 175, 175, 0.1);
 }
@@ -7,11 +12,22 @@ nav .logo {
 }
 
 nav .logo img {
-  width: 20%;
+  width: 70%;
 }
 
 .carousel {
   position: relative;
+}
+
+.carousel .carousel-indicators {
+  margin-bottom: .5rem;
+}
+
+.carousel .carousel-indicators .circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  margin: 0 .5rem;
 }
 
 .carousel .carousel-item {
@@ -28,9 +44,6 @@ nav .logo img {
   font-weight: 900;
   font-size: 40px;
   padding: 0.5rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: rgba(61, 155, 233, 0.7);
 }
 
 .carousel .carousel-item p {
@@ -40,6 +53,11 @@ nav .logo img {
 .carousel .carousel-item .carousel-caption {
   position: absolute;
   top: 20%;
+  background-color: rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border-radius: 5px;
+  height: 12rem;
 }
 
 .carousel .link a {
@@ -49,15 +67,12 @@ nav .logo img {
   right: 0;
   margin: auto;
   text-align: center;
-  display: block;
+  width: 16rem;
   text-decoration: none;
   color: #fff;
-}
-
-.carousel .link a span {
   background-color: rgba(61, 155, 233, 0.7);
-  padding: 0.5rem;
   border-radius: 10px;
+  padding: 0.2rem 0;
 }
 
 .carousel .link a:nth-child(2) {
@@ -117,7 +132,7 @@ nav .logo img {
 
 .banner {
   position: relative;
-  background-image: url("banner.webp");
+  background-image: url("/pic/banner.webp");
   width: 100%;
   height: 6rem;
   background-repeat: no-repeat;
@@ -171,6 +186,8 @@ nav .logo img {
   width: 50%;
   height: 13rem;
   margin-bottom: 2rem;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .month .item .txt h5 {
@@ -248,20 +265,17 @@ footer .policy {
   margin: 1.5rem 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   nav {
     position: relative;
     z-index: 1;
     background-color: transparent;
   }
-  nav .container-fluid {
-    margin-left: 17%;
-  }
   nav a {
     color: #fff !important;
   }
   nav .nav-item a {
-    font-size: 13px;
+    font-size: 1rem;
   }
   nav .nav-item a:hover {
     color: #57bbbf !important;
@@ -279,25 +293,28 @@ footer .policy {
     background-color: transparent;
   }
   .carousel .carousel-item .carousel-caption {
-    top: 40%;
+    position: absolute;
+    top: 30%;
+    background-color: unset;
+    -webkit-backdrop-filter: unset;
+            backdrop-filter: unset;
+    height: unset;
   }
   .carousel .link a {
     top: 75%;
-  }
-  .carousel .link a span {
-    padding: 1rem;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+    padding: 1rem 0.5rem;
+    -webkit-transition: .3s;
+    transition: .3s;
   }
   .carousel .link a:nth-child(2) {
     top: 75%;
-    right: 50%;
+    right: 55%;
   }
   .carousel .link a:nth-child(3) {
     top: 75%;
-    left: 50%;
+    left: 55%;
   }
-  .carousel .link a:hover span {
+  .carousel .link a:hover {
     background-color: rgba(23, 81, 128, 0.7);
   }
   .introduce {
@@ -330,7 +347,7 @@ footer .policy {
     margin-bottom: 1rem;
   }
   .month .item .pic img {
-    width: 70%;
+    width: 50%;
   }
   .month .item .txt ul {
     margin: 0rem;
