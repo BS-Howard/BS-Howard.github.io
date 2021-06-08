@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+i {
+  pointer-events: none;
+}
+
+body {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(67, 187, 243, 0.712)), to(rgba(219, 219, 50, 0.74)));
+  background-image: linear-gradient(90deg, rgba(67, 187, 243, 0.712), rgba(219, 219, 50, 0.74));
+}
+
+h1 {
+  color: #fff;
+  font-size: 5rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+form {
+  text-align: center;
+}
+
+form input,
+form button {
+  font-size: 2rem;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+form button {
+  cursor: pointer;
+}
+
+#sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#sort button {
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section .todo-Item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0.5rem 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+section .todo-Item p {
+  width: 20rem;
+  background-color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 2rem;
+}
+
+section .todo-Item p:nth-child(2) {
+  width: 7rem;
+  padding: 0.5rem 0;
+  padding-right: 0.5rem;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section .todo-Item .completed,
+section .todo-Item .trash {
+  background-color: #158331;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+section .todo-Item .completed i,
+section .todo-Item .trash i {
+  color: #fff;
+  font-size: 2rem;
+}
+
+section .todo-Item .trash {
+  background-color: #ff1111;
+}
+
+section .todo-Done {
+  opacity: 0.5;
+}
+
+section .todo-Done p {
+  text-decoration: line-through;
+}
+
+@-webkit-keyframes scaleup {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleup {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes scaledown {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes scaledown {
+  to {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+/*# sourceMappingURL=style.css.map */
