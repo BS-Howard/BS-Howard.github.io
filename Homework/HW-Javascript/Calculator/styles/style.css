@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+}
+
+.container .show {
+  width: 800px;
+  height: 200px;
+  border: 1px solid #000;
+  margin: 3rem auto;
+}
+
+.container .show h1 {
+  font-size: 5rem;
+  text-align: center;
+  margin: auto;
+  line-height: 200px;
+}
+
+.container .number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .number input {
+  margin: 1rem 0;
+}
+/*# sourceMappingURL=style.css.map */
