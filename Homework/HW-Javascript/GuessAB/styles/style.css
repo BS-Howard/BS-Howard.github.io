@@ -16,7 +16,8 @@
 }
 
 .input-group input {
-  font-size: 1.3rem;
+  font-size: 1rem;
+  padding: .3rem 0;
 }
 
 section {
@@ -25,9 +26,19 @@ section {
   font-size: 1.5rem;
 }
 
+section div {
+  border-bottom: 2px solid white;
+}
+
 textarea {
   width: 90%;
   height: 20rem;
   border: 2px solid #000;
+}
+
+@media screen and (min-width: 768px) {
+  textarea {
+    width: 50%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
