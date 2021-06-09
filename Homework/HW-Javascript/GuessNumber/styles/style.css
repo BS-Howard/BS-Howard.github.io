@@ -54,6 +54,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .container .show {
+    width: 50%;
+  }
   .container .show h1 {
     font-size: 6rem;
   }

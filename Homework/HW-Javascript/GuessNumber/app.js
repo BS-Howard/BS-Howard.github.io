@@ -75,7 +75,7 @@ challengeButton.forEach((item) => {
           // 背景變換
           let show = document.querySelector(".show");
           let col = (count / guessNum) * 100;
-          show.style.backgroundImage = `linear-gradient(90deg, ${guessColor} ${col}% , #fff 10%)`;
+          show.style.backgroundImage = `linear-gradient(90deg, ${guessColor} ${col}% , #fff 5%)`;
           // 判斷輸贏
           if (inputText.value == randomNumber || count == guessNum) {
             if (count == guessNum) {
