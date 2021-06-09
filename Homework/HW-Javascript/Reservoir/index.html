@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>台灣水庫即時水情</title>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h1 class="badge badge-primary text-wrap" style="font-size: 5rem;">台灣水庫即時水情</h1>
+    </div>
+    <div class="container"></div>
+
+    <script>
+      let Titles = ["項目", "水庫名稱", "有效蓄水量", "剩餘百分比"];
+      let reservoirdata = [
+        {
+          Number: 1,
+          Name: "新山水庫(基隆)",
+          Capacity: "905.89萬立方公尺",
+          Percent: "90.4%",
+        },
+        {
+          Number: 2,
+          Name: "翡翠水庫(台北、新北)",
+          Capacity: "28521.19萬立方公尺",
+          Percent: "85%",
+        },
+        {
+          Number: 3,
+          Name: "石門水庫(新北、桃園、新竹)",
+          Capacity: "6631.20萬立方公尺",
+          Percent: "32.7%",
+        },
+        {
+          Number: 4,
+          Name: "永和山水庫(新竹、苗栗)",
+          Capacity: "517.23萬立方公尺",
+          Percent: "17.2%",
+        },
+        {
+          Number: 5,
+          Name: "寶山水庫(新竹)",
+          Capacity: "142.39萬立方公尺",
+          Percent: "28.2%",
+        },
+      ];
+      let container = document.querySelector(".container");
+      let table = document.createElement("table");
+      table.setAttribute("class", "table .table-borderless table-striped table-hover table-active");
+
+      let thead = document.createElement("thead");
+      thead.setAttribute("class","table-dark")
+      let tbody = document.createElement("tbody");
+
+      window.onload = function () {
+        createTable(Titles, reservoirdata);
+        container.appendChild(table);
+      };
+
+      function createTable(Titles, reservoirdata) {
+        AddRow(thead, Titles);
+
+        reservoirdata.forEach( (item)=> {
+          let values = Object.values(item);
+          AddRow(tbody, values);
+        });
+      }
+
+      function AddRow(target, rowData) {
+        let _row = document.createElement("tr");
+
+        rowData.forEach((col)=> {
+          let td = document.createElement("td");
+          let tdText = document.createTextNode(col);
+          td.appendChild(tdText);
+          // td.innerText = col;
+          _row.appendChild(td);
+        });
+
+        target.appendChild(_row);
+        table.appendChild(target);
+      }
+    </script>
+  </body>
+</html>
