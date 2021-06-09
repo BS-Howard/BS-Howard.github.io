@@ -1,23 +1,43 @@
 .container {
   width: 100%;
   .show {
-    width: 800px;
-    height: 200px;
-    border: 1px solid #000;
-    margin: 3rem auto;
-    h1 {
-      font-size: 5rem;
+    width: 50%;
+    margin: 1rem auto;
+    border: 2px solid #000;
+    // background-image: linear-gradient(90deg,#fa0);
+    .txt{
       text-align: center;
-      margin: auto;
-      line-height: 200px;
+      h1 {
+        font-size: 4rem;
+      }
     }
   }
   .number {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     input {
       margin: 1rem 0;
+      font-size: 1.5rem;
+    }
+    button {
+      font-size: 2rem;
+    }
+    .numButton {
+      button {
+        width: 4rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    .show {
+      h1 {
+        font-size: 6rem;
+      }
     }
   }
 }

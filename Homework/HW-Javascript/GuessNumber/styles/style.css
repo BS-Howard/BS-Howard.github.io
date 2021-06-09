@@ -3,20 +3,21 @@
 }
 
 .container .show {
-  width: 800px;
-  height: 200px;
-  border: 1px solid #000;
-  margin: 3rem auto;
+  width: 50%;
+  margin: 1rem auto;
+  border: 2px solid #000;
 }
 
-.container .show h1 {
-  font-size: 5rem;
+.container .show .txt {
   text-align: center;
-  margin: auto;
-  line-height: 200px;
+}
+
+.container .show .txt h1 {
+  font-size: 4rem;
 }
 
 .container .number {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,9 +28,27 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .container .number input {
   margin: 1rem 0;
+  font-size: 1.5rem;
+}
+
+.container .number button {
+  font-size: 2rem;
+}
+
+.container .number .numButton button {
+  width: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .container .show h1 {
+    font-size: 6rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

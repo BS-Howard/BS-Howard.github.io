@@ -15,39 +15,79 @@
   </head>
   <body>
     <div class="container">
-      <div class="show"><h1>0~100</h1></div>
+      <div class="row">
+        <div class="col d-flex justify-content-center challenge">
+          <button class="btn btn-success btn-lg m-3">easy</button>
+          <button class="btn btn-warning btn-lg m-3">medium</button>
+          <button class="btn btn-danger btn-lg m-3">hard</button>
+        </div>
+      </div>
+      <div class="show row">
+        <div class="col txt">
+          <h1 class="p-5 ">0~100</h1>
+          <span></span>
+        </div>
+      </div>
       <div class="number">
         <button type="button" class="btn btn-primary btn-lg">產生數字</button>
-        <input type="text" disabled/>
+        <input type="text" disabled />
         <div class="numButton">
           <div class="row">
             <div class="col m-1">
-              <button type="button" class="btn btn-dark btn-lg" value="1">1</button>
-              <button type="button" class="btn btn-dark btn-lg" value="2">2</button>
-              <button type="button" class="btn btn-dark btn-lg" value="3">3</button>
+              <button type="button" class="btn btn-dark btn-lg" value="1">
+                1
+              </button>
+              <button type="button" class="btn btn-dark btn-lg" value="2">
+                2
+              </button>
+              <button type="button" class="btn btn-dark btn-lg" value="3">
+                3
+              </button>
             </div>
           </div>
           <div class="row">
             <div class="col m-1">
-              <button type="button" class="btn btn-dark btn-lg" value="4">4</button>
-              <button type="button" class="btn btn-dark btn-lg" value="5">5</button>
-              <button type="button" class="btn btn-dark btn-lg" value="6">6</button>
+              <button type="button" class="btn btn-dark btn-lg" value="4">
+                4
+              </button>
+              <button type="button" class="btn btn-dark btn-lg" value="5">
+                5
+              </button>
+              <button type="button" class="btn btn-dark btn-lg" value="6">
+                6
+              </button>
             </div>
           </div>
           <div class="row">
             <div class="col m-1">
-              <button type="button" class="btn btn-dark btn-lg" value="7">7</button>
-              <button type="button" class="btn btn-dark btn-lg" value="8">8</button>
-              <button type="button" class="btn btn-dark btn-lg" value="9">9</button>
+              <button type="button" class="btn btn-dark btn-lg" value="7">
+                7
+              </button>
+              <button type="button" class="btn btn-dark btn-lg" value="8">
+                8
+              </button>
+              <button type="button" class="btn btn-dark btn-lg" value="9">
+                9
+              </button>
             </div>
           </div>
           <div class="row">
             <div class="col m-1">
-              <button id="delete" type="button" class="btn btn-dark btn-lg text-danger">
+              <button
+                id="delete"
+                type="button"
+                class="btn btn-dark btn-lg text-danger"
+              >
                 X
               </button>
-              <button type="button" class="btn btn-dark btn-lg " value="0">0</button>
-              <button id="check" type="button" class="btn btn-dark btn-lg text-success">
+              <button type="button" class="btn btn-dark btn-lg" value="0">
+                0
+              </button>
+              <button
+                id="check"
+                type="button"
+                class="btn btn-dark btn-lg text-success"
+              >
                 V
               </button>
             </div>
