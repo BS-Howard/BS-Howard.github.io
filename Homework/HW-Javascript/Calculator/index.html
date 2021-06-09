@@ -14,84 +14,127 @@
   </head>
   <body>
     <div class="container">
-      <div class="show"><h1 id="h1"></h1></div>
-      <div class="number">
-        <button type="button" class="btn btn-primary btn-lg">計算數字</button>
-        <input type="text" disabled />
-        <div class="numButton">
-          <div class="row">
-            <div class="col m-1">
-              <button type="button" class="btn btn-dark btn-lg" value="1">
-                1
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="2">
-                2
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="3">
-                3
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="+">
-                +
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col m-1">
-              <button type="button" class="btn btn-dark btn-lg" value="4">
-                4
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="5">
-                5
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="6">
-                6
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="-">
-                -
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col m-1">
-              <button type="button" class="btn btn-dark btn-lg" value="7">
-                7
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="8">
-                8
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="9">
-                9
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="*">
-                *
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col m-1">
-              <button
-                id="delete"
-                type="button"
-                class="btn btn-dark btn-lg text-danger"
-              >
-                X
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="0">
-                0
-              </button>
-              <button
-                id="toZero"
-                type="button"
-                class="btn btn-dark btn-lg text-success"
-              >
-                C
-              </button>
-              <button type="button" class="btn btn-dark btn-lg" value="/">
-                /
-              </button>
-            </div>
+      <div class="row">
+        <div class="txt col d-flex flex-column align-items-end">
+          <span></span>
+          <input type="text" disabled />
+        </div>
+      </div>
+      <div class="numButton">
+        <div class="row">
+          <div class="col">
+            <button
+              id="history"
+              type="button"
+              class="btn btn-secondary btn-lg"
+              value="H"
+            >
+              History
+            </button>
+            <button
+              id="cancel"
+              type="button"
+              class="btn btn-secondary btn-lg"
+              value="C"
+            >
+              C
+            </button>
+            <button
+              id="back"
+              type="button"
+              class="btn btn-secondary btn-lg"
+              value="B"
+            >
+            ▷
+            </button>
           </div>
         </div>
+        <div class="row">
+          <div class="col cal">
+            <button type="button" class="btn btn-secondary btn-lg" value="1/x">
+              1/x
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" value="square">
+              x*x
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" value="√">
+              √
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" value="/">
+              ÷
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col calculate num">
+            <button type="button" class="btn btn-light btn-lg" value="1">
+              1
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="2">
+              2
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="3">
+              3
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" value="+">
+              +
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col calculate num">
+            <button type="button" class="btn btn-light btn-lg" value="4">
+              4
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="5">
+              5
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="6">
+              6
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" value="-">
+              -
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col calculate num">
+            <button type="button" class="btn btn-light btn-lg" value="7">
+              7
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="8">
+              8
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="9">
+              9
+            </button>
+            <button type="button" class="btn btn-secondary btn-lg" value="×">
+              ×
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col num">
+            <button id="delete" type="button" class="btn btn-light btn-lg" value="+/-">
+              +/-
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value="0">
+              0
+            </button>
+            <button type="button" class="btn btn-light btn-lg" value=".">
+              .
+            </button>
+            <button
+              id="equal"
+              type="button"
+              class="btn btn-secondary btn-lg"
+              value="="
+            >
+              =
+            </button>
+          </div>
+        </div>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
       </div>
     </div>
 

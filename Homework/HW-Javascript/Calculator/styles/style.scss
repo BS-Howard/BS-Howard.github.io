@@ -1,24 +1,63 @@
 .container {
-    width: 100%;
-    .show {
-      width: 800px;
-      height: 200px;
-      border: 1px solid #000;
-      margin: 3rem auto;
-      h1 {
-        font-size: 5rem;
-        text-align: center;
-        margin: auto;
-        line-height: 200px;
-      }
+  position: relative;
+  width: 85%;
+  margin: 3rem auto;
+  border: 1px solid #000;
+  background-color: rgb(212, 209, 202);
+  .txt {
+    margin: 1rem 0;
+    span {
+      font-size: 1.5rem;
+      margin-right: 0.8rem;
+      height: 36px;
     }
-    .number {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      input {
-        margin: 1rem 0;
+    input {
+      margin: auto;
+      font-size: 1.5rem;
+      width: 95%;
+      background-color: #fff;
+      text-align: right;
+    }
+  }
+  .numButton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+    button {
+      width: 4rem;
+      height: 4rem;
+      text-align: center;
+      margin: 0.1rem;
+    }
+    .row:first-child {
+      button {
+        background-color: #fa0;
+        &:first-child {
+          width: 8.5rem;
+        }
       }
     }
   }
-  
+  textarea {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: 1s;
+    z-index: -1;
+  }
+}
+@media screen and (min-width:768px){
+  .container {
+    width: 25%;
+    .txt {
+      span {
+        margin-right: 2.2rem;
+      }
+      input {
+        width:79%;
+      }
+    }
+  }
+}

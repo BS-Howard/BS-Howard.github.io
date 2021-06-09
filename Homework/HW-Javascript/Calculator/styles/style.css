@@ -1,35 +1,75 @@
 .container {
-  width: 100%;
-}
-
-.container .show {
-  width: 800px;
-  height: 200px;
-  border: 1px solid #000;
+  position: relative;
+  width: 85%;
   margin: 3rem auto;
+  border: 1px solid #000;
+  background-color: #d4d1ca;
 }
 
-.container .show h1 {
-  font-size: 5rem;
-  text-align: center;
+.container .txt {
+  margin: 1rem 0;
+}
+
+.container .txt span {
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+  height: 36px;
+}
+
+.container .txt input {
   margin: auto;
-  line-height: 200px;
+  font-size: 1.5rem;
+  width: 95%;
+  background-color: #fff;
+  text-align: right;
 }
 
-.container .number {
+.container .numButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 1rem;
 }
 
-.container .number input {
-  margin: 1rem 0;
+.container .numButton button {
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  margin: 0.1rem;
+}
+
+.container .numButton .row:first-child button {
+  background-color: #fa0;
+}
+
+.container .numButton .row:first-child button:first-child {
+  width: 8.5rem;
+}
+
+.container textarea {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 25%;
+  }
+  .container .txt span {
+    margin-right: 2.2rem;
+  }
+  .container .txt input {
+    width: 79%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
