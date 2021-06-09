@@ -1,0 +1,22 @@
+.input-group {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  align-items: center;
+  h5 {
+    margin: 0 0.5rem;
+  }
+  input {
+    font-size: 1.3rem;
+  }
+}
+section {
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+}
+textarea {
+  width: 90%;
+  height: 20rem;
+  border: 2px solid #000;
+}

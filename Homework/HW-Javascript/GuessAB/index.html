@@ -13,23 +13,35 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-md -4">
-                <button id="start" type="button" class="btn btn-light">開始</button type="button" class="btn btn-light">
-                <button id="reset" type="button" class="btn btn-light">放棄重來</button type="button" class="btn btn-light">
-                <button id="showAnswer" type="button" class="btn btn-light">看答案</button type="button" class="btn btn-light">
-            </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center challenge">
+          <button class="btn btn-success btn-lg m-3">easy</button>
+          <button class="btn btn-danger btn-lg m-3">hard</button>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <button id="start" type="button" class="btn btn-warning m-2 p-3">
+            開始
+          </button>
+          <button id="reset" type="button" class="btn btn-warning m-2">
+            放棄重來
+          </button>
+          <button id="showAnswer" type="button" class="btn btn-warning m-2">
+            看答案
+          </button>
+        </div>
+      </div>
     </div>
     <section></section>
     <div class="input-group">
-      <span class="input-group-addon">猜答案</span>
-      <input id="userGuess" type="text" name="" class="form-control" value="" required="required">
-      <span class="input-group-btn">
-        <a id="guess" type="button" class="btn btn-primary">猜!</a>
-      </span>
+      <h5>猜答案</h5>
+      <input id="userGuess" type="text" required="required" />
+      <button id="guess" type="button" class="btn btn-primary">猜!</button>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <textarea cols="50" rows="5" placeholder="這裡可以當記錄版喔!"></textarea>
     </div>
 
     <script
