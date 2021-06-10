@@ -33,7 +33,6 @@ removeAllBtn.addEventListener("click", () => {
 });
 
 plusOneBtn.addEventListener("click", () => {
-  RemoveEachImg();
   let pokemonImg = document.createElement("img");
   if (count < 100) {
     count = count.toString().padStart(3, "0");
@@ -43,13 +42,18 @@ plusOneBtn.addEventListener("click", () => {
     `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${count}.png`
   );
   container.appendChild(pokemonImg);
+  RemoveEachImg();
   count++;
 });
 
 removeOneBtn.addEventListener("click", () => {
-  let pokemonImg = document.querySelectorAll("#container img");
-  container.removeChild(pokemonImg[pokemonImg.length - 1]);
-  count--;
+  if(count == 1){
+    return
+  }else{
+    let pokemonImg = document.querySelectorAll("#container img");
+    container.removeChild(pokemonImg[pokemonImg.length - 1]);
+    count--;
+  }
 });
 
 timerBtn.addEventListener("click", () => {
@@ -76,14 +80,20 @@ function set() {
 }
 
 function RemoveEachImg() {
-var eachImg = container.children
+  var eachImg = document.querySelectorAll("#container img");
   if (eachImg.length == 0) {
     return;
   } else {
-    for (let item of eachImg) {
-      item.addEventListener("click", () => {
-        container.removeChild(item);
+    eachImg.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        item.remove();
       });
-    }
+    });
+  }
+}
+
+function low(){
+  if (count <= 0){
+    count = 1
   }
 }
