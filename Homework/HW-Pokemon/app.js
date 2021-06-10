@@ -33,6 +33,9 @@ removeAllBtn.addEventListener("click", () => {
 });
 
 plusOneBtn.addEventListener("click", () => {
+  if(count<1){
+    count = 1
+  }
   let pokemonImg = document.createElement("img");
   if (count < 100) {
     count = count.toString().padStart(3, "0");
@@ -62,6 +65,7 @@ timerBtn.addEventListener("click", () => {
 
 stopTimerBtn.addEventListener("click", () => {
   clearInterval(intervalId);
+  RemoveEachImg()
 });
 
 function set() {
@@ -76,7 +80,7 @@ function set() {
     );
     container.appendChild(pokemonImg);
     count++;
-  }, 1000);
+  }, 500);
 }
 
 function RemoveEachImg() {
@@ -87,13 +91,8 @@ function RemoveEachImg() {
     eachImg.forEach((item) => {
       item.addEventListener("click", (e) => {
         item.remove();
+        count--
       });
     });
-  }
-}
-
-function low(){
-  if (count <= 0){
-    count = 1
   }
 }
