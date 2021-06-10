@@ -88,6 +88,7 @@ function set() {
       `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${count}.png`
     );
     container.appendChild(pokemonImg);
+    slideOut(pokemonImg, "slide");
     count++;
   }, 500);
 }
