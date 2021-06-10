@@ -61,7 +61,7 @@ var product = [
       },
       {
         color: "green",
-        colorValue: "#0070c9",
+        colorValue: "#a1dbcf",
         img: "pic/watch-green.jpg",
       },
       {
@@ -71,8 +71,8 @@ var product = [
       },
     ],
     spec: [
-      { mm: "40 mm", price: "NT$14400" },
-      { mm: "44 mm", price: "NT$15400" },
+      { mm: "40mm", price: "NT$14400" },
+      { mm: "44mm", price: "NT$15400" },
     ],
   },
 ];
@@ -96,7 +96,6 @@ AllButton.forEach((X,index) => {
     var img = document.createElement("img");
     img.setAttribute("src", product[index].pic);
     mainPic.appendChild(img);
-
     // Color
     colorDiv = document.querySelector(".color");
     let colorItem = product[index].color;
@@ -104,8 +103,10 @@ AllButton.forEach((X,index) => {
       let div = document.createElement("div");
       let firstDiv = document.createElement("div");
       let secondDiv = document.createElement("div");
-      div.classList.add("col-6", "col-md-4");
+      div.classList.add("col-4", "col-md-4");
       firstDiv.style.backgroundColor = item.colorValue;
+      firstDiv.classList.add("item-color")
+      secondDiv.classList.add("item-txt")
       firstDiv.style.height = "3rem";
       secondDiv.innerText = item.color;
       div.append(firstDiv, secondDiv);
@@ -126,7 +127,9 @@ AllButton.forEach((X,index) => {
       let div = document.createElement("div");
       let firstDiv = document.createElement("div");
       let secondDiv = document.createElement("div");
-      div.classList.add("col-6", "col-md-4");
+      firstDiv.classList.add("item-size")
+      secondDiv.classList.add("item-price")
+      div.classList.add("col-4", "col-md-4");
       if(item.hasOwnProperty("mm")){
         firstDiv.innerText = item.mm
       } else {
@@ -145,3 +148,4 @@ AllButton.forEach((X,index) => {
     });
   });
 });
+
