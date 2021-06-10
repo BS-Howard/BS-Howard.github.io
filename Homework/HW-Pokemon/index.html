@@ -10,6 +10,21 @@
       crossorigin="anonymous"
     />
     <title>Hello, world!</title>
+    <style>
+      @keyframes slide {
+        from {
+          transform: translateX(-100px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideOut {
+        to {
+          transform: scale(0);
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid text-center text-danger">
@@ -42,7 +57,7 @@
       integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
       crossorigin="anonymous"
     ></script>
-    
+
     <script src="app.js"></script>
   </body>
 </html>

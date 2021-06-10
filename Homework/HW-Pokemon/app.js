@@ -20,6 +20,7 @@ loadAllBtn.addEventListener("click", () => {
       `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${count}.png`
     );
     container.appendChild(pokemonImg);
+    slideOut(pokemonImg, "slide");
   }
   RemoveEachImg();
 });
@@ -27,14 +28,17 @@ loadAllBtn.addEventListener("click", () => {
 removeAllBtn.addEventListener("click", () => {
   let pokemonImg = document.querySelectorAll("#container img");
   pokemonImg.forEach((x) => {
-    container.removeChild(x);
+    slideOut(x, "slideOut");
+    x.addEventListener("animationend", () => {
+      container.removeChild(x);
+    });
   });
   count = 1;
 });
 
 plusOneBtn.addEventListener("click", () => {
-  if(count<1){
-    count = 1
+  if (count < 1) {
+    count = 1;
   }
   let pokemonImg = document.createElement("img");
   if (count < 100) {
@@ -45,16 +49,21 @@ plusOneBtn.addEventListener("click", () => {
     `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${count}.png`
   );
   container.appendChild(pokemonImg);
+  slideOut(pokemonImg, "slide");
   RemoveEachImg();
   count++;
 });
 
 removeOneBtn.addEventListener("click", () => {
-  if(count == 1){
-    return
-  }else{
+  if (count == 1) {
+    return;
+  } else {
     let pokemonImg = document.querySelectorAll("#container img");
-    container.removeChild(pokemonImg[pokemonImg.length - 1]);
+    let lastChild = pokemonImg[pokemonImg.length - 1];
+    slideOut(lastChild, "slideOut");
+    lastChild.addEventListener("animationend", () => {
+      container.removeChild(lastChild);
+    });
     count--;
   }
 });
@@ -65,7 +74,7 @@ timerBtn.addEventListener("click", () => {
 
 stopTimerBtn.addEventListener("click", () => {
   clearInterval(intervalId);
-  RemoveEachImg()
+  RemoveEachImg();
 });
 
 function set() {
@@ -90,9 +99,16 @@ function RemoveEachImg() {
   } else {
     eachImg.forEach((item) => {
       item.addEventListener("click", (e) => {
-        item.remove();
-        count--
+        slideOut(item, "slideOut");
+        item.addEventListener("animationend", () => {
+          item.remove();
+        });
+        count--;
       });
     });
   }
+}
+
+function slideOut(img, s) {
+  img.style.animation = `${s} .3s`;
 }
