@@ -78,11 +78,11 @@ var product = [
 ];
 
 // Start
-const AllButton = document.querySelectorAll("button");
-const mainPic = document.querySelector("#mainPic");
-const colorDiv = document.querySelector(".color");
-const priceDiv = document.querySelector(".price");
-const specDiv = document.querySelector(".spec");
+var AllButton = document.querySelectorAll("button");
+var mainPic = document.querySelector("#mainPic");
+var colorDiv = document.querySelector(".color");
+var priceDiv = document.querySelector(".price");
+var specDiv = document.querySelector(".spec");
 
 AllButton.forEach((X, index) => {
   X.addEventListener("click", () => {
