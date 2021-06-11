@@ -24,8 +24,43 @@ textarea {
   height: 20rem;
   border: 2px solid #000;
 }
+section{
+  div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: .5rem 0;
+
+    h5{
+      width: 10rem;
+      border-radius: 10px;
+      margin: 0 1rem;
+      margin-left: -2rem;
+      padding: .5rem 1rem; 
+    }
+    span{
+      color: #000;
+      text-align: left;
+    }
+  }
+}
+
 @media screen and (min-width:768px){
   textarea {
     width: 50%;
+  }
+  section{
+    div{
+      margin: .5rem;
+      h5{
+        border-radius: 10px;
+        margin-right: 2rem;
+        padding: .5rem 1rem; 
+      }
+      span{
+        color: #000;
+      }
+    }
   }
 }
