@@ -8,15 +8,7 @@
   }
   input {
     font-size: 1rem;
-    padding: .3rem 0;
-  }
-}
-section {
-  color: #fff;
-  text-align: center;
-  font-size: 1.5rem;
-  div{
-    border-bottom:2px solid rgb(255, 255, 255) ;
+    padding: 0.3rem 0;
   }
 }
 textarea {
@@ -24,43 +16,42 @@ textarea {
   height: 20rem;
   border: 2px solid #000;
 }
-section{
-  div{
+section {
+  div {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: .5rem 0;
-
-    h5{
+    margin: 0.5rem 0;
+    text-align: center;
+    h5 {
       width: 10rem;
       border-radius: 10px;
       margin: 0 1rem;
       margin-left: -2rem;
-      padding: .5rem 1rem; 
+      padding: 0.5rem .7rem;
+      color:#fff;
     }
-    span{
+    span {
       color: #000;
       text-align: left;
+      font-size: 1.5rem;
     }
   }
 }
 
-@media screen and (min-width:768px){
+@media screen and (min-width: 768px) {
   textarea {
     width: 50%;
   }
-  section{
-    div{
-      margin: .5rem;
-      h5{
-        border-radius: 10px;
-        margin-right: 2rem;
-        padding: .5rem 1rem; 
-      }
-      span{
-        color: #000;
-      }
+  section {
+    h5 {
+      border-radius: 10px;
+      margin-right: 2rem;
+      padding: 0.5rem 1rem;
+    }
+    span {
+      color: #000;
     }
   }
 }
