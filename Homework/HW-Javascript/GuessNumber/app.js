@@ -23,6 +23,8 @@ const randomButton = document.querySelector(".number > button");
 const inputText = document.querySelector("input");
 const h1 = document.querySelector(".show h1");
 const challengeButton = document.querySelectorAll(".challenge button");
+const allButton = document.querySelectorAll(".numButton button");
+const span = document.querySelector("span");
 
 // 不同層級
 challengeButton.forEach((item) => {
@@ -33,25 +35,27 @@ challengeButton.forEach((item) => {
         alert(x.str);
         guessNum = x.num;
         guessColor = x.color;
-        item.disabled = true;
       }
     });
+
     // 關閉挑戰按鈕
     challengeButton.forEach((x) => {
       x.disabled = true;
     });
+
     // 計算猜的次數
     let count = 0;
     randomButton.addEventListener("click", (e) => {
       randomButton.disabled = true;
+
       // 產生亂數
       function getRandom(min, max) {
         return Math.floor(Math.random() * max + min);
       }
       const randomNumber = getRandom(0, 100);
       console.log(randomNumber);
+
       // 按鈕輸出到Input
-      let allButton = document.querySelectorAll(".numButton button");
       allButton.forEach((x) => {
         x.addEventListener("click", () => {
           inputText.value += x.value;
@@ -60,6 +64,7 @@ challengeButton.forEach((item) => {
 
       var min = 0;
       var max = 100;
+
       // 開始判斷數字
       const checkButton = document.querySelector("#check");
       checkButton.addEventListener("click", () => {
@@ -69,32 +74,32 @@ challengeButton.forEach((item) => {
           return;
         } else {
           count++;
-          // 顯示猜的次數
-          let span = document.querySelector("span");
+
+          // 顯示剩餘次數
           span.innerText = `剩下${guessNum - count}次機會`;
+
           // 背景變換
           let show = document.querySelector(".show");
           let col = (count / guessNum) * 100;
           show.style.backgroundImage = `linear-gradient(90deg, ${guessColor} ${col}% , #fff 5%)`;
+
           // 判斷輸贏
           if (inputText.value == randomNumber || count == guessNum) {
             if (count == guessNum) {
               alert("你輸了!!");
             } else {
-              alert("你贏了!!");
+              alert("恭喜答對!!");
             }
             h1.innerText = "0~100";
-            inputText.value = "";
             window.location.replace(window.location.href);
           } else if (inputText.value < randomNumber) {
             h1.innerText = `${inputText.value}~${max}`;
             min = inputText.value;
-            inputText.value = "";
           } else {
             h1.innerText = `${min}~${inputText.value}`;
             max = inputText.value;
-            inputText.value = "";
           }
+          inputText.value = "";
         }
       });
 
