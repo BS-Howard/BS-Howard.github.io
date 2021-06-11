@@ -32,7 +32,10 @@ numberBtn.forEach((x) => {
       return;
     } else if (x.value == "." && inputBox.value == "") {
       inputBox.value = `0.${inputBox.value}`;
-    } else {
+    }else if(x.value == "." && Array.from(inputBox.value).includes('.')) {
+      return
+    }
+    else {
       inputBox.value += x.value;
     }
   });
