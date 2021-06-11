@@ -79,23 +79,25 @@ var product = [
 
 // Start
 const AllButton = document.querySelectorAll("button");
+const mainPic = document.querySelector("#mainPic");
+const colorDiv = document.querySelector(".color");
+const priceDiv = document.querySelector(".price");
+const specDiv = document.querySelector(".spec");
 
-AllButton.forEach((X,index) => {
+AllButton.forEach((X, index) => {
   X.addEventListener("click", () => {
-    let mainPic = document.querySelector("#mainPic");
-    let colorDiv = document.querySelector(".color");
-    let priceDiv = document.querySelector(".price");
-    let specDiv = document.querySelector(".spec");
     // 清空
-    mainPic.innerText = ""
-    colorDiv.innerText = ""
-    priceDiv.innerText = ""
-    specDiv.innerText = ""
+    mainPic.innerText = "";
+    colorDiv.innerText = "";
+    priceDiv.innerText = "";
+    specDiv.innerText = "";
+
     // main Picture
     mainPic = document.querySelector("#mainPic");
     var img = document.createElement("img");
     img.setAttribute("src", product[index].pic);
     mainPic.appendChild(img);
+
     // Color
     colorDiv = document.querySelector(".color");
     let colorItem = product[index].color;
@@ -105,8 +107,8 @@ AllButton.forEach((X,index) => {
       let secondDiv = document.createElement("div");
       div.classList.add("col-4", "col-md-4");
       firstDiv.style.backgroundColor = item.colorValue;
-      firstDiv.classList.add("item-color")
-      secondDiv.classList.add("item-txt")
+      firstDiv.classList.add("item-color");
+      secondDiv.classList.add("item-txt");
       firstDiv.style.height = "3rem";
       secondDiv.innerText = item.color;
       div.append(firstDiv, secondDiv);
@@ -120,6 +122,7 @@ AllButton.forEach((X,index) => {
     priceDiv = document.querySelector(".price");
     let pdiv = document.createElement("div");
     priceDiv.appendChild(pdiv);
+
     // Spec
     specDiv = document.querySelector(".spec");
     let specItem = product[index].spec;
@@ -127,20 +130,22 @@ AllButton.forEach((X,index) => {
       let div = document.createElement("div");
       let firstDiv = document.createElement("div");
       let secondDiv = document.createElement("div");
-      firstDiv.classList.add("item-size")
-      secondDiv.classList.add("item-price")
+      firstDiv.classList.add("item-size");
+      secondDiv.classList.add("item-price");
       div.classList.add("col-4", "col-md-4");
-      if(item.hasOwnProperty("mm")){
-        firstDiv.innerText = item.mm
+
+      // Watch
+      if (item.hasOwnProperty("mm")) {
+        firstDiv.innerText = item.mm;
       } else {
         firstDiv.innerText = item.storage;
       }
+      
       secondDiv.innerText = item.price;
       div.append(firstDiv, secondDiv);
       specDiv.appendChild(div);
 
       // Price
-
       div.addEventListener("click", () => {
         pdiv.classList.add("col-12");
         pdiv.innerHTML = `<h1>${item.price}</h1>`;
@@ -148,4 +153,3 @@ AllButton.forEach((X,index) => {
     });
   });
 });
-
