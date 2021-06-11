@@ -72,7 +72,6 @@ orderAddBtn.addEventListener("click", () => {
   let bool = true;
   container.childNodes.forEach((item) => {
     let x = Number(item.getAttribute("src").substr(-7, 3));
-    console.log(num, x);
     if (x > num && bool == true) {
       container.insertBefore(pokemonImg, item);
       bool = false;
@@ -126,7 +125,7 @@ function Doreset() {
 }
 
 function slideOut(img, s) {
-  img.style.animation = `${s} .3s`;
+  img.style.animation = `${s} .1s`;
 }
 
 function recordNum(img) {
