@@ -1,46 +1,21 @@
 const upperShow = document.querySelector(".txt span");
 const inputBox = document.querySelector(".txt input");
 const historyBtn = document.querySelector("#history");
-const textbox = document.querySelector("textarea");
+const textbox = document.querySelector("#text");
 const cancelBtn = document.querySelector("#cancel");
 const backBtn = document.querySelector("#back");
-let calBtn = document.querySelectorAll(".cal button");
-let calBTN = document.querySelectorAll(".calculate button:last-child");
-const allCalBtn = [];
-allCalBtn.push.apply(allCalBtn, calBtn);
-allCalBtn.push.apply(allCalBtn, calBTN);
+const calHardBtn = document.querySelectorAll(".cal");
+const calEasyBtn = document.querySelectorAll(".calculate button:last-child");
 const equalBtn = document.querySelector("#equal");
 const numberBtn = document.querySelectorAll(".num button:not(:last-child)");
 
-var Temp = 0;
-var Total = 0;
 var calItem = "";
-// 歷史紀錄出來
-historyBtn.addEventListener("click", () => {
-  textbox.style.opacity = "100";
-  textbox.style.zIndex = "1";
-});
-// 按鈕取消輸入
-cancelBtn.addEventListener("click", () => {
-  inputBox.value = "";
-  upperShow.innerText = "";
-  textbox.innerHTML += "\n";
-  plus = false;
-  textbox.style.opacity = "0";
-  textbox.style.zIndex = "-1";
-});
 
-// 倒退
-backBtn.addEventListener("click", () => {
-  let str = inputBox.value.slice(0, -1);
-  inputBox.value = str;
-});
-
-var plus = false;
 // 按鈕輸出到Input
 var minus = false;
 numberBtn.forEach((x) => {
   x.addEventListener("click", (e) => {
+    changeCal = false
     if (x.value == "+/-") {
       if (minus == false) {
         inputBox.value = "-" + inputBox.value;
@@ -50,69 +25,137 @@ numberBtn.forEach((x) => {
         inputBox.value = str;
         minus = false;
       }
+    } else if (
+      (x.value == "0" && inputBox.value == "") ||
+      inputBox.value == "-"
+    ) {
+      return;
+    } else if (x.value == "." && inputBox.value == "") {
+      inputBox.value = `0.${inputBox.value}`;
     } else {
-      inputBox.value += x.innerText;
-      if (plus) textbox.innerHTML += e.target.value;
+      inputBox.value += x.value;
     }
   });
 });
 
-// 加減乘除符號
-allCalBtn.forEach((x) => {
-  x.addEventListener("click", (e) => {
-    plus = true;
+// 加減乘除
+let nowNum = 0;
+let changeCal = false;
+calEasyBtn.forEach((item) => {
+  item.addEventListener("click", (e) => {
     calItem = e.target.value;
-    // 特別處理
-    if (calItem == "√") {
-      Temp = Math.sqrt(Number(inputBox.value));
-      spec();
-    } else if (calItem == "square") {
-      Temp = Math.pow(Number(inputBox.value), 2);
-      spec();
-    } else if (calItem == "1/x") {
-      Temp = 1 / Number(inputBox.value);
-      spec();
-    } else {
-      // 加減乘除
-      if (inputBox.value != "") {
-        Temp = Number(inputBox.value);
-      } else {
-        Temp = Total;
-      }
-      upperShow.innerText = inputBox.value + x.value;
-      textbox.innerHTML += `${Temp}${calItem}`;
+    if (!changeCal) {
+      nowNum = inputBox.value;
+      upperShow.innerText = `${inputBox.value}${e.target.value}`;
       inputBox.value = "";
+      special = false;
+      changeCal = true;
+    }
+    else{
+      upperShow.innerText = `${nowNum}${calItem}`;
     }
   });
 });
 
 // 計算
+let special = false;
+let oldValue = 0;
 equalBtn.addEventListener("click", (e) => {
-  switch (calItem) {
-    case "+":
-      Temp += Number(inputBox.value);
-      break;
-    case "-":
-      Temp -= Number(inputBox.value);
-      break;
-    case "×":
-      Temp *= Number(inputBox.value);
-      break;
-    case "/":
-      Temp /= Number(inputBox.value);
-      break;
+  let temp = Array.from(upperShow.innerText);
+  temp.splice(-1, 1);
+  temp = Number(temp.join(""));
+  upperShow.innerText = `${temp}${calItem}${inputBox.value}=`;
+  if (special == false) {
+    oldValue = Number(inputBox.value);
+    switch (calItem) {
+      case "+":
+        inputBox.value = temp + Number(inputBox.value);
+        break;
+      case "-":
+        inputBox.value = temp - Number(inputBox.value);
+        break;
+      case "×":
+        inputBox.value = temp * Number(inputBox.value);
+        break;
+      case "÷":
+        inputBox.value = temp / Number(inputBox.value);
+        break;
+      case "":
+        upperShow.innerText = `${inputBox.value}=`;
+        break;
+    }
+    textbox.innerHTML += `<div><p>${upperShow.innerText}</p><p>${inputBox.value}</p></div>`;
+    special = true;
   }
-  textbox.innerHTML += ` = ${Temp} \n`;
-  console.log(Temp);
-  Total = Temp;
-  upperShow.innerText = Total;
-  inputBox.value = Total;
+
+  //連續按=
+  else {
+    switch (calItem) {
+      case "+":
+        console.log(inputBox.value, oldValue);
+        upperShow.innerText = `${inputBox.value}${calItem}${oldValue}=`;
+        inputBox.value = Number(inputBox.value) + Number(oldValue);
+        break;
+      case "-":
+        upperShow.innerText = `${inputBox.value}${calItem}${oldValue}=`;
+        inputBox.value = Number(inputBox.value) - Number(oldValue);
+        break;
+      case "×":
+        upperShow.innerText = `${Number(inputBox.value)}${calItem}${oldValue}=`;
+        inputBox.value = Number(inputBox.value) * Number(oldValue);
+        break;
+      case "÷":
+        upperShow.innerText = `${Number(inputBox.value)}${calItem}${oldValue}=`;
+        inputBox.value = Number(inputBox.value) / Number(oldValue);
+        break;
+    }
+  }
 });
 
-// 計算處理
-function spec() {
-  Total = Temp;
-  upperShow.innerText = Total;
-  inputBox.value = Total;
-  textbox.innerHTML += ` ${calItem} = ${Total} \n`;
-}
+//特殊符號
+calHardBtn.forEach((x) => {
+  x.addEventListener("click", (e) => {
+    calItem = e.target.value;
+    switch (calItem) {
+      case "²√x":
+        upperShow.innerText = `√(${inputBox.value})=`;
+        inputBox.value = Math.sqrt(Number(inputBox.value));
+        break;
+      case "x²":
+        upperShow.innerText = `sqr(${inputBox.value})=`;
+        inputBox.value = Math.pow(Number(inputBox.value), 2);
+        break;
+      case "1/x":
+        upperShow.innerText = `1/(${inputBox.value})=`;
+        inputBox.value = 1 / Number(inputBox.value);
+        break;
+    }
+    textbox.innerHTML += `<div><p>${upperShow.innerText}</p><p>${inputBox.value}</p></div>`;
+  });
+});
+
+// 倒退
+backBtn.addEventListener("click", () => {
+  let str = inputBox.value.slice(0, -1);
+  inputBox.value = str;
+});
+
+// 按鈕取消輸入
+cancelBtn.addEventListener("click", () => {
+  inputBox.value = "";
+  upperShow.innerText = "";
+  calItem = "";
+  special = false;
+});
+
+// 歷史紀錄出來
+let show = true;
+historyBtn.addEventListener("click", () => {
+  if (show) {
+    textbox.style.transform = "translateX(0px)";
+    show = false;
+  } else {
+    textbox.style.transform = "translateX(336px)";
+    show = true;
+  }
+});
