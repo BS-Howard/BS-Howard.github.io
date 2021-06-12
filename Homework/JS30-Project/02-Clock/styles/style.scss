@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+html {
+  height: 100%;
+}
+body {
+  background-color: #757575;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .timer {
+    background-image: linear-gradient(90deg,#fa0,#ff0);
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    .second {
+      width: 0.1rem;
+      height: 50%;
+      background-color: #000;
+      transform-origin: bottom;
+      position: relative;
+      z-index: 1;
+    }
+    .minute {
+      width: 0.3rem;
+      height: 40%;
+      background-color: rgb(0, 4, 255);
+      transform-origin: bottom;
+      position: relative;
+      z-index: 2;
+    }
+    .hour {
+      width: 0.5rem;
+      height: 25%;
+      background-color: rgb(255, 0, 0);
+      transform-origin: bottom;
+      position: relative;
+      z-index: 3;
+    }
+  }
+  .num{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      span{
+          color: #fff;
+          line-height: 10rem;
+          font-size: 1.5rem;
+      }
+      .show{
+          width:6rem;
+          height: 10rem;
+          background-image: linear-gradient(90deg,rgb(73, 103, 170),rgb(80, 208, 218));
+          margin: 0 1rem ;
+          border-radius: 1rem;
+          text-align: center;
+          line-height: 10rem;
+          font-size: 4rem;
+          color: #fff;
+      }
+  }
+}
+

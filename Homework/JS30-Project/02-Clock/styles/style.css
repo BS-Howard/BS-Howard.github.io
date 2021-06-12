@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #757575;
+  height: 100%;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.container .timer {
+  background-image: -webkit-gradient(linear, left top, right top, from(#fa0), to(#ff0));
+  background-image: linear-gradient(90deg, #fa0, #ff0);
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .timer .second {
+  width: 0.1rem;
+  height: 50%;
+  background-color: #000;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  position: relative;
+  z-index: 1;
+}
+
+.container .timer .minute {
+  width: 0.3rem;
+  height: 40%;
+  background-color: #0004ff;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  position: relative;
+  z-index: 2;
+}
+
+.container .timer .hour {
+  width: 0.5rem;
+  height: 25%;
+  background-color: red;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  position: relative;
+  z-index: 3;
+}
+
+.container .num {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .num span {
+  color: #fff;
+  line-height: 10rem;
+  font-size: 1.5rem;
+}
+
+.container .num .show {
+  width: 6rem;
+  height: 10rem;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4967aa), to(#50d0da));
+  background-image: linear-gradient(90deg, #4967aa, #50d0da);
+  margin: 0 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  line-height: 10rem;
+  font-size: 4rem;
+  color: #fff;
+}
+/*# sourceMappingURL=style.css.map */
