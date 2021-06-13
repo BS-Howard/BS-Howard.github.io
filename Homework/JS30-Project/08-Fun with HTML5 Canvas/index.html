@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
     <title>HTML5 Canvas</title>
   </head>
   <body>
@@ -54,10 +58,17 @@
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
       });
+      canvas.addEventListener("ontouchstart", (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.offsetX, e.offsetY];
+      });
 
       canvas.addEventListener("mousemove", draw);
       canvas.addEventListener("mouseup", () => (isDrawing = false));
       canvas.addEventListener("mouseout", () => (isDrawing = false));
+      
+      canvas.addEventListener("ontouchmove", draw);
+      canvas.addEventListener("ontouchend", () => (isDrawing = false));
     </script>
 
     <style>
