@@ -2,11 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <title>HTML5 Canvas</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <canvas id="draw" width="800" height="800"></canvas>
@@ -58,7 +65,7 @@
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
       });
-      canvas.addEventListener("ontouchstart", (e) => {
+      canvas.addEventListener("touchstart", (e) => {
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
       });
@@ -66,16 +73,9 @@
       canvas.addEventListener("mousemove", draw);
       canvas.addEventListener("mouseup", () => (isDrawing = false));
       canvas.addEventListener("mouseout", () => (isDrawing = false));
-      
-      canvas.addEventListener("ontouchmove", draw);
-      canvas.addEventListener("ontouchend", () => (isDrawing = false));
-    </script>
 
-    <style>
-      html,
-      body {
-        margin: 0;
-      }
-    </style>
+      canvas.addEventListener("touchmove", draw);
+      canvas.addEventListener("touchend", () => (isDrawing = false));
+    </script>
   </body>
 </html>
