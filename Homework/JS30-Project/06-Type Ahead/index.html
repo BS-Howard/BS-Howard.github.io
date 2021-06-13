@@ -17,15 +17,8 @@
       const endpoint =
         "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
       
-      var data;
-      var request = new XMLHttpRequest();
-      request.open("GET", endpoint);
-      request.responseType = "json";
-      request.send();
-
-      request.onload = () => {
-        data = request.response;
-      };
+      let data = []
+      fetch(endpoint).then(item=>item.json()).then(d => data = d)
 
       let input = document.querySelector("input")
       let ul = document.querySelector(".suggestions")
@@ -35,8 +28,6 @@
           const regex = new RegExp(input.value, 'gi');
           const cityName = x.city.replace(regex, `<span class="hl">${input.value}</span>`);
           const stateName = x.state.replace(regex, `<span class="hl">${input.value}</span>`);
-          // let hlCity = `${cityWord[0]}<span class="hl">${input.value}</span>${cityWord[1]}`
-          // let hlState = `${stateWord[0]}<span class="hl">${input.value}</span>`
           return `<li><span class="name">${cityName}, ${stateName}</span> <span class="population">${x.population}</span></li>`
         }).join('')
         ul.innerHTML = html
