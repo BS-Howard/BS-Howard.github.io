@@ -20,8 +20,8 @@
     <script>
       const canvas = document.querySelector("#draw");
       const ctx = canvas.getContext("2d");
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = document.documentElement.clientWidth
+      canvas.height = document.documentElement.clientHeight
       ctx.strokeStyle = "#BADA55";
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
@@ -42,9 +42,9 @@
         // start from
         ctx.moveTo(lastX, lastY);
         // go to
-        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.lineTo(e.clientX, e.clientY);
         ctx.stroke();
-        [lastX, lastY] = [e.offsetX, e.offsetY];
+        [lastX, lastY] = [e.clientX, e.clientY];
 
         hue++;
         if (hue >= 360) {
@@ -63,11 +63,11 @@
 
       canvas.addEventListener("mousedown", (e) => {
         isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
+        [lastX, lastY] = [e.clientX, e.clientY];
       });
       canvas.addEventListener("touchstart", (e) => {
         isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
+        [lastX, lastY] = [e.touches[0].clientX, e.touches[0].clientY];
       });
 
       canvas.addEventListener("mousemove", draw);
