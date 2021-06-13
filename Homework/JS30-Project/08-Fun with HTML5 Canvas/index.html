@@ -61,18 +61,18 @@
         }
       }
 
-      // canvas.addEventListener("mousedown", (e) => {
-      //   isDrawing = true;
-      //   [lastX, lastY] = [e.clientX, e.clientY];
-      // });
+      canvas.addEventListener("mousedown", (e) => {
+        isDrawing = true;
+        [lastX, lastY] = [e.clientX, e.clientY];
+      });
       canvas.addEventListener("touchstart", (e) => {
         isDrawing = true;
         [lastX, lastY] = [e.touches[0].clientX, e.touches[0].clientY];
       });
 
-      // canvas.addEventListener("mousemove", draw);
-      // canvas.addEventListener("mouseup", () => (isDrawing = false));
-      // canvas.addEventListener("mouseout", () => (isDrawing = false));
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", () => (isDrawing = false));
+      canvas.addEventListener("mouseout", () => (isDrawing = false));
 
       canvas.addEventListener("touchmove", draw);
       canvas.addEventListener("touchend", () => (isDrawing = false));
