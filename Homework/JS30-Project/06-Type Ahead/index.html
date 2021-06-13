@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Type Ahead 👀</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script>
+      const endpoint =
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+      
+      var data;
+      var request = new XMLHttpRequest();
+      request.open("GET", endpoint);
+      request.responseType = "json";
+      request.send();
 
-  <form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
-    <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
-    </ul>
-  </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+      request.onload = () => {
+        data = request.response;
+      };
 
-</script>
-</body>
+      let input = document.querySelector("input")
+      let ul = document.querySelector(".suggestions")
+      input.addEventListener("input",(e)=>{
+        let newData = data.filter(x=>x.city.indexOf(input.value) != -1 || x.state.indexOf(input.value) != -1)
+        let html = newData.map(x=>{
+          const regex = new RegExp(input.value, 'gi');
+          const cityName = x.city.replace(regex, `<span class="hl">${input.value}</span>`);
+          const stateName = x.state.replace(regex, `<span class="hl">${input.value}</span>`);
+          // let hlCity = `${cityWord[0]}<span class="hl">${input.value}</span>${cityWord[1]}`
+          // let hlState = `${stateWord[0]}<span class="hl">${input.value}</span>`
+          return `<li><span class="name">${cityName}, ${stateName}</span> <span class="population">${x.population}</span></li>`
+        }).join('')
+        ul.innerHTML = html
+      })
+    </script>
+  </body>
 </html>
