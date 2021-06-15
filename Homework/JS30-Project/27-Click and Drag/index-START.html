@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div draggable="true" class="items">
+  <div class="items">
     <div class="item item1">01</div>
     <div class="item item2">02</div>
     <div class="item item3">03</div>
@@ -37,16 +37,32 @@
 <script>
   const items = document.querySelector(".items")
 
-  let last = 0
-  let accum = 0
+  let isdrag = false
+  let startX = 0
+  let lastScrollY = 0
 
-  function show(e){
-    last = e.clientX
-    accum += (e.clientX-last)
-    console.log(accum)
-  }
+  items.addEventListener("mousedown",(e)=>{
+    items.classList.add("active")
+    isdrag = true
+    startX = e.pageX - items.offsetLeft
+    lastScrollY = items.scrollLeft
+  })
 
-  items.addEventListener("mousemove",show)
+  items.addEventListener("mouseup",(e)=>{
+    items.classList.remove("active")
+    isdrag = false
+  })
+
+  items.addEventListener("mouseleave",(e)=>{
+    items.classList.remove("active")
+    isdrag = false
+  })
+
+  items.addEventListener("mousemove",(e)=>{
+    if(!isdrag) return
+    e.preventDefault();
+    items.scrollLeft = lastScrollY - (e.pageX - startX ) * 1
+  })
 
 </script>
 
