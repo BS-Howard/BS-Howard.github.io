@@ -25,57 +25,83 @@
         transition: 0.3s;
       }
       [box-id].activeFirst {
-        border: 6px solid red;
+        border: 10px solid red;
         box-shadow: 0 0 20px red;
         transition: 0s;
       }
       [box-id].activeSecond {
-        border: 6px solid blue;
+        border: 10px solid blue;
         box-shadow: 0 0 20px blue;
         transition: 0s;
       }
       [box-id].activeThird {
-        border: 6px solid green;
+        border: 10px solid green;
         box-shadow: 0 0 20px green;
         transition: 0s;
       }
       [box-id].activeForth {
-        border: 6px solid yellow;
+        border: 10px solid yellow;
         box-shadow: 0 0 20px yellow;
         transition: 0s;
       }
       [box-id].activeFifth {
-        border: 6px solid orange;
+        border: 10px solid orange;
         box-shadow: 0 0 20px orange;
         transition: 0s;
       }
       [box-id].activeSixth {
-        border: 6px solid rgb(255, 0, 234);
+        border: 10px solid rgb(255, 0, 234);
         box-shadow: 0 0 20px rgb(255, 0, 234);
         transition: 0s;
       }
       [box-id].activeSeventh {
-        border: 6px solid rgb(122, 116, 103);
+        border: 10px solid rgb(122, 116, 103);
         box-shadow: 0 0 20px rgb(122, 116, 103);
         transition: 0s;
       }
       [box-id].activeEigth {
-        border: 6px solid rgb(37, 238, 238);
+        border: 10px solid rgb(37, 238, 238);
         box-shadow: 0 0 20px rgb(37, 238, 238);
         transition: 0s;
       }
       [box-id].activeNinth {
-        border: 6px solid rgb(174, 37, 238);
+        border: 10px solid rgb(174, 37, 238);
         box-shadow: 0 0 20px rgb(174, 37, 238);
         transition: 0s;
       }
       [box-id].activeTen {
-        border: 6px solid rgb(0, 0, 0);
+        border: 10px solid rgb(0, 0, 0);
         box-shadow: 0 0 20px rgb(0, 0, 0);
         transition: 0s;
       }
+      [box-id].activeEleventh {
+        border: 10px solid rgb(218, 74, 146);
+        box-shadow: 0 0 20px rgb(218, 74, 146);
+        transition: 0s;
+      }
+      [box-id].activeTwelfth {
+        border: 10px solid rgb(110, 100, 201);
+        box-shadow: 0 0 20px rgb(110, 100, 201);
+        transition: 0s;
+      }
+      [box-id].activeThirteenth {
+        border: 10px solid rgb(139, 100, 15);
+        box-shadow: 0 0 20px rgb(139, 100, 15);
+        transition: 0s;
+      }
+      [box-id].activeFourteenth {
+        border: 10px solid rgb(0, 255, 21);
+        box-shadow: 0 0 20px rgb(0, 255, 21);
+        transition: 0s;
+      }
+      [box-id].activeFifteenth {
+        border: 10px solid rgb(43, 131, 143);
+        box-shadow: 0 0 20px rgb(43, 131, 143);
+        transition: 0s;
+      }
       #msg {
-        font-size: 36px;
+        font-size: 60px;
+        font-weight: 900;
         text-align: center;
       }
     </style>
@@ -442,6 +468,51 @@
           random: Math.floor(Math.random() * brickData.length) + 1
         }
 
+        let eleventh = {
+          steps : 0,
+          allSteps: 0,
+          currentIndex : 0,
+          speed : 130,
+          class: "activeEleventh",
+          random: Math.floor(Math.random() * brickData.length) + 1
+        }
+
+        let twelfth = {
+          steps : 0,
+          allSteps: 0,
+          currentIndex : 0,
+          speed : 140,
+          class: "activeTwelfth",
+          random: Math.floor(Math.random() * brickData.length) + 1
+        }
+
+        let thirteenth = {
+          steps : 0,
+          allSteps: 0,
+          currentIndex : 0,
+          speed : 150,
+          class: "activeThirteenth",
+          random: Math.floor(Math.random() * brickData.length) + 1
+        }
+
+        let fourteenth = {
+          steps : 0,
+          allSteps: 0,
+          currentIndex : 0,
+          speed : 160,
+          class: "activeFourteenth",
+          random: Math.floor(Math.random() * brickData.length) + 1
+        }
+
+        let fifteenth = {
+          steps : 0,
+          allSteps: 0,
+          currentIndex : 0,
+          speed : 170,
+          class: "activeFifteenth",
+          random: Math.floor(Math.random() * brickData.length) + 1
+        }
+
         let bricks = document.querySelectorAll('[box-id]')
         bricks = Array.from(bricks).sort((a,b)=>{
             return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
@@ -457,47 +528,8 @@
         })
 
         document.querySelector("button").addEventListener("click",()=>{
-
-          first.steps = first.random + (5 * bricks.length);
-          first.allSteps = first.steps;
-
-          second.steps = second.random + (5.1 * bricks.length);
-          second.allSteps = second.steps;
-
-          third.steps = third.random + (5.2 * bricks.length);
-          third.allSteps = third.steps;
-
-          forth.steps = forth.random + (5.3 * bricks.length);
-          forth.allSteps = forth.steps;
-
-          fifth.steps = fifth.random + (5.4 * bricks.length);
-          fifth.allSteps = fifth.steps;
-
-          sixth.steps = sixth.random + (5.5 * bricks.length);
-          sixth.allSteps = sixth.steps;
-
-          seventh.steps = seventh.random + (5.6 * bricks.length);
-          seventh.allSteps = seventh.steps;
-
-          eigth.steps = eigth.random + (5.7 * bricks.length);
-          eigth.allSteps = eigth.steps;
-
-          ninth.steps = ninth.random + (5.8 * bricks.length);
-          ninth.allSteps = ninth.steps;
-
-          ten.steps = ten.random + (5.9 * bricks.length);
-          ten.allSteps = ten.steps;
-
-          turnAround(first,first.steps,first.allSteps,first.currentIndex,first.speed,first.class);
-          turnAround(second,second.steps,second.allSteps,second.currentIndex,second.speed,second.class);
-          turnAround(third,third.steps,third.allSteps,third.currentIndex,third.speed,third.class);
-          turnAround(forth,forth.steps,forth.allSteps,forth.currentIndex,forth.speed,forth.class);
-          turnAround(fifth,fifth.steps,fifth.allSteps,fifth.currentIndex,fifth.speed,fifth.class);
-          turnAround(sixth,sixth.steps,sixth.allSteps,sixth.currentIndex,sixth.speed,sixth.class);
-          turnAround(seventh,seventh.steps,seventh.allSteps,seventh.currentIndex,seventh.speed,seventh.class);
-          turnAround(eigth,eigth.steps,eigth.allSteps,eigth.currentIndex,eigth.speed,eigth.class);
-          turnAround(ninth,ninth.steps,ninth.allSteps,ninth.currentIndex,ninth.speed,ninth.class);
-          turnAround(ten,ten.steps,ten.allSteps,ten.currentIndex,ten.speed,ten.class);
+          set([first,second,third,forth,fifth,sixth,seventh,eigth,ninth,ten,eleventh,twelfth,thirteenth,fourteenth,fifteenth])
+          loop([first,second,third,forth,fifth,sixth,seventh,eigth,ninth,ten,eleventh,twelfth,thirteenth,fourteenth,fifteenth])
         })
 
         function turnAround(object,steps,allSteps,currentIndex,speed,classname){
@@ -510,7 +542,7 @@
             //變速
             if(steps > 0){
                 setTimeout(()=>{turnAround(object,steps,allSteps,currentIndex,speed,classname)},speed)
-                if(steps< Math.floor((allSteps/3))) speed += 7
+                if(steps< Math.floor((allSteps/3))) speed += 3
             } else{
                 let msgBox = document.getElementById("msg")
                 let val = brickData[currentIndex].target()
@@ -518,6 +550,22 @@
                 object.currentIndex = currentIndex
             }
         }
+
+        function set(array){
+          let count = 9
+          array.forEach(x=>{
+            x.steps = x.random + (count * bricks.length);
+            x.allSteps = x.steps;
+            count += 0.1
+          })
+        }
+
+        function loop(array){
+          array.forEach(x=>{
+            turnAround(x,x.steps,x.allSteps,x.currentIndex,x.speed,x.class)
+          })
+        }
+
     </script>
   </body>
 </html>
