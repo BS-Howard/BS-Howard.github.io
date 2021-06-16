@@ -12,6 +12,11 @@
     <script src="https://kit.fontawesome.com/3524cb55bc.js" crossorigin="anonymous"></script>
     <title>Labar</title>
     <style>
+      :root{
+        --width:6px;
+        --shadow:20px;
+        --color: #fff;
+      }
       i {
         font-size: 40px;
       }
@@ -25,78 +30,78 @@
         transition: 0.3s;
       }
       [box-id].activeFirst {
-        border: 10px solid red;
-        box-shadow: 0 0 20px red;
+        border: var(--width) solid red;
+        box-shadow: 0 0 var(--shadow) red;
         transition: 0s;
       }
       [box-id].activeSecond {
-        border: 10px solid blue;
-        box-shadow: 0 0 20px blue;
+        border: var(--width) solid blue;
+        box-shadow: 0 0 var(--shadow) blue;
         transition: 0s;
       }
       [box-id].activeThird {
-        border: 10px solid green;
-        box-shadow: 0 0 20px green;
+        border: var(--width) solid green;
+        box-shadow: 0 0 var(--shadow) green;
         transition: 0s;
       }
       [box-id].activeForth {
-        border: 10px solid yellow;
-        box-shadow: 0 0 20px yellow;
+        border: var(--width) solid yellow;
+        box-shadow: 0 0 var(--shadow) yellow;
         transition: 0s;
       }
       [box-id].activeFifth {
-        border: 10px solid orange;
-        box-shadow: 0 0 20px orange;
+        border: var(--width) solid orange;
+        box-shadow: 0 0 var(--shadow) orange;
         transition: 0s;
       }
       [box-id].activeSixth {
-        border: 10px solid rgb(255, 0, 234);
-        box-shadow: 0 0 20px rgb(255, 0, 234);
+        border: var(--width) solid rgb(255, 0, 234);
+        box-shadow: 0 0 var(--shadow) rgb(255, 0, 234);
         transition: 0s;
       }
       [box-id].activeSeventh {
-        border: 10px solid rgb(122, 116, 103);
-        box-shadow: 0 0 20px rgb(122, 116, 103);
+        border: var(--width) solid rgb(122, 116, 103);
+        box-shadow: 0 0 var(--shadow) rgb(122, 116, 103);
         transition: 0s;
       }
       [box-id].activeEigth {
-        border: 10px solid rgb(37, 238, 238);
-        box-shadow: 0 0 20px rgb(37, 238, 238);
+        border: var(--width) solid rgb(37, 238, 238);
+        box-shadow: 0 0 var(--shadow) rgb(37, 238, 238);
         transition: 0s;
       }
       [box-id].activeNinth {
-        border: 10px solid rgb(174, 37, 238);
-        box-shadow: 0 0 20px rgb(174, 37, 238);
+        border: var(--width) solid rgb(174, 37, 238);
+        box-shadow: 0 0 var(--shadow) rgb(174, 37, 238);
         transition: 0s;
       }
       [box-id].activeTen {
-        border: 10px solid rgb(0, 0, 0);
-        box-shadow: 0 0 20px rgb(0, 0, 0);
+        border: var(--width) solid rgb(0, 0, 0);
+        box-shadow: 0 0 var(--shadow) rgb(0, 0, 0);
         transition: 0s;
       }
       [box-id].activeEleventh {
-        border: 10px solid rgb(218, 74, 146);
-        box-shadow: 0 0 20px rgb(218, 74, 146);
+        border: var(--width) solid rgb(218, 74, 146);
+        box-shadow: 0 0 var(--shadow) rgb(218, 74, 146);
         transition: 0s;
       }
       [box-id].activeTwelfth {
-        border: 10px solid rgb(110, 100, 201);
-        box-shadow: 0 0 20px rgb(110, 100, 201);
+        border: var(--width) solid rgb(110, 100, 201);
+        box-shadow: 0 0 var(--shadow) rgb(110, 100, 201);
         transition: 0s;
       }
       [box-id].activeThirteenth {
-        border: 10px solid rgb(139, 100, 15);
-        box-shadow: 0 0 20px rgb(139, 100, 15);
+        border: var(--width) solid rgb(139, 100, 15);
+        box-shadow: 0 0 var(--shadow) rgb(139, 100, 15);
         transition: 0s;
       }
       [box-id].activeFourteenth {
-        border: 10px solid rgb(0, 255, 21);
-        box-shadow: 0 0 20px rgb(0, 255, 21);
+        border: var(--width) solid rgb(0, 255, 21);
+        box-shadow: 0 0 var(--shadow) rgb(0, 255, 21);
         transition: 0s;
       }
       [box-id].activeFifteenth {
-        border: 10px solid rgb(43, 131, 143);
-        box-shadow: 0 0 20px rgb(43, 131, 143);
+        border: var(--width) solid rgb(43, 131, 143);
+        box-shadow: 0 0 var(--shadow) rgb(43, 131, 143);
         transition: 0s;
       }
       #msg {
@@ -533,22 +538,25 @@
         })
 
         function turnAround(object,steps,allSteps,currentIndex,speed,classname){
-            bricks[currentIndex].classList.remove(classname)
-            currentIndex++
-            if(currentIndex >= bricks.length) currentIndex = 0;
-            bricks[currentIndex].classList.add(classname)
-            steps--
+          bricks[currentIndex].classList.remove(classname)
+          currentIndex++
+          if(currentIndex >= bricks.length) currentIndex = 0;
+          bricks[currentIndex].classList.add(classname)
+          steps--
+          document.documentElement.style.setProperty("--width",`${Math.floor(Math.random() * 20) + 2}px`)
+          document.documentElement.style.setProperty("--shadow",`${Math.floor(Math.random() * 20) + 2}px`)
+          // document.documentElement.style.setProperty("--color",`rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`)
 
-            //變速
-            if(steps > 0){
-                setTimeout(()=>{turnAround(object,steps,allSteps,currentIndex,speed,classname)},speed)
-                if(steps< Math.floor((allSteps/3))) speed += 3
-            } else{
-                let msgBox = document.getElementById("msg")
-                let val = brickData[currentIndex].target()
-                msgBox.innerText = `接下來 -> ${val}`;
-                object.currentIndex = currentIndex
-            }
+          //變速
+          if(steps > 0){
+              setTimeout(()=>{turnAround(object,steps,allSteps,currentIndex,speed,classname)},speed)
+              if(steps< Math.floor((allSteps/3))) speed += 3
+          } else{
+              let msgBox = document.getElementById("msg")
+              let val = brickData[currentIndex].target()
+              msgBox.innerText = `接下來 -> ${val}`;
+              object.currentIndex = currentIndex
+          }
         }
 
         function set(array){
