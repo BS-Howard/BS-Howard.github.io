@@ -40,8 +40,8 @@ function showItem(item,index){
 
         let modal = $g("#exampleModal")
         modal.querySelector('h5').innerText = `${item.id} - ${item.name}`
-        modal.querySelector(".heroImage").src=`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.id}_0.jpg`
-        modal.querySelector(".description").innerHTML=`${item.blurb}<p>armor: ${item.stats.armor}</p><p>attackdamage: ${item.stats.attackdamage}</p><p>attackrange: ${item.stats.attackrange}</p><p>hp: ${item.stats.hp}</p><p>movespeed: ${item.stats.movespeed}</p><p>spellblock: ${item.stats.spellblock}</p>`
+        modal.querySelector(".heroImage").src=`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.id}_1.jpg`
+        modal.querySelector(".description").innerHTML=`<br/>${item.blurb}<br/><br/><p>armor: ${item.stats.armor}</p><p>attackdamage: ${item.stats.attackdamage}</p><p>attackrange: ${item.stats.attackrange}</p><p>hp: ${item.stats.hp}</p><p>movespeed: ${item.stats.movespeed}</p><p>spellblock: ${item.stats.spellblock}</p>`
     });
 
     //video
