@@ -25,6 +25,7 @@ function showHandler(e){
 function showItem(item,index){
 
     let cloneContent = $g("#app").content.cloneNode(true);
+    let card = cloneContent.querySelector(".card")
     let title = cloneContent.querySelector(".card-title");
     let content = cloneContent.querySelector(".card-text");
     let img = cloneContent.querySelector(".card-img-top")
@@ -33,6 +34,12 @@ function showItem(item,index){
     content.innerText = `${item.blurb.slice(0,50)}...`
     img.setAttribute("src",`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.id}_0.jpg`)
 
+    card.addEventListener("mouseover",()=>{
+        img.setAttribute("src",`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.id}_1.jpg`)
+    })
+    card.addEventListener("mouseout",()=>{
+        img.setAttribute("src",`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${item.id}_0.jpg`)
+    })
     //modal
     cloneContent.querySelector(".detail").addEventListener("click",function(){
         this.setAttribute("data-toggle","modal")

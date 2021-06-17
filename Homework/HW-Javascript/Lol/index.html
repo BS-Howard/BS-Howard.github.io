@@ -12,9 +12,21 @@
             color: #fff;
             transition: .4s;
             transform: scale(1.1);
+            cursor: default;
         }
         .card:hover .detail{
-            background-color: #e0a800;
+            background-image: linear-gradient(45deg,rgb(253, 171, 7),rgb(240, 240, 22));
+        }
+        .modal-header{
+            background-image: linear-gradient(45deg,rgb(253, 171, 7),rgb(240, 240, 22));
+        }
+        @keyframes load{
+            from{
+                transform: translateY(-100px);
+            }
+            to{
+                transform: translateY(0px);
+            }
         }
     </style>
 </head>
@@ -27,14 +39,14 @@
     <div class='row d-flex justify-content-center w-100 m-auto'></div>
 
     <template id="app">
-        <div class="card m-3 bg-warning" style="width: 21rem; border: none;">
+        <div class="card m-3 bg-warning" style="width: 21rem; border: none; animation: load .3s;">
             <img src="" class="card-img-top w-100" style="height: 300px;object-fit: cover;">
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Title</h5>
+              <h3 class="card-title font-weight-bold">Title</h3>
               <p class="card-text flex-grow-1">Content</p>
               <div class="div d-flex justify-content-center">
-                  <a href="#" class="btn btn-primary w-50 m-1 detail">詳細</a>
-                  <a href="#" class="btn btn-danger w-50 m-1 video">影片</a>
+                  <a href="#" class="btn btn-primary w-50 m-1 btn-lg detail">詳細</a>
+                  <a href="#" class="btn btn-danger w-50 m-1 btn-lg video">影片</a>
               </div>
             </div>
           </div>
@@ -46,14 +58,14 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">標題</h5>
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">標題</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                      <img class="w-100 heroImage">
-                     <p class="description"></p>
+                     <p class="description" style="font-size: 1.5rem;"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
