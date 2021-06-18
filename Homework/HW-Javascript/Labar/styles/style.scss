@@ -140,6 +140,25 @@ svg{
     animation: fill 1s ease-in forwards 3s;
 }
 
+.lucky-area{
+    position: relative;
+    .right,
+    .left{
+        position: absolute;
+        width: 50%;
+        height: 400%;
+        border: 2px solid #000;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        display: flex;
+    }
+    .right{
+        left: unset;
+        right: 0;
+    }
+}
+
 @keyframes fadeInside{
     to{
         stroke-dashoffset: 0px
@@ -152,5 +171,23 @@ svg{
     }
     to{
         fill: #fff;
+    }
+}
+
+@keyframes slideDown{
+    from{
+        transform: translateY(-250px);
+    }
+    to{
+        transform: translateY(350px);
+    }
+}
+
+@keyframes slideUp{
+    from{
+        transform: translateY(350px);
+    }
+    to{
+        transform: translateY(-250px);
     }
 }

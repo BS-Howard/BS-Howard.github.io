@@ -161,6 +161,29 @@ svg {
           animation: fill 1s ease-in forwards 3s;
 }
 
+.lucky-area {
+  position: relative;
+}
+
+.lucky-area .right,
+.lucky-area .left {
+  position: absolute;
+  width: 50%;
+  height: 400%;
+  border: 2px solid #000;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.lucky-area .right {
+  left: unset;
+  right: 0;
+}
+
 @-webkit-keyframes fadeInside {
   to {
     stroke-dashoffset: 0px;
@@ -188,6 +211,50 @@ svg {
   }
   to {
     fill: #fff;
+  }
+}
+
+@-webkit-keyframes slideDown {
+  from {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+  to {
+    -webkit-transform: translateY(350px);
+            transform: translateY(350px);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+  to {
+    -webkit-transform: translateY(350px);
+            transform: translateY(350px);
+  }
+}
+
+@-webkit-keyframes slideUp {
+  from {
+    -webkit-transform: translateY(350px);
+            transform: translateY(350px);
+  }
+  to {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    -webkit-transform: translateY(350px);
+            transform: translateY(350px);
+  }
+  to {
+    -webkit-transform: translateY(-250px);
+            transform: translateY(-250px);
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -9,13 +9,16 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
-    <script src="https://kit.fontawesome.com/3524cb55bc.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/3524cb55bc.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Labar</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css" />
     <style>
-      :root{
-        --width:6px;
-        --shadow:20px;
+      :root {
+        --width: 6px;
+        --shadow: 20px;
         --color: #fff;
       }
       i {
@@ -207,8 +210,17 @@
       </div>
       <div class="row">
         <div box-id="32" class="col-1"></div>
-        <div class="col-10 m-auto">
-            <p id="msg" class="m-0"></p>
+        <div class="col-10 lucky-area">
+          <div class="left">
+            <div class="pic w-50 m-auto">
+              <img src="pic/number0.png" class="w-100" />
+            </div>
+          </div>
+          <div class="right">
+            <div class="pic w-50 m-auto">
+              <img src="pic/number0.png" class="w-100" />
+            </div>
+          </div>
         </div>
         <div box-id="13" class="col-1"></div>
       </div>
@@ -244,6 +256,7 @@
       <div class="row">
         <button class="btn btn-primary w-100">Start</button>
       </div>
+      <p id="msg" class="my-5"></p>
     </div>
 
     <script
@@ -265,408 +278,530 @@
     <!-- <i class="fab fa-instagram-square"></i> -->
     <!-- <i class="fab fa-line"></i> -->
     <script>
-        let brickData = [
+      //#region
+      let brickData = [
+        {
+          id: "1",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "2",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "3",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "4",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "5",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "6",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "7",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "8",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "9",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "10",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "11",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "12",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "13",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "14",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "15",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "16",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "17",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "18",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "19",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "20",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "21",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "22",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "23",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "24",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "25",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "26",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "27",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "28",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "29",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "30",
+          icon: "fab fa-line",
+          color: "green",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "31",
+          icon: "fab fa-facebook-square",
+          color: "blue",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+        {
+          id: "32",
+          icon: "fab fa-instagram-square",
+          color: "red",
+          target: function () {
+            return this.icon.split("-")[1];
+          },
+        },
+      ];
 
-        {
-            id: "1",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "2",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "3",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "4",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "5",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "6",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "7",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "8",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "9",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "10",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "11",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "12",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "13",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "14",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "15",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "16",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "17",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "18",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "19",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "20",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "21",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "22",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "23",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "24",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "25",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "26",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "27",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "28",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "29",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "30",
-            icon:"fab fa-line",
-            color:"green",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "31",
-            icon:"fab fa-facebook-square",
-            color:"blue",
-            target: function(){return this.icon.split('-')[1]}
-        },
-        {
-            id: "32",
-            icon:"fab fa-instagram-square",
-            color:"red",
-            target: function(){return this.icon.split('-')[1]}
+      let first = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 1,
+        speed: 100,
+        class: "activeFirst",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let second = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 2,
+        speed: 100,
+        class: "activeSecond",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let third = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 3,
+        speed: 100,
+        class: "activeThird",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let forth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 4,
+        speed: 100,
+        class: "activeForth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let fifth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 5,
+        speed: 100,
+        class: "activeFifth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let sixth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 6,
+        speed: 100,
+        class: "activeSixth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let seventh = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 7,
+        speed: 100,
+        class: "activeSeventh",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let eigth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 8,
+        speed: 100,
+        class: "activeEigth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let ninth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 9,
+        speed: 100,
+        class: "activeNinth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let ten = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 10,
+        speed: 100,
+        class: "activeTen",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let eleventh = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 11,
+        speed: 100,
+        class: "activeEleventh",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let twelfth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 12,
+        speed: 100,
+        class: "activeTwelfth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let thirteenth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 13,
+        speed: 100,
+        class: "activeThirteenth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let fourteenth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 14,
+        speed: 100,
+        class: "activeFourteenth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+
+      let fifteenth = {
+        steps: 0,
+        allSteps: 0,
+        currentIndex: 15,
+        speed: 100,
+        class: "activeFifteenth",
+        random: Math.floor(Math.random() * brickData.length) + 1,
+      };
+      //#endregion
+
+      let bricks = document.querySelectorAll("[box-id]");
+      bricks = Array.from(bricks).sort((a, b) => {
+        return (
+          a.getAttributeNode("box-id").value -
+          b.getAttributeNode("box-id").value
+        );
+      });
+
+      bricks.forEach((x, index) => {
+        let id = index + 1;
+        let data = brickData.find((x) => x.id == id);
+        let icon = document.createElement("i");
+        icon.setAttribute("class", data.icon);
+        icon.style.color = data.color;
+        x.appendChild(icon);
+      });
+
+      document.querySelector("button").addEventListener("click", () => {
+        set([first,second,third,forth,fifth,sixth,seventh,eigth,ninth,ten,eleventh,twelfth,thirteenth,fourteenth,fifteenth]);
+        loop([first,second,third,forth,fifth,sixth,seventh,eigth,ninth,ten,eleventh,twelfth,thirteenth,fourteenth,fifteenth]);
+
+        numberLoop(ln);
+        numberLoop(rn);
+      });
+
+      function turnAround(object,steps,allSteps,currentIndex,speed,classname) {
+        bricks[currentIndex].classList.remove(classname);
+        currentIndex++;
+        if (currentIndex >= bricks.length) currentIndex = 0;
+        bricks[currentIndex].classList.add(classname);
+        steps--;
+        // document.documentElement.style.setProperty("--width",`${Math.floor(Math.random() * 2) + 2}px`)
+        document.documentElement.style.setProperty(
+          "--shadow",
+          `${Math.floor(Math.random() * 50) + 10}px`
+        );
+        // document.documentElement.style.setProperty("--color",`rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`)
+
+        //變速
+        if (steps > 0) {
+          setTimeout(() => {
+            turnAround(object, steps, allSteps, currentIndex, speed, classname);
+          }, speed);
+          if (steps < Math.floor(allSteps / 3)) speed += 10;
+        } else {
+          let msgBox = document.getElementById("msg");
+          let val = brickData[currentIndex].target();
+          msgBox.innerText = `今天能使用${val}的時間只有${ln.nowNum}${rn.nowNum}分鐘唷~`;
+          object.currentIndex = currentIndex;
         }
-        ]
+      }
 
-        let first = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 1,
-          speed : 100,
-          class: "activeFirst",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
+      function set(array) {
+        let count = 2.5;
+        array.forEach((x) => {
+          x.steps = 5 + count * bricks.length;
+          x.allSteps = x.steps;
+          // count += 0.1
+        });
+      }
 
-        let second = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 2,
-          speed : 100,
-          class: "activeSecond",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
+      function loop(array) {
+        array.forEach((x) => {
+          turnAround(x, x.steps, x.allSteps, x.currentIndex, x.speed, x.class);
+        });
+      }
 
-        let third = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 3,
-          speed : 100,
-          class: "activeThird",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
+      let leftArea = document.querySelector(".left");
+      let rightArea = document.querySelector(".right");
 
-        let forth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 4,
-          speed : 100,
-          class: "activeForth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
+      let ln = {
+        img: leftArea.querySelector("img"),
+        nowNum: 9,
+        numStep: Math.floor(Math.random() * 30) + 30,
+        speed: 0.15,
+        numAllStep: 0
+      }
 
-        let fifth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 5,
-          speed : 100,
-          class: "activeFifth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
+      let rn = {
+        img: rightArea.querySelector("img"),
+        nowNum: 9,
+        numStep: Math.floor(Math.random() * 35) + 30,
+        speed: 0.15,
+        numAllStep: 0
+      }
 
-        let sixth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 6,
-          speed : 100,
-          class: "activeSixth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
+      function numberLoop(ob) {
+        ob.img.setAttribute("src", `pic/number${ob.nowNum}.png`);
+        ob.img.style.animation = `slideDown ${ob.speed}s`;
+        ob.numStep--;
+      }
 
-        let seventh = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 7,
-          speed : 100,
-          class: "activeSeventh",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let eigth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 8,
-          speed : 100,
-          class: "activeEigth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let ninth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 9,
-          speed : 100,
-          class: "activeNinth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let ten = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 10,
-          speed : 100,
-          class: "activeTen",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let eleventh = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 11,
-          speed : 100,
-          class: "activeEleventh",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let twelfth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 12,
-          speed : 100,
-          class: "activeTwelfth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let thirteenth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 13,
-          speed : 100,
-          class: "activeThirteenth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let fourteenth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 14,
-          speed : 100,
-          class: "activeFourteenth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let fifteenth = {
-          steps : 0,
-          allSteps: 0,
-          currentIndex : 15,
-          speed : 100,
-          class: "activeFifteenth",
-          random: Math.floor(Math.random() * brickData.length) + 1
-        }
-
-        let bricks = document.querySelectorAll('[box-id]')
-        bricks = Array.from(bricks).sort((a,b)=>{
-            return a.getAttributeNode('box-id').value - b.getAttributeNode('box-id').value
-        })
-
-        bricks.forEach((x,index)=>{
-            let id = index + 1;
-            let data = brickData.find(x=>x.id == id);
-            let icon = document.createElement("i");
-            icon.setAttribute("class",data.icon)
-            icon.style.color = data.color;
-            x.appendChild(icon);
-        })
-
-        document.querySelector("button").addEventListener("click",()=>{
-          set([first,second,third,forth,fifth,sixth,seventh,eigth,ninth,ten,eleventh,twelfth,thirteenth,fourteenth,fifteenth])
-          loop([first,second,third,forth,fifth,sixth,seventh,eigth,ninth,ten,eleventh,twelfth,thirteenth,fourteenth,fifteenth])
-        })
-
-        function turnAround(object,steps,allSteps,currentIndex,speed,classname){
-          bricks[currentIndex].classList.remove(classname)
-          currentIndex++
-          if(currentIndex >= bricks.length) currentIndex = 0;
-          bricks[currentIndex].classList.add(classname)
-          steps--
-          // document.documentElement.style.setProperty("--width",`${Math.floor(Math.random() * 2) + 2}px`)
-          document.documentElement.style.setProperty("--shadow",`${Math.floor(Math.random() * 50) + 10}px`)
-          // document.documentElement.style.setProperty("--color",`rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`)
-
-          //變速
-          if(steps > 0){
-              setTimeout(()=>{turnAround(object,steps,allSteps,currentIndex,speed,classname)},speed)
-              if(steps< Math.floor((allSteps/3))) speed += 10
-          } else{
-              let msgBox = document.getElementById("msg")
-              let val = brickData[currentIndex].target()
-              msgBox.innerText = `接下來 -> ${val}`;
-              object.currentIndex = currentIndex
-          }
-        }
-
-        function set(array){
-          let count = 3
-          array.forEach(x=>{
-            x.steps = 20 + (count * bricks.length);
-            x.allSteps = x.steps;
-            // count += 0.1
-          })
-        }
-
-        function loop(array){
-          array.forEach(x=>{
-            turnAround(x,x.steps,x.allSteps,x.currentIndex,x.speed,x.class)
-          })
-        }
-
-        // Portfolio
-        const text = document.querySelectorAll(".thePaths")
-        const lastWord = document.querySelector("#eighteenth")
-        const portfolio = document.querySelector(".animation")
-        for(let i = 0; i < text.length; i++){
-            console.log(`text number ${i} length is ${text[i].getTotalLength()}`)
-        }
-        lastWord.addEventListener("animationend",()=>{
+      let numArray = [ln,rn]
+      numArray.forEach(ob=>{
+        ob.img.addEventListener("animationend",()=>{
+        if (ob.numStep > 0) {
+            ob.nowNum--;
+        //   if(ob.numStep < Math.floor(ob.numAllStep / 3)) {ob.speed += 0.05;}
+          if (ob.nowNum < 0) {ob.nowNum = 9;}
+          ob.img.setAttribute("src", "");
+          ob.img.style.animation = "";
           setTimeout(()=>{
-            portfolio.style.transform = "translateX(-100px)"
-            setTimeout(()=>{
-              portfolio.setAttribute("style","transition: .8s ; transform: translateX(2000px) ; z-index: -1 ;")
-            },1000)
-          },500)
-        })
+            numberLoop(ob,ob.img,ob.nowNum,ob.numStep,ob.speed)
+          },1)
+        }else{
+          ob.numStep = Math.floor(Math.random() * 30) + 30;
+        //   numAllStep = numStep
+          ob.speed = 0.1
+          ob.img.style.animation = "";
+        }
+      })
+      })
+      
+      // Portfolio
+      const text = document.querySelectorAll(".thePaths")
+      const lastWord = document.querySelector("#eighteenth")
+      const portfolio = document.querySelector(".animation")
+      for(let i = 0; i < text.length; i++){
+          console.log(`text number ${i} length is ${text[i].getTotalLength()}`)
+      }
+      lastWord.addEventListener("animationend",()=>{
+        setTimeout(()=>{
+          portfolio.style.transform = "translateX(-100px)"
+          setTimeout(()=>{
+            portfolio.setAttribute("style","transition: .8s ; transform: translateX(2000px) ; z-index: -1 ;")
+          },1000)
+        },500)
+      })
     </script>
   </body>
 </html>
