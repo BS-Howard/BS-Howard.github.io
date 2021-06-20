@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bricks</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      #canvas {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="550" height="400"></canvas>
+
+    <script>
+      const canvas = document.getElementById("canvas");
+      let ctx = canvas.getContext("2d");
+      let canvasColor = "rgb(65, 135, 216)";
+      let ballColor = "yellow";
+      let ballRadius = 10;
+      let x = canvas.width / 2;
+      let y = canvas.height - 30;
+      let dx = 2;
+      let dy = 2;
+      let paddleColor = "rgb(79, 214, 79)";
+      let paddleWidth = 90;
+      let paddleHeight = 18;
+      let paddle_X = canvas.width / 2 - paddleWidth / 2;
+      let paddle_Y = canvas.height - paddleHeight;
+      let timer;
+      let brickColor = "rgb(79, 214, 79)";
+      let brickRowCount = 6;
+      let brickColumnCount = 5;
+      let brickWidth = 75;
+      let brickHeight = 20;
+      let brickPadding = 10;
+      let brickOffsetTop = 40;
+      let brickOffsetLeft = 30;
+      let score = 0;
+      let lives = 3;
+
+      let bricks = [];
+      for (let c = 0; c < brickColumnCount; c++) {
+        bricks[c] = [];
+        for (let r = 0; r < brickRowCount; r++) {
+          bricks[c][r] = { x: 0, y: 0, status: 1 };
+        }
+      }
+
+      window.addEventListener("load", () => {
+        drawCanvas();
+        drawBall();
+        drawPaddle();
+        drawBricks();
+        drawScore();
+        drawLives();
+        move();
+      });
+
+      window.addEventListener("keydown", (e) => {
+        movePaddle(e);
+      });
+      window.addEventListener("keypress", (e) => {
+        movePaddle(e);
+      });
+      window.addEventListener("mousemove", (e) => {
+        mouseMoveHandler(e);
+      });
+
+      function drawCanvas() {
+        ctx.beginPath();
+        ctx.fillStyle = canvasColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.closePath();
+      }
+
+      function drawBall() {
+        ctx.beginPath();
+        ctx.fillStyle = ballColor;
+        ctx.arc(x + dx, y + dy, ballRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function move() {
+        timer = setInterval(() => {
+          failed();
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          x += dx;
+          y -= dy;
+          attackBrick();
+          drawCanvas();
+          drawBall();
+          drawPaddle();
+          drawBricks();
+          drawScore();
+          drawLives();
+          boundary();
+        }, 5);
+      }
+
+      function boundary() {
+        if (x > canvas.width - ballRadius || x < ballRadius) {
+          dx = -dx;
+        }
+        if (
+          y < ballRadius ||
+          (y > paddle_Y - ballRadius &&
+            x > paddle_X &&
+            x < paddle_X + paddleWidth)
+        ) {
+          dy = -dy;
+        }
+      }
+
+      function drawPaddle() {
+        ctx.beginPath();
+        ctx.fillStyle = paddleColor;
+        ctx.fillRect(paddle_X, paddle_Y, paddleWidth, paddleHeight);
+        ctx.closePath();
+      }
+
+      function movePaddle(e) {
+        if (paddle_X <= 0) {
+          if (e.keyCode == 37) return;
+        }
+        if (paddle_X >= canvas.width - paddleWidth) {
+          if (e.keyCode == 39) return;
+        }
+        // left
+        if (e.keyCode == 37) {
+          paddle_X -= 20;
+        }
+        // right
+        if (e.keyCode == 39) {
+          paddle_X += 20;
+        }
+      }
+
+      function failed() {
+        if (y + ballRadius + dy == canvas.height) {
+          lives--
+          x = canvas.width / 2;
+          y = canvas.height - 30;
+          dx = 2;
+          dy = 2;
+          drawBall()
+          if(lives == 0){
+            clearInterval(timer);
+            alert("you lose");
+            document.location.reload();
+          }
+        }
+      }
+
+      function mouseMoveHandler(e) {
+        let relativeX = e.clientX - (canvas.offsetLeft - canvas.width / 2);
+        if (relativeX > 0 && relativeX < canvas.width) {
+          paddle_X = relativeX - paddleWidth / 2;
+        }
+      }
+
+      function drawBricks() {
+        for (let c = 0; c < brickColumnCount; c++) {
+          for (let r = 0; r < brickRowCount; r++) {
+            if (bricks[c][r].status == 1) {
+              var brickX = r * (brickWidth + brickPadding) + brickOffsetLeft;
+              var brickY = c * (brickHeight + brickPadding) + brickOffsetTop;
+              bricks[c][r].x = brickX;
+              bricks[c][r].y = brickY;
+              ctx.beginPath();
+              ctx.rect(brickX, brickY, brickWidth, brickHeight);
+              ctx.fillStyle = "brickColor";
+              ctx.fill();
+              ctx.closePath();
+            }
+          }
+        }
+      }
+
+      function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "yellow";
+        ctx.fillText(`Score: ${score}`, 8, 20);
+      }
+
+      function drawLives() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "yellow";
+        ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+      }
+
+      function attackBrick() {
+        bricks.forEach(col=>{
+          col.forEach(b=>{
+            if(b.status == 1) {
+            if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                dy = -dy;
+                b.status = 0;
+                score++;
+                if(score == brickRowCount*brickColumnCount) {
+                    alert("YOU WIN, CONGRATS!");
+                    document.location.reload();
+                    }
+                }
+            }
+          })
+        })
+      }
+    </script>
+  </body>
+</html>
