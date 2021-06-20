@@ -1,0 +1,67 @@
+.down {
+  display: none;
+}
+
+.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#mainPic {
+  margin: auto;
+  height: 400px;
+}
+
+#mainPic img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.stickyNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #000;
+  font-size: 2rem;
+  color: #949499;
+}
+
+.stickyNav #stickyPrice {
+  color: #db5656;
+}
+
+.container .head {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.container .title {
+  width: 100%;
+  font-size: 2rem;
+  cursor: pointer;
+  border-bottom: 1px solid #000;
+  margin-bottom: 2rem;
+}
+
+.container .down {
+  font-size: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .down div:hover {
+  background-color: #ebe977;
+}
+
+.container .total {
+  font-size: 2.5rem;
+}
+/*# sourceMappingURL=redo.css.map */

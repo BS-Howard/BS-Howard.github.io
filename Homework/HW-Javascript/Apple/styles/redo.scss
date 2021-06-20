@@ -1,0 +1,51 @@
+.down {
+  display: none;
+}
+.show {
+  display: flex;
+}
+
+#mainPic {
+  margin: auto;
+  height: 400px;
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.stickyNav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  font-size: 2rem;
+  color: rgb(148, 148, 153);
+  #stickyPrice {
+    color: rgb(219, 86, 86);
+  }
+}
+
+.container {
+  .head {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  .title {
+    width: 100%;
+    font-size: 2rem;
+    cursor: pointer;
+    border-bottom: 1px solid #000;
+    margin-bottom: 2rem;
+  }
+  .down {
+    font-size: 1rem;
+    flex-wrap: wrap;
+    div:hover {
+      background-color: rgb(235, 233, 119);
+    }
+  }
+  .total {
+    font-size: 2.5rem;
+  }
+}
