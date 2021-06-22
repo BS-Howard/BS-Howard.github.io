@@ -1,55 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/snake.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
   </head>
 
   <body>
-    <div id="score">0</div>
-    <canvas id="snakeboard" width="400" height="400"></canvas>
-
-    <style>
-      #snakeboard {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      #score {
-        text-align: center;
-        font-size: 140px;
-      }
-    </style>
+    <div class="container">
+      <div id="score">Your score : 0</div>
+      <canvas id="snakeboard" width="500" height="500"></canvas>
+      <div class="btn">
+        <button id="start">Start</br>(Press SpaceBar)</button>
+        <button id="reset">Reset</br>(Press R)</button>
+      </div>
+    </div>
   </body>
-
   <script>
-    const scoreDiv = document.getElementById("score")
+    const scoreDiv = document.getElementById("score");
     const canvas = document.querySelector("#snakeboard");
+    const startBtn = document.getElementById("start");
+    const resetBtn = document.getElementById("reset");
     const ctx = canvas.getContext("2d");
-    let snake = [
-      { x: 200, y: 200 },
-      { x: 190, y: 200 },
-      { x: 180, y: 200 },
-      { x: 170, y: 200 },
-      { x: 160, y: 200 },
-    ];
+
+    let canvasColor = "hsla(0, 0%, 71%, 0.87)";
+    let canvasStroke = "black";
+    let snakeColor = "hsl(113, 70%, 60%)";
+    let snakeStroke = "green";
+    let snakeSize = 10;
     let dx = 10;
     let dy = 0;
     let update;
     let foodX;
     let foodY;
     let score = 0;
+    let lose = false;
+    let speed = 100;
+    let snake = [
+      { x: canvas.width/2, y: canvas.height/2 },
+      { x: canvas.width/2 - snakeSize, y: canvas.height/2 },
+      { x: canvas.width/2 - snakeSize*2, y: canvas.height/2 },
+      { x: canvas.width/2 - snakeSize*3, y: canvas.height/2 },
+      { x: canvas.width/2 - snakeSize*4, y: canvas.height/2 },
+    ];
 
     window.addEventListener("load", () => {
       drawCanvas();
       drawSnake(snake);
       setFood();
-      updateCanvas();
     });
 
     window.addEventListener("keydown", (e) => {
       direction(e);
+      if(e.keyCode === 32){startGame()}
+      if(e.keyCode === 82){resetGame()}
     });
+
+    startBtn.addEventListener("click",startGame)
+    resetBtn.addEventListener("click",resetGame)
+
+    function resetGame(){
+      window.location.reload()
+    }
+
+    function startGame(){
+      updateCanvas()
+    }
 
     function updateCanvas() {
       update = setInterval(() => {
@@ -57,26 +76,33 @@
         move(snake);
         drawCanvas();
         drawSnake(snake);
-        touchBody()
-        boundary();
         drawFood();
-      }, 50);
+        isLose()
+        console.log(speed)
+      }, speed); 
     }
 
     function drawCanvas() {
-      ctx.fillStyle = "gray";
-      ctx.fillRect(0, 0, 400, 400);
-      ctx.strokeStyle = "red";
-      ctx.strokeRect(0, 0, 400, 400);
+      ctx.fillStyle = canvasColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = canvasStroke;
+      ctx.strokeRect(0, 0, canvas.width, canvas.height);
     }
 
     function drawSnake(snake) {
-      snake.forEach((snake) => {
-        ctx.fillStyle = "yellow";
-        ctx.fillRect(snake.x, snake.y, 10, 10);
-        ctx.strokeStyle = "green";
-        ctx.strokeRect(snake.x, snake.y, 10, 10);
+      snake.forEach((snake,index) => {
+        if(index == 0){
+          ctx.fillStyle = "yellow";
+          ctx.strokeStyle = snakeStroke;
+        }
+        else{
+          ctx.fillStyle = snakeColor;
+          ctx.strokeStyle = snakeStroke;
+        }
+        ctx.fillRect(snake.x, snake.y, snakeSize, snakeSize);
+        ctx.strokeRect(snake.x, snake.y, snakeSize, snakeSize);
       });
+      
     }
 
     function move(snake) {
@@ -92,32 +118,19 @@
         dx = 0;
       }
       // Down
-      if (e.keyCode === 40 && dy !== -10) {
+      else if (e.keyCode === 40 && dy !== -10) {
         dy = 10;
         dx = 0;
       }
       // Left
-      if (e.keyCode === 37 && dx !== 10) {
+      else if (e.keyCode === 37 && dx !== 10) {
         dy = 0;
         dx = -10;
       }
       // Right
-      if (e.keyCode === 39 && dx !== -10) {
+      else if (e.keyCode === 39 && dx !== -10) {
         dy = 0;
         dx = 10;
-      }
-    }
-
-    function boundary() {
-      if (
-        snake[0].x < 0 ||
-        snake[0].x == 400 ||
-        snake[0].y < 0 ||
-        snake[0].y == 400
-      ) {
-        alert("you lose");
-        clearInterval(update);
-        clearInterval(food);
       }
     }
 
@@ -126,9 +139,8 @@
     }
 
     function setFood() {
-      console.log("setfood");
-      foodX = createFood(0, 400);
-      foodY = createFood(0, 400);
+      foodX = createFood(0, canvas.width);
+      foodY = createFood(0, canvas.height);
       snake.forEach((item) => {
         if (item.x === foodX || item.y === foodY) {
           setFood();
@@ -137,29 +149,38 @@
     }
 
     function drawFood() {
-      ctx.fillStyle = "yellow";
-      ctx.fillRect(foodX, foodY, 10, 10);
-      ctx.strokeStyle = "green";
-      ctx.strokeRect(foodX, foodY, 10, 10);
+      ctx.fillStyle = snakeColor;
+      ctx.fillRect(foodX, foodY, snakeSize, snakeSize);
+      ctx.strokeStyle = snakeStroke;
+      ctx.strokeRect(foodX, foodY, snakeSize, snakeSize);
     }
 
     function genFood() {
-      // 碰到食物 + 變大
+      // touch food and be bigger
       if (snake[0].x == foodX && snake[0].y == foodY) {
         setFood();
         snake.push({ x: snake.x, y: snake.y });
         score += 10;
-        scoreDiv.innerText = `${score}`;
+        speed -= 5;
+        scoreDiv.innerText = `Your score : ${score}`;
+        clearInterval(update);
+        updateCanvas()
       }
     }
 
-    function touchBody() {
+    function isLose() {
+      // touch body
       for (let i = 4; i < snake.length; i++) {
-        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) { lose = true}
+      }
+      // boundary
+      if (snake[0].x < 0 ||snake[0].x == 500 ||snake[0].y < 0 ||snake[0].y == 500) {lose = true}
+      // lose
+      if(lose){
           alert("you lose");
           clearInterval(update);
           clearInterval(food);
-        }
+          lose = false
       }
     }
   </script>

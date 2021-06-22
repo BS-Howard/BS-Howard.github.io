@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="shortcut icon" href="https://img.icons8.com/color/48/000000/snake.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="score">Your score : 0</div>
+      <canvas id="snakeboard" width="500" height="500"></canvas>
+      <div class="btn">
+        <button id="start">Start</br>(Press SpaceBar)</button>
+        <button id="reset">Reset</br>(Press R)</button>
+        <button id="twoSnake">2 Snake</br>(Press T)</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const scoreDiv = document.getElementById("score");
+    const canvas = document.querySelector("#snakeboard");
+    const startBtn = document.getElementById("start");
+    const resetBtn = document.getElementById("reset");
+    const twoSnakeBtn = document.getElementById("twoSnake");
+    const ctx = canvas.getContext("2d");
+
+    let canvasColor = "hsla(0, 0%, 71%, 0.87)";
+    let canvasStroke = "black";
+    let update;
+    let score = 0;
+    let lose = false;
+    let speed = 100;
+    let two_Snake = false
+    let useBtn = true
+
+    let s1 = {
+        snakeColor: "hsl(113, 70%, 60%)",
+        snakeStroke: "green",
+        snakeSize: 10,
+        dx: 10,
+        dy: 0,
+        foodX: 0,
+        foodY: 0,
+        body: [
+        { x: canvas.width/2, y: canvas.height/2 },
+        { x: canvas.width/2 - 10, y: canvas.height/2 },
+        { x: canvas.width/2 - 10*2, y: canvas.height/2 },
+        { x: canvas.width/2 - 10*3, y: canvas.height/2 },
+        { x: canvas.width/2 - 10*4, y: canvas.height/2 },
+        ],
+    }
+
+    let s2 = {
+        snakeColor: "purple",
+        snakeStroke: "green",
+        snakeSize: 10,
+        dx: 10,
+        dy: 0,
+        foodX: 0,
+        foodY: 0,
+        body: [
+        { x: canvas.width/2, y: canvas.height/2 - 10*2},
+        { x: canvas.width/2 - 10, y: canvas.height/2  - 10*2},
+        { x: canvas.width/2 - 10*2, y: canvas.height/2  - 10*2},
+        { x: canvas.width/2 - 10*3, y: canvas.height/2 - 10*2},
+        { x: canvas.width/2 - 10*4, y: canvas.height/2 - 10*2},
+        ],
+    }
+
+    let snakeArray = [s1]
+
+    window.addEventListener("load", () => {
+      drawCanvas();
+      snakeArray.forEach(x=>{
+        drawSnake(x);
+        setFood(x);
+      })
+    });
+
+    window.addEventListener("keydown", (e) => {
+      direction(e,s1);
+      directionSecond(e,s2)
+      if(e.keyCode === 32 && useBtn){startGame(); useBtn = !useBtn}
+      else if(e.keyCode === 82){resetGame();useBtn = !useBtn}
+      else if(e.keyCode === 84 && useBtn){twoSnake()}
+    });
+
+    startBtn.addEventListener("click",startGame)
+    resetBtn.addEventListener("click",resetGame)
+    twoSnakeBtn.addEventListener("click",twoSnake)
+
+    function resetGame(){
+      window.location.reload()
+    }
+
+    function startGame(){
+      startBtn.disabled = true;
+      twoSnakeBtn.disabled = true;
+      updateCanvas()
+    }
+
+    function twoSnake() {
+      two_Snake = true
+      snakeArray.push(s2)
+      drawCanvas();
+      snakeArray.forEach(x=>{
+        drawSnake(x);
+        setFood(x);
+      })
+    }
+
+    function updateCanvas() {
+      update = setInterval(() => {
+        snakeArray.forEach(x=>{
+            genFood(x);
+            move(x);
+          })
+          drawCanvas();
+          snakeArray.forEach(x=>{
+            drawSnake(x);
+            drawFood(x);
+          })
+          isLose(snakeArray);
+      }, speed); 
+    }
+
+    function drawCanvas() {
+      ctx.fillStyle = canvasColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = canvasStroke;
+      ctx.strokeRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawSnake(snake) {
+      snake.body.forEach((body,index) => {
+        if(index == 0){
+          ctx.fillStyle = "yellow";
+          ctx.strokeStyle = snake.snakeStroke;
+        }
+        else{
+          ctx.fillStyle = snake.snakeColor;
+          ctx.strokeStyle = snake.snakeStroke;
+        }
+        ctx.fillRect(body.x, body.y, snake.snakeSize, snake.snakeSize);
+        ctx.strokeRect(body.x, body.y, snake.snakeSize, snake.snakeSize);
+      });
+      
+    }
+
+    function move(snake) {
+      let head = { x: snake.body[0].x + snake.dx, y: snake.body[0].y + snake.dy };
+      snake.body.unshift(head);
+      snake.body.pop();
+    }
+
+    function direction(e,snake) {
+      // Up
+      if (e.keyCode === 38 && snake.dy !== 10) {
+        snake.dy = -10;
+        snake.dx = 0;
+      }
+      // Down
+      else if (e.keyCode === 40 && snake.dy !== -10) {
+        snake.dy = 10;
+        snake.dx = 0;
+      }
+      // Left
+      else if (e.keyCode === 37 && snake.dx !== 10) {
+        snake.dy = 0;
+        snake.dx = -10;
+      }
+      // Right
+      else if (e.keyCode === 39 && snake.dx !== -10) {
+        snake.dy = 0;
+        snake.dx = 10;
+      }
+    }
+
+    function directionSecond(e,snake) {
+      // Up
+      if (e.keyCode === 87 && snake.dy !== 10) {
+        snake.dy = -10;
+        snake.dx = 0;
+      }
+      // Down
+      else if (e.keyCode === 83 && snake.dy !== -10) {
+        snake.dy = 10;
+        snake.dx = 0;
+      }
+      // Left
+      else if (e.keyCode === 65 && snake.dx !== 10) {
+        snake.dy = 0;
+        snake.dx = -10;
+      }
+      // Right
+      else if (e.keyCode === 68 && snake.dx !== -10) {
+        snake.dy = 0;
+        snake.dx = 10;
+      }
+    }
+
+    function createFood(min, max) {
+      return Math.floor((Math.random() * (max - min) + min) / 10) * 10;
+    }
+
+    function setFood(snake) {
+        snake.foodX = createFood(0, canvas.width);
+        snake.foodY = createFood(0, canvas.height);
+      snake.body.forEach((item) => {
+        if (item.x ===  snake.foodX || item.y ===  snake.foodY) {
+          setFood(snake);
+        }
+      });
+    }
+
+    function drawFood(snake) {
+      ctx.fillStyle = snake.snakeColor;
+      ctx.fillRect(snake.foodX, snake.foodY, snake.snakeSize, snake.snakeSize);
+      ctx.strokeStyle = snake.snakeStroke;
+      ctx.strokeRect(snake.foodX, snake.foodY, snake.snakeSize, snake.snakeSize);
+    }
+
+    function genFood(snake) {
+      // touch food and be bigger
+      if (snake.body[0].x == snake.foodX && snake.body[0].y == snake.foodY) {
+        setFood(snake);
+        snake.body.push({ x: snake.body.x, y: snake.body.y });
+        score += 10;
+        speed -= 3;
+        scoreDiv.innerText = `Your score : ${score}`;
+        clearInterval(update);
+        updateCanvas()
+      }
+    }
+
+    function isLose(array) {
+      array.forEach(snake=>{
+        // touch body
+        for (let i = 4; i < snake.body.length; i++) {
+            if (snake.body[i].x === snake.body[0].x && snake.body[i].y === snake.body[0].y) { lose = true}
+        }
+        // boundary
+        if (snake.body[0].x < 0 ||snake.body[0].x == 500 ||snake.body[0].y < 0 ||snake.body[0].y == 500) {lose = true}
+      })
+      // two snake
+      if(two_Snake){
+          for(let i = 0 ; i < array[0].body.length ; i++){
+              for(let z = 0 ; z < array[1].body.length ; z ++){
+                  if (array[0].body[i].x == array[1].body[z].x && array[0].body[i].y == array[1].body[z].y){
+                      lose = true
+                  }
+              }
+          }
+      }
+      // lose
+      if(lose){
+          clearInterval(update);
+          alert("you lose");
+          lose = false
+      }
+    }
+  </script>
+</html>

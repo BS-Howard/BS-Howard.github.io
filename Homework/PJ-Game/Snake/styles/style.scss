@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #score {
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem 0;
+  }
+  .btn {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    button {
+      cursor: pointer;
+      width: 13rem;
+      padding: .3rem .3rem;
+      font-size: 1.5rem;
+      margin: 0 2rem;
+      height: 100%;
+      border-radius: 10px;
+      color: #fff;
+      background-color: rgb(52, 109, 34);
+      span {
+        width: 100%;
+      }
+    }
+    #reset {
+      background-color: rgb(224, 42, 42);
+    }
+    #twoSnake {
+        background-color: rgb(93, 155, 248);
+    }
+  }
+}
