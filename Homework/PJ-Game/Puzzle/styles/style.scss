@@ -11,55 +11,84 @@ html {
 
 body {
   display: flex;
-  background-image: linear-gradient(90deg,rgba(216, 154, 30, 0.801),rgba(236, 236, 42, 0.555));
+  background-image: linear-gradient(
+    90deg,
+    rgba(216, 154, 30, 0.801),
+    rgba(236, 236, 42, 0.555)
+  );
   text-align: center;
   flex-direction: column;
   padding-top: 2rem;
   height: 100%;
 }
 
-h1 {
-    color: #E4FDE1;
-    text-align: center;
-    font-size: 5rem;
-}
 
-.btn{
-  margin: 1rem 0;
-  button{
-    cursor: pointer;
-    width: 5rem;
-    margin: auto;
-    padding: .5rem 1rem;
-    background-color: #f1a6d4;
-  }
-}
 
-#container {
-  width: 500px;
-  height: 500px;
-  background-color: rgb(219, 219, 152);
-  margin: 0 auto;
-}
-
-ul {
+.wrap {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  color: #e4fde1;
-  li {
-    background-image: url("/PJ-Game/Puzzle/pic.jpg");
-    // background-position-x: 0%;
-    // background-position-y: 50%;
-    display: block;
-    // background: #3aa0ad;
-    border: 1px solid #25bdd1;
-    text-align: center;
-    font-size: 2rem;
-    cursor: default;
+  justify-content: center;
+  .pic {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 60%;
+      margin: 1rem 0;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: .3s;
+      &:hover{
+        transform: scale(1.1);
+      }
+    }
   }
-  .empty{
-    background: #DAD4EF;
-    border: 1px solid #3aa0ad;
+  .main {
+    margin-left: -10rem;
+    h1 {
+      color: #e4fde1;
+      text-align: center;
+      font-size: 4rem;
+    }
+    .btn {
+      margin: 0.5rem 0;
+      button {
+        cursor: pointer;
+        width: 5rem;
+        margin: auto;
+        padding: 0.5rem 1rem;
+        background-color: #f1a6d4;
+      }
+    }
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #ff0000;
+    }
+    #container {
+      width: 500px;
+      height: 500px;
+      background-color: rgb(219, 219, 152);
+      margin: 0 auto;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        color: #e4fde1;
+        li.tips {
+          color: #fff;
+        }
+        li {
+          display: block;
+          text-align: center;
+          font-size: 2rem;
+          cursor: default;
+          color: transparent;
+        }
+        .empty {
+          background: #fff;
+        }
+      }
+    }
   }
 }
+
+

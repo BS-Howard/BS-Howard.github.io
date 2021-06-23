@@ -8,17 +8,27 @@
     <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
-    <h1>Sliding Tile Puzzle</h1>
-    <div class="btn">
-      <button data-num="3" id="three">3 X 3</button>
-      <button data-num="4" id="four">4 X 4</button>
-      <button data-num="5" id="four">5 X 5</button>
-      <button data-num="6" id="four">6 X 6</button>
-      <button id="reset">Reset</button>
-    </div>
-    <div id="container">
-      <ul>
-      </ul>
+    <div class="wrap">
+      <div class="pic">
+        <img src="pic.jpg">
+        <img src="pic3.jpg">
+      </div>
+      <div class="main">
+        <h1>Sliding Tile Puzzle</h1>
+        <div class="btn">
+          <button data-num="3" id="three" class="play" disabled = true>3 X 3</button>
+          <button data-num="4" id="four" class="play" disabled = true>4 X 4</button>
+          <button data-num="5" id="four" class="play" disabled = true>5 X 5</button>
+          <button data-num="6" id="four" class="play" disabled = true>6 X 6</button>
+          <button id="reset">Reset</button>
+          <button id="tips">Tips</button>
+        </div>
+        <h3 id="step">Your step : </h3>
+        <div id="container">
+          <ul>
+          </ul>
+        </div>
+            </div>
     </div>
     <script src="app.js"></script>
   </body>
