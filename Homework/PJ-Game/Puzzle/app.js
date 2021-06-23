@@ -123,9 +123,7 @@ function move(arr, list) {
   list.forEach((x) => {
     x.addEventListener("click", (e) => {
       let empty = Array.from(list).filter((item) => item.innerText == "");
-      let now = getStatus(status, arr).filter(
-        (x) => x.name == e.target.innerText
-      );
+      let now = getStatus(status, arr).filter((x) => x.name == e.target.innerText);
       let limit = getStatus(status, arr).filter(
         (x) =>
           ((x.row == now[0].row - 1 || x.row == now[0].row + 1) &&
@@ -159,12 +157,11 @@ function getStatus(arr, numarray) {
   }
   cols.forEach((row, index) => {
     row.forEach((x, i) => {
-      if (x == numarray[numarray.length - 1]) {
-        x = "";
-      }
+      if (x == numarray[numarray.length - 1]) { x = ""; }
       total.push({ name: x, row: index, col: i });
     });
   });
+  console.log(total)
   return total;
 }
 
