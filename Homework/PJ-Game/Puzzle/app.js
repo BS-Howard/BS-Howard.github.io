@@ -1,3 +1,4 @@
+const fileBtn = document.getElementById("file");
 const picBtn = document.querySelectorAll(".pic img");
 const resetBtn = document.getElementById("reset");
 const allBtn = document.querySelectorAll(".btn .play");
@@ -11,6 +12,19 @@ let picArray = [];
 let win = [];
 let step = 0;
 let url = "";
+
+// 上傳照片
+fileBtn.addEventListener("change",(e)=>{
+  const file = e.target.files[0];//將上傳檔案轉換為base64字串
+  const fr = new FileReader();//建立FileReader物件
+  fr.onload = function (e) {
+    url = e.target.result
+  };
+  // 使用 readAsDataURL 將圖片轉成 Base64
+  fr.readAsDataURL(file);
+
+  allBtn.forEach((x) => (x.disabled = false));
+})
 
 // 選擇照片
 picBtn.forEach((pic) => {

@@ -32,6 +32,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: -1rem;
 }
 
 .wrap .pic {
@@ -119,5 +120,9 @@ body {
 
 .wrap .main #container ul .empty {
   background: #fff;
+}
+
+label {
+  width: 60%;
 }
 /*# sourceMappingURL=style.css.map */

@@ -27,6 +27,7 @@ body {
 .wrap {
   display: flex;
   justify-content: center;
+  margin-top: -1rem;
   .pic {
     display: flex;
     flex-direction: column;
@@ -91,4 +92,6 @@ body {
   }
 }
 
-
+label{
+  width: 60%;
+}
