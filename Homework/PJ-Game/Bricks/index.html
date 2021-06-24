@@ -20,7 +20,7 @@
     </style>
   </head>
   <body>
-    <canvas id="canvas" width="550" height="400"></canvas>
+    <canvas id="canvas" width="1000" height="650"></canvas>
 
     <script>
       const canvas = document.getElementById("canvas");
@@ -33,19 +33,19 @@
       let dx = 2;
       let dy = 2;
       let paddleColor = "rgb(79, 214, 79)";
-      let paddleWidth = 90;
+      let paddleWidth = 150;
       let paddleHeight = 18;
       let paddle_X = canvas.width / 2 - paddleWidth / 2;
       let paddle_Y = canvas.height - paddleHeight;
       let timer;
-      let brickColor = "rgb(79, 214, 79)";
-      let brickRowCount = 6;
-      let brickColumnCount = 5;
+      let brickColor = "rgb(247, 129, 62)";
+      let brickRowCount = 11;
+      let brickColumnCount = 8;
       let brickWidth = 75;
       let brickHeight = 20;
       let brickPadding = 10;
       let brickOffsetTop = 40;
-      let brickOffsetLeft = 30;
+      let brickOffsetLeft = 35;
       let score = 0;
       let lives = 3;
 
@@ -180,7 +180,7 @@
               bricks[c][r].y = brickY;
               ctx.beginPath();
               ctx.rect(brickX, brickY, brickWidth, brickHeight);
-              ctx.fillStyle = "brickColor";
+              ctx.fillStyle = brickColor;
               ctx.fill();
               ctx.closePath();
             }

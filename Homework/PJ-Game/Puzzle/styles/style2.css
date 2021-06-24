@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(216, 154, 30, 0.801)), to(rgba(236, 236, 42, 0.555)));
+  background-image: linear-gradient(90deg, rgba(216, 154, 30, 0.801), rgba(236, 236, 42, 0.555));
+}
+
+.wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrap .main h1 {
+  color: #e4fde1;
+  text-align: center;
+  font-size: 3.5rem;
+}
+
+.wrap .main .btn {
+  margin: 0.5rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrap .main .btn button {
+  cursor: pointer;
+  padding: 0.2rem 0;
+  background-color: #f1a6d4;
+  width: 6rem;
+  margin: 0 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.wrap .main .btn .custom-file {
+  margin: 0 1rem;
+  width: 25%;
+}
+
+.wrap .main .btn .custom-file .custom-file-input {
+  width: 10rem;
+}
+
+.wrap .main .btn .custom-file label {
+  width: 100%;
+}
+
+.wrap .main .btn h3 {
+  width: 12rem;
+  font-size: 1.5rem;
+  color: #f1a6d4;
+}
+
+.wrap .main #container {
+  width: 500px;
+  height: 500px;
+  background-color: #e9e2d3;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 500px;
+  font-size: 1.5rem;
+  outline: 1px solid #000;
+}
+
+.wrap .main #container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  color: #e4fde1;
+}
+
+.wrap .main #container ul li.tips {
+  color: #fff;
+}
+
+.wrap .main #container ul li {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  cursor: default;
+  color: transparent;
+}
+
+.wrap .main #container ul .empty {
+  background: #fff;
+}
+/*# sourceMappingURL=style2.css.map */
