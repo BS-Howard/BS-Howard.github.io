@@ -117,13 +117,14 @@
           endTime = getTime();
           totalTime = (endTime - startTime) / 1000;
           rank = [totalTime]
+          rankChange();
           alert(`你的成績 : ${totalTime}秒`);
         } else {
           alert("太心急囉~");
         }
         can_Click = false;
         clearTimeout(timer);
-        rankChange();
+        
         showScore();
       }
 
