@@ -6,25 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test your reaction!</title>
     <style>
+      @font-face {
+        font-family: "easy";
+        src: url("清松手寫體2.ttf");
+      }
       * {
         margin: 0;
         padding: 0;
         list-style: none;
+        font-family: "easy";
       }
-      html {
+      html{
         height: 100%;
       }
       body {
         height: 100%;
+        background-color: hsl(180, 33%, 26%);
       }
       .box {
-        height: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
+        display: flex;
       }
       .box h1 {
         cursor: pointer;
+        color: #fff;
+        margin: 10rem auto;
+      }
+      .end {
+        height: 15rem;
+        padding-top: 10rem;
+        color: #fff;
+        align-items: center;
+        flex-direction: column;
+        display: none;
+      }
+      .end p{
+        margin-top: 1rem;
+        font-size: 1.5rem;
+      }
+      .price {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+      }
+      .price p {
+        margin: 0.5rem 0;
+      }
+      .again {
+        color: #fff;
+        padding: 0.5rem 1.2rem;
+        border-radius: 0.5rem;
+        border: 1px solid #fff;
+        background-color: transparent;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .again:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 0px 10px #fff;
       }
     </style>
   </head>
@@ -32,5 +72,109 @@
     <div class="box">
       <h1>開始測驗你的反應力，畫面變色時請點擊螢幕</h1>
     </div>
+    <div class="end">
+      <h1>點擊再玩一次，開始測驗你的反應力!!</h1>
+      <p>反應力就是你的超能力</p>
+      <div class="price">
+      </div>
+      <button class="again">再來一次</button>
+    </div>
+
+    <script>
+      const box = document.querySelector(".box");
+      const end = document.querySelector(".end");
+      const price = document.querySelector(".price")
+      let timer;
+      let startTime = 0;
+      let endTime = 0;
+      let totalTime = 0;
+      let can_Click = false;
+      let rank = [];
+
+      window.addEventListener("load", (e) => {
+        startHandler();
+        clickHandler();
+        againHandler();
+      });
+
+      function startHandler() {
+        let ranNum = random(1000, 3000);
+
+        timer = setTimeout(() => {
+          startTime = getTime();
+          let bgcHue = random(0, 359);
+          document.body.style.backgroundColor = `hsl(${bgcHue}, 33%, 26%)`;
+          can_Click = true;
+        }, ranNum);
+      }
+
+      function clickHandler() {
+        document.body.addEventListener("click", bodyClick,{once:true});
+      }
+
+      function bodyClick() {
+        if (can_Click) {
+          endTime = getTime();
+          totalTime = (endTime - startTime) / 1000;
+          rank = [totalTime]
+          alert(`你的成績 : ${totalTime}秒`);
+        } else {
+          alert("太心急囉~");
+        }
+        can_Click = false;
+        clearTimeout(timer);
+        rankChange();
+        showScore();
+      }
+
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function getTime() {
+        let today = new Date();
+        return today.getTime();
+      }
+
+      function showScore() {
+        box.style.display = "none";
+        end.style.display = "flex";
+      }
+
+      function againHandler() {
+        let againBtn = document.querySelector(".again");
+        againBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          document.body.style.backgroundColor = `hsl(180, 33%, 26%)`;
+          box.style.display = "flex";
+          end.style.display = "none";
+          startHandler();
+          clickHandler();
+          againHandler();
+        },{once:true});
+      }
+
+      function rankChange() {
+        price.innerHTML = "";
+
+        let ranking = JSON.parse(localStorage.getItem("ranking"));
+        
+        if (ranking !== null){rank.push(...ranking);}
+        
+        rank.sort((a,b)=>{return a - b});
+        
+        if (rank.length > 3) {rank.length = 3}
+
+        localStorage.setItem("ranking",JSON.stringify(rank));
+        
+        rank.forEach((item,index)=>{
+          let p = document.createElement('p');
+          p.innerText = `第${index+1}名:  ${item}秒`
+          price.append(p);
+        })
+      }
+
+      // localStorage.clear()
+    </script>
   </body>
 </html>
