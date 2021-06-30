@@ -1,210 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Google Map</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/3524cb55bc.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/3524cb55bc.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+    />
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <style>
-        .container-fluid > .row{
-            height: 100vh;
-        }
-        #map{
-            height: 100%;
-        }
+      .container-fluid > .row {
+        height: 100vh;
+      }
+      #map {
+        height: 100%;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container-fluid">
-        <div class="row py-3">
-            <div class="col-6">
-                <div id="map">
-                    <!-- 地圖 -->
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="row">
-                    <!-- 下拉式選單 -->
-                    <div class="form-group col-6">
-                        <label for="country">縣市</label>
-                        <select id="country" class="form-control">
-                            <!-- option -->
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <h2 class="w-100 text-center">
-                        <strong></strong> 每人用水量統計(月份/公升)
-                    </h2>
-                    <div class="col-12">
-                        <table class="table table-bordered table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th>1月</th>
-                                    <th>2月</th>
-                                    <th>3月</th>
-                                    <th>4月</th>
-                                    <th>5月</th>
-                                    <th>6月</th>
-                                    <th>7月</th>
-                                    <th>8月</th>
-                                    <th>9月</th>
-                                    <th>10月</th>
-                                    <th>11月</th>
-                                    <th>12月</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+      <div class="row py-3">
+        <div class="col-6">
+          <div id="map">
+            <!-- 地圖 -->
+          </div>
         </div>
+        <div class="col-6">
+          <div class="row">
+            <!-- 下拉式選單 -->
+            <div class="form-group col-6">
+              <label for="country">縣市</label>
+              <select id="country" class="form-control">
+                <!-- option -->
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <h2 class="w-100 text-center">
+              <strong></strong> 每人用水量統計(月份/公升)
+            </h2>
+            <div class="col-12">
+              <table class="table table-bordered table-striped text-center">
+                <thead>
+                  <tr>
+                    <th>1月</th>
+                    <th>2月</th>
+                    <th>3月</th>
+                    <th>4月</th>
+                    <th>5月</th>
+                    <th>6月</th>
+                    <th>7月</th>
+                    <th>8月</th>
+                    <th>9月</th>
+                    <th>10月</th>
+                    <th>11月</th>
+                    <th>12月</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+      integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
     <script>
-        // 初始化地圖
-        let map = L.map('map',{
-            center:[25.03416068163684, 121.56454962636319],
-            zoom: 9
-        })
+      // 初始化地圖
+      let map = L.map("map", {
+        center: [25.03416068163684, 121.56454962636319],
+        zoom: 9,
+      });
 
-        // 設定圖資來源
-        let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 });
-        map.addLayer(osm);
+      // 設定圖資來源
+      let osmUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+      let osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 19 });
+      map.addLayer(osm);
 
-        //設定讀取網路資源(Axios)
-        //台灣行政區域經緯度
-        let areaDataRequest = axios.get('https://bs-howard.github.io/Homework/HW-Map/Water%20Usage/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json');
-        //各行政區每人平均用水量
-        let waterDataRequest = axios.get('https://bs-howard.github.io/Homework/HW-Map/Water%20Usage/%E5%8F%B0%E7%81%A3%E8%87%AA%E4%BE%86%E6%B0%B4%E7%94%A8%E9%87%8F.json');
+      //設定讀取網路資源(Axios)
+      //台灣行政區域經緯度
+      let areaDataRequest = axios.get(
+        "https://bs-howard.github.io/Homework/HW-Map/Water%20Usage/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json"
+      );
+      //各行政區每人平均用水量
+      let waterDataRequest = axios.get(
+        "https://bs-howard.github.io/Homework/HW-Map/Water%20Usage/%E5%8F%B0%E7%81%A3%E8%87%AA%E4%BE%86%E6%B0%B4%E7%94%A8%E9%87%8F.json"
+      );
 
-        // 全域變數宣告
-        let areaData; // 行政區
-        let waterData; // 水用量資料
-        let waterAreaData; // 兩者資料
-        let markers = L.markerClusterGroup(); // marker叢集物件
+      // 全域變數宣告
+      let areaData; // 行政區
+      let waterData; // 水用量資料
+      let waterAreaData; // 兩者資料
+      let markers = L.markerClusterGroup(); // marker叢集物件
 
-        function setMarker() {
-            // 清空markers
-            if (markers) markers.clearLayers();
+      function setMarker() {
+        // 清空markers
+        if (markers) markers.clearLayers();
 
-            Object.keys(waterAreaData).forEach(x =>{
-                let data = waterAreaData[x];
-                let marker = L.marker([data[0].Lat, data[0].Lng]);
-                let avg = (data.map(x => parseInt(x.TheDailyDomesticConsumptionOfWaterPerPerson)).reduce((a,b) => a + b) / 12).toFixed(2)
-                marker.bindPopup(`
+        Object.keys(waterAreaData).forEach((x) => {
+          let data = waterAreaData[x];
+          let marker = L.marker([data[0].Lat, data[0].Lng]);
+          let avg = (
+            data
+              .map((x) =>
+                parseInt(x.TheDailyDomesticConsumptionOfWaterPerPerson)
+              )
+              .reduce((a, b) => a + b) / 12
+          ).toFixed(2);
+          marker.bindPopup(`
                                 <h4>${data[0].County} ${data[0].Town}</h4>
                                 <p>整年平均每人用水量: ${avg}公升</p>
-                `)
+                `);
 
-                marker.addEventListener("click",function(){
-                    document.querySelector('strong').innerText = `${data[0].County} ${data[0].Town}`;
+          marker.addEventListener("click", function () {
+            document.querySelector(
+              "strong"
+            ).innerText = `${data[0].County} ${data[0].Town}`;
 
-                    let tbody = document.querySelector('tbody');
-                    tbody.innerHTML = "";
+            let tbody = document.querySelector("tbody");
+            tbody.innerHTML = "";
 
-                    let waterTr = document.createElement('tr');
-                    data.forEach(x => {
-                        let td = document.createElement("td");
-                        td.innerText = x.TheDailyDomesticConsumptionOfWaterPerPerson
-                        waterTr.appendChild(td)
-                    })
+            let waterTr = document.createElement("tr");
+            data.forEach((x) => {
+              let td = document.createElement("td");
+              td.innerText = x.TheDailyDomesticConsumptionOfWaterPerPerson;
+              waterTr.appendChild(td);
+            });
 
-                    let tagTr = document.createElement('tr');
-                    data.forEach(x => {
-                        let td = document.createElement('td');
-                        let icon = document.createElement('i');
-                        icon.classList.add('fas', 'fa-circle');
-                        icon.style.color = parseFloat(x.TheDailyDomesticConsumptionOfWaterPerPerson) > avg ? "red" : "greenyellow";
-                        td.appendChild(icon)
-                        tagTr.appendChild(td)
-                    })
+            let tagTr = document.createElement("tr");
+            data.forEach((x) => {
+              let td = document.createElement("td");
+              let icon = document.createElement("i");
+              icon.classList.add("fas", "fa-circle");
+              icon.style.color =
+                parseFloat(x.TheDailyDomesticConsumptionOfWaterPerPerson) > avg
+                  ? "red"
+                  : "greenyellow";
+              td.appendChild(icon);
+              tagTr.appendChild(td);
+            });
 
-                    tbody.appendChild(waterTr);
-                    tbody.appendChild(tagTr);
-                })
+            tbody.appendChild(waterTr);
+            tbody.appendChild(tagTr);
+          });
 
-                markers.addLayer(marker)
+          markers.addLayer(marker);
+        });
+
+        map.addLayer(markers);
+      }
+
+      window.onload = function () {
+        Promise.all([areaDataRequest, waterDataRequest]).then((res) => {
+          let [areaRes, waterRes] = res;
+
+          areaData = areaRes.data;
+          waterData =
+            waterRes.data.TaiwanWaterExchangingData.StatisticofWaterResourcesClass.StatisticofWaterUsageClass.TheConsumptionOfWater.filter(
+              (x) => x.Year == "109"
+            );
+
+          waterAreaData = waterData
+            .map((x) => {
+              let area = areaData.find(
+                (y) => y.City == x.County && y.District == x.Town
+              );
+              return {
+                CountryTown: x.County + x.Town,
+                County: x.County,
+                Month: x.Month,
+                TheDailyDomesticConsumptionOfWaterPerPerson:
+                  x.TheDailyDomesticConsumptionOfWaterPerPerson,
+                Town: x.Town,
+                Year: x.Year,
+                Lat: area != undefined ? area.Lat : undefined,
+                Lng: area != undefined ? area.Lng : undefined,
+              };
             })
+            .filter((x) => x.Lat != undefined)
+            .groupBy("CountryTown");
 
-            map.addLayer(markers)
-        }
+          // 初始化地圖marker
+          setMarker();
 
-        window.onload = function(){
-            Promise.all([areaDataRequest,waterDataRequest])
-                .then(res=>{
-                    let [areaRes,waterRes] = res;
+          // 下拉選單
+          let countrySelect = document.querySelector("#country");
+          let set = ["請選擇"].concat([
+            ...new Set(areaData.map((x) => x.City)),
+          ]);
+          set.forEach((x) => {
+            let option = document.createElement("option");
+            option.innerText = x;
+            option.value = x == "請選擇" ? "" : x;
+            countrySelect.appendChild(option);
+          });
+        });
+      };
 
-                    areaData = areaRes.data;
-                    waterData = waterRes.data.TaiwanWaterExchangingData.StatisticofWaterResourcesClass.StatisticofWaterUsageClass.TheConsumptionOfWater
-                                        .filter(x => x.Year == '109');
+      // 縣市選擇
+      document
+        .querySelector("#country")
+        .addEventListener("change", function () {
+          if (this.value != "") {
+            //改變地圖焦點，焦點移到該縣市
+            let country = areaData.find((x) => x.City == this.value);
+            map.setView([country.Lat, country.Lng], 12);
+          }
+        });
 
-                    waterAreaData = waterData.map(x =>{
-                        let area = areaData.find(y => y.City == x.County && y.District == x.Town);
-                        return {
-                            CountryTown: x.County + x.Town,
-                            County: x.County,
-                            Month: x.Month,
-                            TheDailyDomesticConsumptionOfWaterPerPerson: x.TheDailyDomesticConsumptionOfWaterPerPerson,
-                            Town: x.Town,       
-                            Year: x.Year,
-                            Lat: area != undefined ? area.Lat : undefined,
-                            Lng: area != undefined ? area.Lng : undefined       
-                        }
-                    }).filter(x => x.Lat != undefined).groupBy('CountryTown')
-
-                    // 初始化地圖marker
-                    setMarker();
-
-                    // 下拉選單
-                    let countrySelect = document.querySelector("#country")
-                    let set = ["請選擇"].concat([...new Set(areaData.map(x => x.City))])
-                    set.forEach(x => {
-                        let option = document.createElement("option");
-                        option.innerText = x;
-                        option.value = x == "請選擇" ? "" : x
-                        countrySelect.appendChild(option)
-                    })
-                })
-        }
-
-        // 縣市選擇
-        document.querySelector("#country").addEventListener("change",function(){
-            if (this.value != ""){
-                //改變地圖焦點，焦點移到該縣市
-                let country = areaData.find(x => x.City == this.value);
-                map.setView([country.Lat, country.Lng], 12)
-            }
-        })
-
-        Array.prototype.groupBy = function(prop) {
-            return this.reduce(function(groups, item) {
-                const val = item[prop]
-                groups[val] = groups[val] || []
-                groups[val].push(item)
-                return groups
-        }, {})
-    };
+      Array.prototype.groupBy = function (prop) {
+        return this.reduce(function (groups, item) {
+          const val = item[prop];
+          groups[val] = groups[val] || [];
+          groups[val].push(item);
+          return groups;
+        }, {});
+      };
     </script>
-</body>
+  </body>
 </html>
