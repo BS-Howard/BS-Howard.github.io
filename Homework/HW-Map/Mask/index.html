@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mask</title>
+  </head>
+  <body>
+    <script>
+      let drugStoreUrl = fetch(
+        "https://data.nhi.gov.tw/DataSets/DataSetResource.ashx?rId=A21030000I-D21005-001"
+      );
+      let maskUrl = fetch(
+        "https://data.nhi.gov.tw/Datasets/Download.ashx?rid=A21030000I-D50001-001&l=https://data.nhi.gov.tw/resource/mask/maskdata.csv"
+      );
+
+      let drugStoreData;
+      let maskData;
+
+      window.addEventListener("load", function () {
+        getData()
+          .then((x) => {
+            drugStoreData = x[0].split("\n");
+            maskData = x[1].split("\r\n");
+          })
+          .then((x) => {
+            drugStoreData.forEach((x,index) => {
+              drugStoreData[index] = x.split(',')
+            })
+            maskData.forEach((x,index) => {
+              maskData[index] = x.split(',')
+            })
+
+            console.log(maskData)
+
+
+
+          })
+      });
+
+      async function getData() {
+        let [drugRes, maskRes] = await Promise.all([drugStoreUrl, maskUrl]);
+        return [await drugRes.text(), await maskRes.text()];
+      }
+    </script>
+  </body>
+</html>
