@@ -26,6 +26,9 @@
       td{
         vertical-align: middle !important;
       }
+      .up tbody tr td:first-child{
+        width: 25% ;
+      }
   </style>
   </head>
   <body>
@@ -47,9 +50,16 @@
                       </select>
                   </div>
               </div>
-              <table class="table table-bordered table-striped  text-center">
+              <table class="table table-bordered table-striped  text-center up">
                   <tbody>
                   </tbody>
+              </table>
+              <table class="table table-bordered table-striped text-center down">
+                <thead>
+                  <tr>
+                  </tr>
+                </thead>
+                <tbody></tbody>
               </table>
           </div>
       </div>
@@ -104,14 +114,14 @@
                 `);
 
             marker.addEventListener("click",function(){
-                let tbody = document.querySelector('tbody')
-                tbody.innerHTML = ""
+                let upBody = document.querySelector('.up tbody');
+                let downBody = document.querySelector('.down tbody');
+                let downHead = document.querySelector('.down thead');
+                upBody.innerHTML = ""
+                downBody.innerHTML = ""
+                downHead.innerHTML = ""
 
-                tbody.innerHTML = `
-                    <tr>
-                        <td>縣市</td>
-                        <td>${item.city}</td>
-                    </tr>
+                upBody.innerHTML = `
                     <tr>
                         <td>藥局名稱</td>
                         <td>${item.name}</td>
@@ -125,16 +135,12 @@
                         <td>${item.address}</td>
                     </tr>
                     <tr>
-                        <td>營業時間</td>
-                        <td>${item.openDate}</td>
-                    </tr>
-                    <tr>
                         <td>成人口罩剩餘數量</td>
-                        <td>${item.adultMask}</td>
+                        <td>${item.adultMask}片</td>
                     </tr>
                     <tr>
                         <td>兒童口罩剩餘數量</td>
-                        <td>${item.childMask}</td>
+                        <td>${item.childMask}片</td>
                     </tr>
                     <tr>
                         <td>備註</td>
@@ -145,6 +151,41 @@
                         <td>${item.updateTime}</td>
                     </tr>
                 `
+                let dateArray = ["","一","二","三","四","五","六","日"]
+                let headTr = document.createElement("tr");
+                dateArray.forEach(x => {
+                  let td = document.createElement("td");
+                  td.innerText = `星期${x}`
+                  if(x ==""){td.innerText = ""}
+                  headTr.appendChild(td)
+                })
+                downHead.appendChild(headTr)
+
+                for(let i = 0; i < 15; i+=7){
+                  let tagTr = document.createElement("tr");
+                  item.openDate.split('、').slice(i,i+7).forEach(x => {
+                    let td = document.createElement("td");
+                    let icon = document.createElement("i");
+                    icon.classList.add("fas", "fa-circle");
+                    if(x.includes("看診")){
+                      icon.style.color ="greenyellow";
+                    }else{
+                      icon.style.color ="red";
+                    }
+                    td.appendChild(icon);
+                    tagTr.appendChild(td);
+                  })
+                  downBody.appendChild(tagTr);
+                }
+
+                let timeArray = ["上午","下午","晚上"]
+                downBody.querySelectorAll("tr").forEach((x,index)=>{
+                  let td = document.createElement("td");
+                  let firstChild = x.querySelector("td")
+                  td.innerText = timeArray[index]
+                  x.insertBefore(td,firstChild)
+                })
+                
             })
 
             markers.addLayer(marker);
