@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.container {
+  margin-top: 1rem;
+  cursor: default;
+  .selectPart {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    margin-bottom: 1rem;
+    #year-month {
+      text-align: center;
+      margin: auto;
+      font-size: 3rem;
+    }
+    button {
+      width: 5rem;
+    }
+  }
+  table {
+    text-align: center;
+    thead {
+      background-color: #007bff;
+      color: #fff;
+    }
+    tbody {
+      text-align: start;
+      td {
+        min-width: 130px;
+        height: 5.5rem;
+        font-weight: 700;
+        &:hover {
+          background-color: #6eb8e9;
+        }
+        ul {
+          li {
+              text-align: center;
+              margin-left: -12px;
+              margin-right: -12px;
+              font-weight: 400;
+            &:hover {
+              background-color: rgb(199, 243, 76);
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}
