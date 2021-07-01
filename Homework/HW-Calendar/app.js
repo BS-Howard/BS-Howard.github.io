@@ -19,7 +19,7 @@ function Init() {
     let dayofMonth = new Date(year,month + 1, 0).getDate();
 
     let day = 1;
-    let nextMonthDay = 1
+    let nextMonthDay = 1;
     let lastMonthDay = new Date(year,month, 0).getDate();
     let rows = Math.ceil((dayofMonth + firstDay) / 7)
 
