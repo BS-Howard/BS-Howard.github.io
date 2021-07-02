@@ -27,6 +27,7 @@
             <button type="button" class="btn  btn-outline-primary" onclick="AddTodo()"><i class="fas fa-plus"></i></button>
             <button type="button" class="btn  btn-outline-primary" onclick="MinMonth()"><i class="fas fa-chevron-left"></i></button>
             <button type="button" class="btn  btn-outline-primary" onclick="AddMonth()"><i class="fas fa-chevron-right"></i></button>
+            <button id="sortBtn" type="button" class="btn  btn-outline-primary" onclick="Sort()">依時間排序</button>
             <button id="todayBtn" type="button" class="btn  btn-outline-primary" onclick="BackToday()">今天</button>
         </div>
     </div>
@@ -172,15 +173,15 @@
                     <br>
 
                     <label class="mr-3">重要程度 : </label>
-                    <input type="radio" id="info-normal" class="level" value="#039be5" name="info-level" checked>
+                    <input type="radio" id="info-normal" class="info-level" value="#039be5" name="info-level" checked>
                     <label for="info-normal">普通</label>
                     <i class="fas fa-circle mr-5" style="color: #039be5"></i>
                     
-                    <input type="radio" id="info-medium" class="level" value="#f8db36" name="info-level" >
+                    <input type="radio" id="info-medium" class="info-level" value="#f8db36" name="info-level" >
                     <label for="info-medium">重要</label>
                     <i class="fas fa-circle mr-5" style="color: #f8db36;"></i>
                 
-                    <input type="radio" id="info-vital" class="level" value="red" name="info-level">
+                    <input type="radio" id="info-vital" class="info-level" value="red" name="info-level">
                     <label for="info-vital">非常重要</label>
                     <i class="fas fa-circle" style="color: red;"></i>
                 </div>

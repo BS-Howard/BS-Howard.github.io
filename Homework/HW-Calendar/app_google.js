@@ -96,7 +96,7 @@ function Init() {
 
                             span.innerText = item.time
                             let temp = item.title;
-                            li.innerText = temp.length > 10 ? `${item.title.slice(0,10)}...` : temp
+                            li.innerText = temp.length > 6 ? `${item.title.slice(0,6)}...` : temp
                             li.style.backgroundColor = `${item.level}`;
 
                             // 事件綁定，修改行程
@@ -108,7 +108,7 @@ function Init() {
                                 document.getElementById('info-todo-time').value = `${item.time}`;
                                 document.getElementById('info-remark-item').value = `${item.remark}`;
                                 document.getElementById('info-todo-position').value = `${item.position}`;
-                                document.querySelectorAll(".level").forEach(x => {
+                                document.querySelectorAll(".info-level").forEach(x => {
                                     if(x.getAttribute("value") == item.level){
                                         x.checked = true
                                     }
@@ -211,7 +211,7 @@ function EditTodoItem(){
     let todoTime = document.getElementById('info-todo-time').value;
     let remarkItem = document.getElementById('info-remark-item').value;
     let todoPosition = document.getElementById('info-todo-position').value;
-    let level = document.querySelectorAll(".level");
+    let level = document.querySelectorAll(".info-level");
     let todoLevel;
 
     level.forEach(x => {
@@ -338,3 +338,38 @@ document.querySelectorAll(".microphone").forEach(item =>{
         });
     })
 })
+
+// 排序
+function Sort() {
+    let i = 0
+    while(localStorage.key(i) != null){
+        let sortedArr = [];
+        let arr = JSON.parse(localStorage.getItem(localStorage.key(i)))
+
+        let newArr = [...arr].map(x => {
+            if(x == ""){return }
+            let str = x.time.split(':')
+            return str
+        })
+
+        newArr.sort(function(a,b) {
+            if(Number(a[0]) != Number(b[0])){
+                return Number(a[0]) - Number(b[0])
+            }else{
+                return Number(a[1]) - Number(b[1])
+            }
+        })
+
+        newArr.map(x => {return x.join(':')}).forEach(x =>{
+            arr.forEach(y =>{
+                if(x == y.time){
+                    sortedArr.push(y)
+                }
+            })
+        })
+
+        localStorage.setItem(localStorage.key(i),JSON.stringify(sortedArr));
+        i++
+    }
+    Init();
+}

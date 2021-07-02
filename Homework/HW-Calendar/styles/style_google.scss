@@ -41,7 +41,11 @@
     }
     #todayBtn {
       font-weight: 900;
-      width: 5rem;
+      width: 4rem;
+    }
+    #sortBtn {
+      font-weight: 900;
+      width: 6.7rem;
     }
   }
 }
@@ -77,8 +81,8 @@
             cursor: pointer;
             background-color: rgba(238, 238, 231, 0.575);
             border-radius: 50%;
-            &:hover{
-                background-color: rgb(223, 223, 215);
+            &:hover {
+              background-color: rgb(223, 223, 215);
             }
           }
           ul {
@@ -136,13 +140,13 @@
       padding: 0.5rem;
       margin: 0.3rem !important;
       border-radius: 50%;
-      &:hover{
-          background-color: rgb(230, 230, 230);
-      }   
+      &:hover {
+        background-color: rgb(230, 230, 230);
+      }
     }
-    .google-map{
-        align-self: center;
-        display: none;
+    .google-map {
+      align-self: center;
+      display: none;
     }
     .schedule {
       height: 48vh;
@@ -158,24 +162,24 @@
       ul {
         width: 18rem;
         margin-left: 1rem;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
         border-radius: 10px;
         li {
-          margin: .3rem;
+          margin: 0.3rem;
         }
       }
     }
   }
 }
 
-.microphone{
-    background-color: rgb(236, 236, 236);
-    padding: .7rem .8rem ;
-    border-radius: 50%;
-    cursor: pointer;
-    &:hover{
-        background-color: rgb(211, 211, 211);
-    }
+.microphone {
+  background-color: rgb(236, 236, 236);
+  padding: 0.7rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(211, 211, 211);
+  }
 }
 
 .toggle-left {
