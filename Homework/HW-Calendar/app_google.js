@@ -309,3 +309,32 @@ document.querySelector(".closeBtn").addEventListener("click",(e)=>{
     schedule.style.display = "none"
     googleMap.style.display = "none"
 })
+
+let speakBtn;
+//語音
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = 'zh-TW';
+
+recognition.addEventListener('result', e => {
+const transcript = Array.from(e.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join('');
+    speakBtn.parentNode.querySelector("input").value = transcript;
+    
+});
+
+document.querySelectorAll(".microphone").forEach(item =>{
+    item.addEventListener("click",function(e){
+        speakBtn = e.target
+        e.target.style.backgroundColor = "rgb(170, 170, 170)"
+        recognition.start();
+        recognition.addEventListener('end', function(){
+            recognition.stop()
+            speakBtn.style.backgroundColor = "rgb(236, 236, 236)"
+        });
+    })
+})

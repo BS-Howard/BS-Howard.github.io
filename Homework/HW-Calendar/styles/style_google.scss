@@ -168,6 +168,16 @@
   }
 }
 
+.microphone{
+    background-color: rgb(236, 236, 236);
+    padding: .7rem .8rem ;
+    border-radius: 50%;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(211, 211, 211);
+    }
+}
+
 .toggle-left {
   animation: slideLeft 0.5s;
 }

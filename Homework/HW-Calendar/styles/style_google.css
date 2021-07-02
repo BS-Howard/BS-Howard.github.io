@@ -226,6 +226,17 @@
   margin: .3rem;
 }
 
+.microphone {
+  background-color: #ececec;
+  padding: .7rem .8rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.microphone:hover {
+  background-color: lightgray;
+}
+
 .toggle-left {
   -webkit-animation: slideLeft 0.5s;
           animation: slideLeft 0.5s;
