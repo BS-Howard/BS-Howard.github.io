@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Google Calendar</title>
+    <link rel="shortcut icon" href="https://image.flaticon.com/icons/png/512/2738/2738407.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style_google.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- icon -->
+    <script src="https://kit.fontawesome.com/3524cb55bc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="selectPart">
+        <div class="logo">
+            <img src="https://image.flaticon.com/icons/png/512/2738/2738407.png">
+            <h4>My Google Calendar</h4>
+        </div>
+        <h1 id="year-month">2021 年 7 月</h1>
+        <div class="button-move">
+            <button type="button" class="btn  btn-outline-primary" onclick="AddTodo()"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn  btn-outline-primary" onclick="MinMonth()"><i class="fas fa-chevron-left"></i></button>
+            <button type="button" class="btn  btn-outline-primary" onclick="AddMonth()"><i class="fas fa-chevron-right"></i></button>
+            <button id="todayBtn" type="button" class="btn  btn-outline-primary" onclick="BackToday()">今天</button>
+        </div>
+    </div>
+    <div class="main">
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>週日</th>
+                    <th>週一</th>
+                    <th>週二</th>
+                    <th>週三</th>
+                    <th>週四</th>
+                    <th>週五</th>
+                    <th>週六</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <div class="side-nav border">
+            <button id="mapBtn" type="button" class="btn"><a href="https://www.google.com.tw/maps/@23.8759391,120.588669,8z?hl=zh-TW" target="_blank"><img src="https://image.flaticon.com/icons/png/512/854/854878.png"></a>
+            </button>
+
+            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/HW-Map/Mask/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/3017/3017381.png"></a></button>
+
+            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Snake/2snake.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1393/1393392.png"></a></button>
+
+            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Puzzle/index-ver2.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/993/993723.png"></a></button>
+
+            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Reaction/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1455/1455318.png"></a></button>
+            
+            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/JS30-Project/30-%20Whack%20A%20Mole/index-FINISHED.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1835/1835817.png"></a></button>
+
+            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/HW-Javascript/Calculator/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/891/891175.png"></a></button>
+        </div>
+    </div>
+    
+    <!-- Modal Add -->
+    <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="inputModalLabel">Add</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" onclick="readOnlyToggle()">×</span>
+                    </button>
+                </div>
+                    <div id="input-area" class="modal-body">
+                        <label for="date">日期 : </label>
+                        <input readonly id="date" type="text" class="w-100 form-control">
+                        <br>
+                        <label for="todo-item">標題 : </label>
+                        <input id="todo-item" type="text" class="w-100 form-control" required />
+                        <br>
+                        <label for="todo-time">時間 : </label>
+                        <input id="todo-time" type="time" class="w-100 form-control"/>
+                        <br>
+                        <label class="mr-3">重要程度 : </label>
+                        <input type="radio" id="normal" class="level" value="#039be5" name="level" checked>
+                        <label for="normal">普通</label>
+                        <i class="fas fa-circle mr-5" style="color: #039be5"></i>
+                        
+                        <input type="radio" id="medium" class="level" value="#f8db36" name="level">
+                        <label for="medium">重要</label>
+                        <i class="fas fa-circle mr-5" style="color: #f8db36;"></i>
+                    
+                        <input type="radio" id="vital" class="level" value="red" name="level">
+                        <label for="vital">非常重要</label>
+                        <i class="fas fa-circle" style="color: red;"></i>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="readOnlyToggle()">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="SaveTodoItem()">Save</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Info -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Info</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div id="info-area" class="modal-body">
+                    <label for="date">日期 : </label>
+                    <input readonly="" id="info-date" type="text" class="w-100 form-control">
+                    <br>
+                    <label for="todo-item">標題 : </label>
+                    <input id="info-todo-item" type="text" class="w-100 form-control" required />
+                    <br>
+                    <label for="info-todo-item">時間 : </label>
+                    <input id="info-todo-time" type="time" class="w-100 form-control"/>
+                    <br>
+                    <label class="mr-3">重要程度 : </label>
+                    <input type="radio" id="info-normal" class="level" value="#039be5" name="level" checked>
+                    <label for="info-normal">普通</label>
+                    <i class="fas fa-circle mr-5" style="color: #039be5"></i>
+                    
+                    <input type="radio" id="info-medium" class="level" value="#f8db36" name="level">
+                    <label for="info-medium">重要</label>
+                    <i class="fas fa-circle mr-5" style="color: #f8db36;"></i>
+                
+                    <input type="radio" id="info-vital" class="level" value="red" name="level">
+                    <label for="info-vital">非常重要</label>
+                    <i class="fas fa-circle" style="color: red;"></i>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" 
+                    onclick="EditTodoItem()">修改</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="DeleteTodoItem()">刪除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- app -->
+    <script src="app_google.js"></script>
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    
+</body>
+</html>
