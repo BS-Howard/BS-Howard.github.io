@@ -71,6 +71,16 @@
             background-color: rgb(187, 196, 204);
             border-radius: 1rem;
           }
+          .showAll {
+            display: inline-block;
+            width: 1.5rem;
+            cursor: pointer;
+            background-color: rgba(238, 238, 231, 0.575);
+            border-radius: 50%;
+            &:hover{
+                background-color: rgb(223, 223, 215);
+            }
+          }
           ul {
             width: 12.5rem;
             height: 5rem;
@@ -87,7 +97,8 @@
               border-radius: 0.3rem;
               cursor: pointer;
               &:hover {
-                background-color: rgb(2, 118, 175);
+                color: rgb(0, 0, 0);
+                transform: scale(1.05);
               }
               span {
                 margin-right: 1rem;
@@ -104,16 +115,54 @@
     align-items: flex-start;
     flex-direction: column;
     width: 3rem;
-    button {
-      width: 100%;
-      margin: 0.7rem 0;
-      &:hover img {
-        transition: 0.1s;
-        transform: scale(1.8);
-      }
-      img {
+    transition: 0.5s;
+    .slide {
+      button {
         width: 100%;
-        transform: scale(1.5);
+        margin: 0.7rem 0;
+        &:hover img {
+          transition: 0.1s;
+          transform: scale(1.8);
+        }
+        img {
+          width: 100%;
+          transform: scale(1.5);
+        }
+      }
+    }
+    .closeBtn {
+      display: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      margin: 0.3rem !important;
+      border-radius: 50%;
+      &:hover{
+          background-color: rgb(230, 230, 230);
+      }   
+    }
+    .google-map{
+        align-self: center;
+        display: none;
+    }
+    .schedule {
+      height: 48vh;
+      overflow-y: auto;
+      display: none;
+      &::-webkit-scrollbar {
+        width: 0.3em;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgb(187, 196, 204);
+        border-radius: 1rem;
+      }
+      ul {
+        width: 18rem;
+        margin-left: 1rem;
+        margin-right: .5rem;
+        border-radius: 10px;
+        li {
+          margin: .3rem;
+        }
       }
     }
   }
@@ -125,6 +174,10 @@
 
 .toggle-right {
   animation: slideRight 0.5s;
+}
+
+.slide.slide-open {
+  display: none !important;
 }
 
 @keyframes slideLeft {

@@ -11,9 +11,12 @@ window.addEventListener("load",function(e){
 function Init() {
     let tbody = document.getElementsByTagName("tbody")[0];
     let dt = document.getElementById('date')
+
     tbody.innerHTML = "";
     document.getElementById('todo-item').value = "";
     document.getElementById('todo-time').value = "";
+    document.getElementById('remark-item').value = "";
+    document.getElementById('todo-position').value = "";
     dt.setAttribute("readonly",true);
     dt.setAttribute("type","text")
 
@@ -38,12 +41,51 @@ function Init() {
                 td.innerText = lastMonthDay-(firstDay-1)+col;
             }else{
                 if(day <= dayofMonth){
-                    td.innerText = day;
+                    let showAllBtn = document.createElement("span");
+                    showAllBtn.classList.add("showAll")
+                    showAllBtn.innerText = day;
+                    td.appendChild(showAllBtn)
+
+                    // 顯示sideNav
+                    let slide = document.querySelector(".slide")
+
+                    showAllBtn.addEventListener("click",function(e){
+                        let sideNav = document.querySelector(".side-nav");
+                        let spanTime = document.querySelectorAll("li span")
+                        let closeBtn = document.querySelector(".closeBtn")
+                        let googleMap = document.querySelector(".google-map")
+
+                        spanTime.forEach(x => x.style.marginRight = "2.5rem")
+                        sideNav.style.width = "25rem";
+                        slide.classList.add("slide-open")
+                        closeBtn.setAttribute("style","display:block; margin:1rem; align-self: flex-end;")
+                        googleMap.style.display = "block"
+
+                        // 顯示所有行程
+                        let schedule = document.querySelector(".schedule")
+                        schedule.style.display = "block"
+                        if(localStorage.getItem(`${year}-${month + 1}-${showAllBtn.innerText}`) != null){
+                            let todoList = JSON.parse(localStorage.getItem(`${year}-${month + 1}-${showAllBtn.innerText}`));
+                            todoList.forEach(item => {
+                                let ul = document.createElement("ul")
+                                ul.style.border = `5px solid ${item.level}`
+                                ul.innerHTML=`
+                                <li>標題: ${item.title}</li>
+                                <li>時間: ${item.time == "" ? "無備註" : item.time}</li>
+                                <li>地點: ${item.position == "" ? "無備註" : item.position}</li>
+                                <li>備註: ${item.remark == "" ? "無備註" : item.remark}</li>
+                                <li>重要程度: ${item.level == "#039be5" ? "普通" : (item.level == "#f8db36" ? "重要" : "非常重要")}</li>
+                                `
+                                schedule.appendChild(ul)
+                            })
+                        }
+                    })
 
                     // 今天日期標註
                     if(date == day && (document.getElementById("year-month").innerText.includes(year)) && (document.getElementById("year-month").innerText.includes(`${tdMonth+1} 月`))){
                         td.style.backgroundColor = "rgba(83, 194, 250, 0.178)"
                     }
+
                     if(localStorage.getItem(`${year}-${month + 1}-${day}`) != null){
                         
                         let ul = document.createElement("ul");
@@ -61,9 +103,11 @@ function Init() {
                             li.addEventListener("click",function(e){
                                 editItem = temp
                                 $('#infoModal').modal('show');
-                                document.getElementById('info-date').value = `${year}-${month + 1}-${e.target.offsetParent.childNodes[0].data}`;
+                                document.getElementById('info-date').value = `${year}-${month + 1}-${e.target.offsetParent.childNodes[0].innerText}`;
                                 document.getElementById('info-todo-item').value = `${temp}`;
                                 document.getElementById('info-todo-time').value = `${item.time}`;
+                                document.getElementById('info-remark-item').value = `${item.remark}`;
+                                document.getElementById('info-todo-position').value = `${item.position}`;
                                 document.querySelectorAll(".level").forEach(x => {
                                     if(x.getAttribute("value") == item.level){
                                         x.checked = true
@@ -83,12 +127,14 @@ function Init() {
                             target = e.target.offsetParent
                         }else if(e.target.localName == "li"){
                             return
+                        }else if(e.target.localName == "span"){
+                            return
                         }
                         else{
                             target = e.target
                         }
                         $('#inputModal').modal('show');
-                        document.getElementById('date').value = `${year}-${month + 1}-${target.childNodes[0].data}`;
+                        document.getElementById('date').value = `${year}-${month + 1}-${target.childNodes[0].innerText}`;
                     })
                 }else{
                     // 下個月
@@ -108,6 +154,8 @@ function SaveTodoItem(){
     let date = document.getElementById('date').value;
     let todoItem = document.getElementById('todo-item').value;
     let todoTime = document.getElementById('todo-time').value;
+    let remarkItem = document.getElementById('remark-item').value;
+    let todoPosition = document.getElementById('todo-position').value;
     let level = document.querySelectorAll(".level");
     let todoLevel;
     let array;
@@ -137,7 +185,9 @@ function SaveTodoItem(){
     let todoObj = {
         title: todoItem,
         time: todoTime,
-        level: todoLevel
+        level: todoLevel,
+        remark: remarkItem,
+        position: todoPosition
     }
 
     let todoList = []
@@ -159,6 +209,8 @@ function EditTodoItem(){
     let date = document.getElementById('info-date').value;
     let todoItem = document.getElementById('info-todo-item').value;
     let todoTime = document.getElementById('info-todo-time').value;
+    let remarkItem = document.getElementById('info-remark-item').value;
+    let todoPosition = document.getElementById('info-todo-position').value;
     let level = document.querySelectorAll(".level");
     let todoLevel;
 
@@ -174,6 +226,8 @@ function EditTodoItem(){
     edit.title = todoItem;
     edit.time = todoTime;
     edit.level = todoLevel;
+    edit.remark = remarkItem;
+    edit.position = todoPosition;
     localStorage.setItem(date, JSON.stringify(todoList));
     Init();
 }
@@ -230,7 +284,28 @@ function readOnlyToggle() {
     dt.setAttribute("type","text")
 }
 
-window.addEventListener("mousewheel",function(e){
-    if(e.deltaY > 0){AddMonth()}
-    if(e.deltaY < 0){MinMonth()}
+// window.addEventListener("mousewheel",function(e){
+//     if(e.deltaY > 0){AddMonth()}
+//     if(e.deltaY < 0){MinMonth()}
+// })
+
+let canOpen = true
+document.querySelector(".closeBtn").addEventListener("click",(e)=>{
+    let schedule = document.querySelector(".schedule")
+    let googleMap = document.querySelector(".google-map")
+    canOpen = true
+    let slide = document.querySelector(".slide")
+    let spanTime = document.querySelectorAll("li span")
+    e.target.style.display = "none"
+    e.target.parentNode.style.width = "3rem"
+    e.target.parentNode.addEventListener("transitionend",()=>{
+        if(canOpen){
+            slide.classList.remove("slide-open")
+            canOpen = !canOpen;
+        }
+    })
+    spanTime.forEach(x => x.style.marginRight = "1rem")
+    schedule.innerHTML = ""
+    schedule.style.display = "none"
+    googleMap.style.display = "none"
 })

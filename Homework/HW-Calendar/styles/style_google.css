@@ -101,6 +101,18 @@
   border-radius: 1rem;
 }
 
+.main table tbody tr td .showAll {
+  display: inline-block;
+  width: 1.5rem;
+  cursor: pointer;
+  background-color: rgba(238, 238, 231, 0.575);
+  border-radius: 50%;
+}
+
+.main table tbody tr td .showAll:hover {
+  background-color: #dfdfd7;
+}
+
 .main table tbody tr td ul {
   width: 12.5rem;
   height: 5rem;
@@ -125,7 +137,9 @@
 }
 
 .main table tbody tr td ul li:hover {
-  background-color: #0276af;
+  color: black;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .main table tbody tr td ul li span {
@@ -145,24 +159,71 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 3rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.main .side-nav button {
+.main .side-nav .slide button {
   width: 100%;
   margin: 0.7rem 0;
 }
 
-.main .side-nav button:hover img {
+.main .side-nav .slide button:hover img {
   -webkit-transition: 0.1s;
   transition: 0.1s;
   -webkit-transform: scale(1.8);
           transform: scale(1.8);
 }
 
-.main .side-nav button img {
+.main .side-nav .slide button img {
   width: 100%;
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
+}
+
+.main .side-nav .closeBtn {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 0.3rem !important;
+  border-radius: 50%;
+}
+
+.main .side-nav .closeBtn:hover {
+  background-color: #e6e6e6;
+}
+
+.main .side-nav .google-map {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  display: none;
+}
+
+.main .side-nav .schedule {
+  height: 48vh;
+  overflow-y: auto;
+  display: none;
+}
+
+.main .side-nav .schedule::-webkit-scrollbar {
+  width: 0.3em;
+}
+
+.main .side-nav .schedule::-webkit-scrollbar-thumb {
+  background-color: #bbc4cc;
+  border-radius: 1rem;
+}
+
+.main .side-nav .schedule ul {
+  width: 18rem;
+  margin-left: 1rem;
+  margin-right: .5rem;
+  border-radius: 10px;
+}
+
+.main .side-nav .schedule ul li {
+  margin: .3rem;
 }
 
 .toggle-left {
@@ -173,6 +234,10 @@
 .toggle-right {
   -webkit-animation: slideRight 0.5s;
           animation: slideRight 0.5s;
+}
+
+.slide.slide-open {
+  display: none !important;
 }
 
 @-webkit-keyframes slideLeft {

@@ -46,20 +46,22 @@
             <tbody></tbody>
         </table>
         <div class="side-nav border">
-            <button id="mapBtn" type="button" class="btn"><a href="https://www.google.com.tw/maps/@23.8759391,120.588669,8z?hl=zh-TW" target="_blank"><img src="https://image.flaticon.com/icons/png/512/854/854878.png"></a>
-            </button>
-
-            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/HW-Map/Mask/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/3017/3017381.png"></a></button>
-
-            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Snake/2snake.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1393/1393392.png"></a></button>
-
-            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Puzzle/index-ver2.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/993/993723.png"></a></button>
-
-            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Reaction/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1455/1455318.png"></a></button>
-            
-            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/JS30-Project/30-%20Whack%20A%20Mole/index-FINISHED.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1835/1835817.png"></a></button>
-
-            <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/HW-Javascript/Calculator/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/891/891175.png"></a></button>
+            <div class="slide">
+                <button id="mapBtn" type="button" class="btn"><a href="https://www.google.com.tw/maps/@23.8759391,120.588669,8z?hl=zh-TW" target="_blank"><img src="https://image.flaticon.com/icons/png/512/854/854878.png"></a>
+                </button>
+                <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/HW-Map/Mask/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/3017/3017381.png"></a></button>
+                <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Snake/2snake.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1393/1393392.png"></a></button>
+                <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Puzzle/index-ver2.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/993/993723.png"></a></button>
+                <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/PJ-Game/Reaction/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1455/1455318.png"></a></button>
+                
+                <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/JS30-Project/30-%20Whack%20A%20Mole/index-FINISHED.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/1835/1835817.png"></a></button>
+                <button type="button" class="btn"><a href="https://bs-howard.github.io/Homework/HW-Javascript/Calculator/index.html" target="_blank"><img src="https://image.flaticon.com/icons/png/512/891/891175.png"></a></button>
+            </div>
+            <i class="fas fa-times closeBtn" ></i>
+            <div class="google-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8933.79003527013!2d120.9489181880148!3d24.760822431644378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34684a5cb60622fd%3A0xb0ead5088c97b0db!2z5Lit6I-v5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1625237363150!5m2!1szh-TW!2stw" width="280" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="schedule"></div>
         </div>
     </div>
     
@@ -83,18 +85,24 @@
                         <label for="todo-time">時間 : </label>
                         <input id="todo-time" type="time" class="w-100 form-control"/>
                         <br>
+                        <label for="todo-position">地點 : </label>
+                        <input id="todo-position" type="text" class="w-100 form-control"/>
+                        <br>
                         <label class="mr-3">重要程度 : </label>
                         <input type="radio" id="normal" class="level" value="#039be5" name="level" checked>
                         <label for="normal">普通</label>
                         <i class="fas fa-circle mr-5" style="color: #039be5"></i>
                         
-                        <input type="radio" id="medium" class="level" value="#f8db36" name="level">
+                        <input type="radio" id="medium" class="level" value="#f8db36" name="level" >
                         <label for="medium">重要</label>
                         <i class="fas fa-circle mr-5" style="color: #f8db36;"></i>
                     
                         <input type="radio" id="vital" class="level" value="red" name="level">
                         <label for="vital">非常重要</label>
                         <i class="fas fa-circle" style="color: red;"></i>
+
+                        <label for="remark-item">備註 : </label>
+                        <input id="remark-item" type="text" class="w-100 form-control" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="readOnlyToggle()">Close</button>
@@ -124,21 +132,27 @@
                     <label for="info-todo-item">時間 : </label>
                     <input id="info-todo-time" type="time" class="w-100 form-control"/>
                     <br>
+                    <label for="info-todo-time">地點 : </label>
+                    <input id="info-todo-position" type="text" class="w-100 form-control"/>
+                    <br>
                     <label class="mr-3">重要程度 : </label>
-                    <input type="radio" id="info-normal" class="level" value="#039be5" name="level" checked>
+                    <input type="radio" id="info-normal" class="level" value="#039be5" name="info-level">
                     <label for="info-normal">普通</label>
                     <i class="fas fa-circle mr-5" style="color: #039be5"></i>
                     
-                    <input type="radio" id="info-medium" class="level" value="#f8db36" name="level">
+                    <input type="radio" id="info-medium" class="level" value="#f8db36" name="info-level">
                     <label for="info-medium">重要</label>
                     <i class="fas fa-circle mr-5" style="color: #f8db36;"></i>
                 
-                    <input type="radio" id="info-vital" class="level" value="red" name="level">
+                    <input type="radio" id="info-vital" class="level" value="red" name="info-level">
                     <label for="info-vital">非常重要</label>
                     <i class="fas fa-circle" style="color: red;"></i>
+
+                    <label for="info-remark-item">備註 : </label>
+                        <input id="info-remark-item" type="text" class="w-100 form-control" />
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" 
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" 
                     onclick="EditTodoItem()">修改</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="DeleteTodoItem()">刪除</button>
                 </div>
