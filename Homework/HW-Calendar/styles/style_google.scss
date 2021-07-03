@@ -100,6 +100,7 @@
               color: #fff;
               border-radius: 0.3rem;
               cursor: pointer;
+              transition: 0.2s;
               &:hover {
                 color: rgb(0, 0, 0);
                 transform: scale(1.05);
@@ -125,7 +126,7 @@
         width: 100%;
         margin: 0.7rem 0;
         &:hover img {
-          transition: 0.1s;
+          transition: 0.2s;
           transform: scale(1.8);
         }
         img {

@@ -139,6 +139,8 @@
   color: #fff;
   border-radius: 0.3rem;
   cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .main table tbody tr td ul li:hover {
@@ -174,8 +176,8 @@
 }
 
 .main .side-nav .slide button:hover img {
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   -webkit-transform: scale(1.8);
           transform: scale(1.8);
 }
