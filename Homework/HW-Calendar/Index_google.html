@@ -84,12 +84,28 @@
                     </button>
                 </div>
                     <div id="input-area" class="modal-body">
-                        <label for="date">日期 : </label>
-                        <input readonly id="date" type="text" class="w-100 form-control">
+                        <div class="d-flex justify-content-between">
+                            <div class="w-50 mr-4">
+                                <label for="start-date">開始日期 : </label>
+                                <input readonly id="start-date" type="text" class="w-100 form-control">
+                            </div>
+                            <div class="w-50 ">
+                                <label for="end-date">結束日期 : </label>
+                                <input id="end-date" type="date" class="w-100 form-control">
+                            </div>
+                        </div>
                         <br>
 
-                        <label for="todo-time">時間 : </label>
-                        <input id="todo-time" type="time" class="w-100 form-control"/>
+                        <div class="d-flex justify-content-between">
+                            <div class="w-50 mr-4">
+                                <label for="todo-startTime">開始時間 : </label>
+                                <input id="todo-startTime" type="time" class="w-100 form-control"/>
+                            </div>
+                            <div  class="w-50 ">
+                                <label for="todo-endTime">結束時間 : </label>
+                                <input id="todo-endTime" type="time" class="w-100 form-control"/>
+                            </div>
+                        </div>
                         <br>
 
                         <label for="todo-item">標題 : </label>
@@ -129,7 +145,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="readOnlyToggle()">Close</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="SaveTodoItem()">Save</button>
+                        <button type="button" id="saveBtn" class="btn btn-primary" data-dismiss="modal">Save</button>
                     </div>
             </div>
         </div>
@@ -146,12 +162,28 @@
                     </button>
                 </div>
                 <div id="info-area" class="modal-body">
-                    <label for="info-date">日期 : </label>
-                    <input readonly id="info-date" type="text" class="w-100 form-control">
+                    <div class="d-flex justify-content-between">
+                        <div class="w-50 mr-4">
+                            <label for="info-start-date">開始日期 : </label>
+                            <input readonly id="info-start-date" type="text" class="w-100 form-control">
+                        </div>
+                        <div class="w-50 ">
+                            <label for="info-end-date">結束日期 : </label>
+                            <input readonly id="info-end-date" type="date" class="w-100 form-control">
+                        </div>
+                    </div>
                     <br>
 
-                    <label for="info-todo-time">時間 : </label>
-                    <input id="info-todo-time" type="time" class="w-100 form-control"/>
+                    <div class="d-flex justify-content-between">
+                        <div class="w-50 mr-4">
+                            <label for="info-todo-startTime">開始時間 : </label>
+                            <input id="info-todo-startTime" type="time" class="w-100 form-control"/>
+                        </div>
+                        <div  class="w-50 ">
+                            <label for="info-todo-endTime">結束時間 : </label>
+                            <input id="info-todo-endTime" type="time" class="w-100 form-control"/>
+                        </div>
+                    </div>
                     <br>
 
                     <label for="info-todo-item">標題 : </label>
@@ -189,9 +221,8 @@
                     <i class="fas fa-circle" style="color: red;"></i>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" 
-                    onclick="EditTodoItem()">修改</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="DeleteTodoItem()">刪除</button>
+                    <button id="editBtn" type="button" class="btn btn-danger" data-dismiss="modal">修改</button>
+                    <button id="deleteBtn" type="button" class="btn btn-primary" data-dismiss="modal">刪除</button>
                 </div>
             </div>
         </div>

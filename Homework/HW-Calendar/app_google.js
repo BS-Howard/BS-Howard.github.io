@@ -1,18 +1,23 @@
 let yearMonth = document.getElementById("year-month");
 let tbody = document.getElementsByTagName("tbody")[0];
-let dt = document.getElementById('date');
 
 // Modal Add 變數
+let startDate = document.getElementById('start-date');
+let endDate = document.getElementById('end-date');
 let todoItem = document.getElementById('todo-item');
-let todoTime = document.getElementById('todo-time');
+let todoStartTime = document.getElementById('todo-startTime');
+let todoEndTime = document.getElementById('todo-endTime');
 let todoPosition = document.getElementById('todo-position');
 let remarkItem = document.getElementById('remark-item');
 let level = document.querySelectorAll(".level");
 
+
 // Modal Info 變數
-let infoDate = document.getElementById('info-date');
+let infoStartDate = document.getElementById('info-start-date');
+let infoEndDate = document.getElementById('info-end-date');
 let infoTodoItem = document.getElementById('info-todo-item');
-let infoTodoTime = document.getElementById('info-todo-time');
+let infoStartTime = document.getElementById('info-todo-startTime');
+let infoEndTime = document.getElementById('info-todo-endTime');
 let infoRemarkItem = document.getElementById('info-remark-item');
 let infoTodoPosition = document.getElementById('info-todo-position');
 let InfoLevel = document.querySelectorAll(".info-level");
@@ -40,13 +45,15 @@ function Init() {
     // 清空上次新增後的值
     tbody.innerHTML = "";
     todoItem.value = "";
-    todoTime.value = "";
+    todoStartTime.value = "";
+    todoEndTime.value = "";
     remarkItem.value = "";
     todoPosition.value = "";
+    endDate.value = "";
 
     // 按加號按鈕後需要重新設定唯讀
-    dt.setAttribute("readonly",true);
-    dt.setAttribute("type","text");
+    startDate.setAttribute("readonly",true);
+    startDate.setAttribute("type","text");
 
     // 年月份
     yearMonth.innerText = `${new Date(year,month,1).getFullYear()} 年 ${new Date(year,month,1).getMonth() + 1} 月`;
@@ -100,9 +107,11 @@ function Init() {
                             todoList.forEach(item => {
                                 let ul = document.createElement("ul");
                                 ul.style.border = `5px solid ${item.level}`;
+                                ul.style.backgroundColor = `${item.level}`;
                                 ul.innerHTML=`
                                 <li>標題: ${item.title}</li>
-                                <li>時間: ${item.time == "" ? "無備註" : item.time}</li>
+                                <li>開始日期: ${item.startDate} & 時間: ${item.startTime == "" ? "無備註" : item.startTime}</li>
+                                <li>結束日期: ${item.endDate == "" ? "無備註" : item.endDate} & 時間: ${item.endTime == "" ? "無備註" : item.endTime}</li>
                                 <li>地點: ${item.position == "" ? "無備註" : item.position}</li>
                                 <li>備註: ${item.remark == "" ? "無備註" : item.remark}</li>
                                 <li>重要程度: ${item.level == "#039be5" ? "普通" : (item.level == "#f8db36" ? "重要" : "非常重要")}</li>
@@ -130,7 +139,14 @@ function Init() {
                             // 標題超過指定數字就用...表示
                             li.innerText = temp.length > 6 ? `${item.title.slice(0,6)}...` : temp
                             li.style.backgroundColor = `${item.level}`;
-                            span.innerText = item.time;
+                            if (item.endDate.split('-')[2] == day){
+                                span.innerText = `←${item.endTime}`;
+                            }else if(item.startDate.split('-')[2] == day){
+                                span.innerText = `${item.startTime}→`;
+                            }else{
+                                span.innerText = "--:--";
+                            }
+                            
 
                             // 事件綁定，修改行程
                             li.addEventListener("click",function(e){
@@ -139,9 +155,11 @@ function Init() {
                                 editItem = temp;
 
                                 $('#infoModal').modal('show');
-                                infoDate.value = `${year}-${month + 1}-${e.target.offsetParent.childNodes[0].innerText}`;
+                                infoStartDate.value = `${item.startDate}`;
+                                infoEndDate.value = `${addZero(item.endDate)}`;
                                 infoTodoItem.value = `${temp}`;
-                                infoTodoTime.value = `${item.time}`;
+                                infoStartTime.value = `${item.startTime}`;
+                                infoEndTime.value = `${item.endTime}`;
                                 infoRemarkItem.value = `${item.remark}`;
                                 infoTodoPosition.value = `${item.position}`;
                                 InfoLevel.forEach(x => {
@@ -170,7 +188,7 @@ function Init() {
                             target = e.target;
                         }
                         $('#inputModal').modal('show');
-                        dt.value = `${year}-${month + 1}-${target.childNodes[0].innerText}`;
+                        startDate.value = `${year}-${month + 1}-${target.childNodes[0].innerText}`;
                     })
 
                 }else{
@@ -188,13 +206,83 @@ function Init() {
     }
 }
 
-function SaveTodoItem(){
+function SaveTodoItem(newStartDate,record){
     let todoLevel;
-    let array;
-    let newStr;
-
     // 因為按到+按鈕可以自己選日期，所以要改格式
-    array = dt.value.split('-');
+    newEndDate = checkDate(endDate.value);
+    // 取得重要程度
+    level.forEach(x => {
+        if(x.checked){todoLevel = x.getAttribute("value")}
+    })
+
+    // 沒填入標題跳出alert
+    if(todoItem.value == ""){
+        alert("請填入標題");
+        return
+    }
+
+    // 日期不符合
+    if(Number(newStartDate.split('-')[2]) > Number(newEndDate.split('-')[2])){
+        alert("請填入正確日期");
+        return
+    }
+
+    // 時間不符合
+    if(Number(newStartDate.split('-')[2]) == Number(newEndDate.split('-')[2])){
+        if(Number(todoStartTime.value.split(':')[0]) > Number(todoEndTime.value.split(':')[0])){
+            alert("請填入正確日期");
+            return
+        }else if(Number(todoStartTime.value.split(':')[0]) == Number(todoEndTime.value.split(':')[0])){
+            if(Number(todoStartTime.value.split(':')[1]) > Number(todoEndTime.value.split(':')[1])){
+                alert("請填入正確日期");
+                return
+            }
+        }
+    }
+
+    let todoObj = {
+        title: todoItem.value,
+        startDate: record || newStartDate,
+        endDate: newEndDate,
+        startTime: todoStartTime.value,
+        endTime: todoEndTime.value,
+        level: todoLevel,
+        remark: remarkItem.value,
+        position: todoPosition.value,
+        start: startDate.value == newStartDate? todoStartTime.value : "",
+        end: newStartDate == newEndDate? todoEndTime.value : "",
+        middle: todoStartTime.value,
+    }
+
+    let todoList = [];
+
+    if(localStorage.getItem(newStartDate) == null){
+        // 今天沒有代辦事項
+        todoList.push(todoObj);
+    }
+    else{
+        // 今天已有代辦事項
+        todoList = JSON.parse(localStorage.getItem(newStartDate));
+        todoList.push(todoObj);
+    }
+    localStorage.setItem(newStartDate, JSON.stringify(todoList));
+}
+
+let saveBtn = document.getElementById("saveBtn");
+saveBtn.addEventListener("click",function(){
+    SaveTodoItem(checkDate(startDate.value));
+    let record = checkDate(startDate.value);
+    let crossDay = checkDate(startDate.value).split('-')[2];
+    while(Number(newEndDate.split('-')[2]) > Number(crossDay)){
+        crossDay++;
+        let newStartDay = `${newEndDate.split('-')[0]}-${newEndDate.split('-')[1]}-${crossDay}`;
+        SaveTodoItem(checkDate(newStartDay),record);
+    }
+    Init();
+})
+
+function checkDate(date) {
+    let array = date.split('-');
     let newArr = array.map(x => {
         if(x[0] == 0){
             return x.slice(1);
@@ -202,43 +290,23 @@ function SaveTodoItem(){
             return x;
         }
     })
-    newStr = newArr.join('-');
-
-    // 取得重要程度
-    level.forEach(x => {
-        if(x.checked){todoLevel = x.getAttribute("value")}
-    })
-
-    // 沒填入標題跳出alert
-    if(todoItem == ""){
-        alert("請填入標題");
-        return
-    }
-
-    let todoObj = {
-        title: todoItem.value,
-        time: todoTime.value,
-        level: todoLevel,
-        remark: remarkItem.value,
-        position: todoPosition.value
-    }
-
-    let todoList = [];
-
-    if(localStorage.getItem(newStr) == null){
-        // 今天沒有代辦事項
-        todoList.push(todoObj);
-    }
-    else{
-        // 今天已有代辦事項
-        todoList = JSON.parse(localStorage.getItem(newStr));
-        todoList.push(todoObj);
-    }
-    localStorage.setItem(newStr, JSON.stringify(todoList));
-    Init();
+    return newArr.join('-');
 }
 
-function EditTodoItem(){
+function addZero(date) {
+    let array = date.split('-');
+    let newArr = array.map(x => {
+        if(x[0] != 0 && x.length != 2){
+            return `0${x}`
+        }else{
+            return x;
+        }
+    })
+    return newArr.join('-');
+}
+
+let editObj = {};
+function EditTodoItem(temp,record){
     let todoLevel;
     let todoList = [];
 
@@ -247,33 +315,61 @@ function EditTodoItem(){
     })
 
     // 今天已有代辦事項
-    todoList = JSON.parse(localStorage.getItem(infoDate.value));
+    todoList = JSON.parse(localStorage.getItem(temp));
     let edit = todoList.find(x => x.title == editItem);
+    Object.assign(editObj,edit)
     edit.title = infoTodoItem.value;
-    edit.time = infoTodoTime.value;
+    edit.startDate = record || temp,
+    edit.startTime = infoStartTime.value;
+    edit.endTime = infoEndTime.value;
+    edit.endDate = checkDate(infoEndDate.value);
     edit.level = todoLevel;
     edit.remark = infoRemarkItem.value;
     edit.position = infoTodoPosition.value;
-    localStorage.setItem(infoDate.value, JSON.stringify(todoList));
-    Init();
+    localStorage.setItem(temp, JSON.stringify(todoList));
 }
 
-function DeleteTodoItem(){
+let editBtn = document.getElementById('editBtn');
+editBtn.addEventListener("click",function(){
+    EditTodoItem(checkDate(infoStartDate.value));
+    let record = checkDate(infoStartDate.value);
+    let crossDay = editObj.startDate.split('-')[2];
+    while(Number(editObj.endDate.split('-')[2]) > Number(crossDay)){
+        crossDay++;
+        let newEditObj = `${editObj.endDate.split('-')[0]}-${editObj.endDate.split('-')[1]}-${crossDay}`;
+        EditTodoItem(checkDate(newEditObj),record)
+    }
+    Init();
+})
+
+let deleteObj = {};
+function DeleteTodoItem(temp){
     let todoList = [];
 
-    todoList = JSON.parse(localStorage.getItem(infoDate.value));
-    localStorage.removeItem(infoDate.value);
+    todoList = JSON.parse(localStorage.getItem(temp));
+    localStorage.removeItem(temp);
     let edit = todoList.find(x => x.title == editItem);
-
+    Object.assign(deleteObj,edit)
     // 刪除所選事件
     todoList.splice(todoList.indexOf(edit),1);
 
     // 判斷是否為空陣列
     if(todoList.length >= 1){
-        localStorage.setItem(infoDate.value, JSON.stringify(todoList));
+        localStorage.setItem(temp, JSON.stringify(todoList));
+    }
+}
+
+let deleteBtn = document.getElementById("deleteBtn");
+deleteBtn.addEventListener("click",function(){
+    DeleteTodoItem(infoStartDate.value);
+    let crossDay = deleteObj.startDate.split('-')[2];
+    while(Number(deleteObj.endDate.split('-')[2]) > Number(crossDay)){
+        crossDay++;
+        let newDelObj = `${deleteObj.endDate.split('-')[0]}-${deleteObj.endDate.split('-')[1]}-${crossDay}`;
+        DeleteTodoItem(newDelObj)
     }
     Init();
-}
+})
 
 let table = document.querySelector("table");
 
@@ -301,13 +397,13 @@ function BackToday(){
 
 function AddTodo(){
     $('#inputModal').modal('show');
-    dt.removeAttribute("readonly");
-    dt.setAttribute("type","date");
+    startDate.removeAttribute("readonly");
+    startDate.setAttribute("type","date");
 }
 
 function readOnlyToggle() {
-    dt.setAttribute("readonly",true);
-    dt.setAttribute("type","text");
+    startDate.setAttribute("readonly",true);
+    startDate.setAttribute("type","text");
 }
 
 // 滑鼠滾動換頁
@@ -378,7 +474,7 @@ function Sort() {
 
         let newArr = [...arr].map(x => {
             if(x == ""){return }
-            let str = x.time.split(':')
+            let str = (x.end || x.start || x.middle).split(':')
             return str
         })
 
@@ -389,10 +485,10 @@ function Sort() {
                 return Number(a[1]) - Number(b[1])
             }
         })
-
+        console.log(newArr)
         newArr.map(x => {return x.join(':')}).forEach(x =>{
             arr.forEach(y =>{
-                if(x == y.time){
+                if(x == y.end || x == y.start || x == y.middle){
                     sortedArr.push(y)
                 }
             })
