@@ -155,7 +155,7 @@ function Init() {
                                     else{span.innerText = `${item.startTime}~${item.endTime}`;}
                                 }else{
                                     if ( Split(item.startDate,'-',1) == (new Date(year,month,1).getMonth() + 1) && Split(item.startDate,'-',0) == new Date(year,month,1).getFullYear()){
-                                        if(item.startDate){span.innerText = `${item.startTime}~`;}
+                                        if(item.startTime){span.innerText = `${item.startTime}~`;}
                                         else{span.innerText = `start`;}}
                                 }
                             }else{
