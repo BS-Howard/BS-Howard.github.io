@@ -1,3 +1,7 @@
+// 標題及按鈕 變數
+const saveBtn = document.getElementById("saveBtn");
+const editBtn = document.getElementById('editBtn');
+const deleteBtn = document.getElementById("deleteBtn");
 let yearMonth = document.getElementById("year-month");
 let tbody = document.getElementsByTagName("tbody")[0];
 
@@ -102,8 +106,8 @@ function Init() {
 
                         // 顯示所有行程
                         schedule.style.display = "block";
-                        if(localStorage.getItem(`${year}-${month + 1}-${showAllBtn.innerText}`) != null){
-                            let todoList = JSON.parse(localStorage.getItem(`${year}-${month + 1}-${showAllBtn.innerText}`));
+                        if(localStorage.getItem(`${new Date(year,month,1).getFullYear()}-${new Date(year,month,1).getMonth() + 1}-${showAllBtn.innerText}`) != null){
+                            let todoList = JSON.parse(localStorage.getItem(`${new Date(year,month,1).getFullYear()}-${new Date(year,month,1).getMonth() + 1}-${showAllBtn.innerText}`));
                             todoList.forEach(item => {
                                 let ul = document.createElement("ul");
                                 ul.style.border = `5px solid ${item.level}`;
@@ -125,12 +129,12 @@ function Init() {
                     if(date == day && yearMonth.innerText.includes(year) && yearMonth.innerText.includes(`${tdMonth+1} 月`)){
                         td.style.backgroundColor = "rgba(83, 194, 250, 0.178)";
                     }
-
                     // 顯示所有待辦事項
-                    if(localStorage.getItem(`${year}-${month + 1}-${day}`) != null){
+                    if(localStorage.getItem(`${new Date(year,month,1).getFullYear()}-${new Date(year,month,1).getMonth() + 1}-${day}`) != null){
                         
                         let ul = document.createElement("ul");
-                        let todoList = JSON.parse(localStorage.getItem(`${year}-${month + 1}-${day}`));
+                        let todoList = JSON.parse(localStorage.getItem(`${new Date(year,month,1).getFullYear()}-${new Date(year,month,1).getMonth() + 1}-${day}`));
+                        
                         todoList.forEach(item => {
                             let li = document.createElement("li");
                             let span = document.createElement("span")
@@ -139,10 +143,20 @@ function Init() {
                             // 標題超過指定數字就用...表示
                             li.innerText = temp.length > 6 ? `${item.title.slice(0,6)}...` : temp
                             li.style.backgroundColor = `${item.level}`;
-                            if (item.endDate.split('-')[2] == day){
-                                span.innerText = `←${item.endTime}`;
-                            }else if(item.startDate.split('-')[2] == day){
-                                span.innerText = `${item.startTime}→`;
+
+                            // span顯示時間
+                            if (Split(item.endDate,'-',2) == day && item.startDate != item.endDate){
+                                if(item.endTime){span.innerText = `~${item.endTime}`;}
+                                else{span.innerText = `end`;}
+                            }else if(Split(item.startDate,'-',2) == day){
+                                // 沒有跨日的顯示
+                                if (item.endDate == "" || item.startDate == item.endDate){
+                                    if (item.endTime == ""){span.innerText = `${item.startTime}`;}
+                                    else{span.innerText = `${item.startTime}~${item.endTime}`;}
+                                }else{
+                                    if(item.startTime){ span.innerText = `${item.startTime}~`;}
+                                    else{span.innerText = `start`;}
+                                }
                             }else{
                                 span.innerText = "--:--";
                             }
@@ -152,10 +166,12 @@ function Init() {
                             li.addEventListener("click",function(e){
 
                                 // 全域變數
-                                editItem = temp;
+                                editItemTitle = temp;
+                                editItemLevel = item.level;
 
                                 $('#infoModal').modal('show');
                                 infoStartDate.value = `${item.startDate}`;
+                                // 增加0在數字前
                                 infoEndDate.value = `${addZero(item.endDate)}`;
                                 infoTodoItem.value = `${temp}`;
                                 infoStartTime.value = `${item.startTime}`;
@@ -188,7 +204,7 @@ function Init() {
                             target = e.target;
                         }
                         $('#inputModal').modal('show');
-                        startDate.value = `${year}-${month + 1}-${target.childNodes[0].innerText}`;
+                        startDate.value = `${new Date(year,month,1).getFullYear()}-${new Date(year,month,1).getMonth() + 1}-${target.childNodes[0].innerText}`;
                     })
 
                 }else{
@@ -206,6 +222,7 @@ function Init() {
     }
 }
 
+let saveObj = {};
 function SaveTodoItem(newStartDate,record){
     let todoLevel;
     // 因為按到+按鈕可以自己選日期，所以要改格式
@@ -215,26 +232,32 @@ function SaveTodoItem(newStartDate,record){
         if(x.checked){todoLevel = x.getAttribute("value")}
     })
 
-    // 沒填入標題跳出alert
-    if(todoItem.value == ""){
-        alert("請填入標題");
-        return
-    }
-
     // 日期不符合
-    if(Number(newStartDate.split('-')[2]) > Number(newEndDate.split('-')[2])){
-        alert("請填入正確日期");
-        return
+    if (newEndDate){
+        if(Split(startDate.value,'-',0) > Split(endDate.value,'-',0)){
+            alert("請填入正確年份");
+            return
+        }else if (Split(startDate.value,'-',0) == Split(endDate.value,'-',0)){
+            if (Split(startDate.value,'-',1) > Split(endDate.value,'-',1)){
+                alert("請填入正確月份");
+                return
+            }else if (Split(startDate.value,'-',1) == Split(endDate.value,'-',1)){
+                if (Split(startDate.value,'-',2) > Split(endDate.value,'-',2)){
+                    alert("請填入正確日期");
+                    return
+                }
+            }
+        }
     }
 
     // 時間不符合
-    if(Number(newStartDate.split('-')[2]) == Number(newEndDate.split('-')[2])){
-        if(Number(todoStartTime.value.split(':')[0]) > Number(todoEndTime.value.split(':')[0])){
-            alert("請填入正確日期");
+    if( Split(startDate.value,'-',2) == Split(endDate.value,'-',2) || !endDate.value){
+        if(Split(todoStartTime.value,':',0)  > Split(todoEndTime.value,':',0) && todoEndTime.value != ""){
+            alert("請填入正確小時的時間");
             return
-        }else if(Number(todoStartTime.value.split(':')[0]) == Number(todoEndTime.value.split(':')[0])){
-            if(Number(todoStartTime.value.split(':')[1]) > Number(todoEndTime.value.split(':')[1])){
-                alert("請填入正確日期");
+        }else{
+            if(Split(todoStartTime.value,':',1)  > Split(todoEndTime.value,':',1)){
+                alert("請填入正確分鐘的時間");
                 return
             }
         }
@@ -254,6 +277,14 @@ function SaveTodoItem(newStartDate,record){
         middle: todoStartTime.value,
     }
 
+    Object.assign(saveObj,todoObj);
+
+    // 沒填入標題跳出alert
+    if(todoItem.value == ""){
+        alert("請填入標題");
+        return
+    }
+
     let todoList = [];
 
     if(localStorage.getItem(newStartDate) == null){
@@ -268,19 +299,12 @@ function SaveTodoItem(newStartDate,record){
     localStorage.setItem(newStartDate, JSON.stringify(todoList));
 }
 
-let saveBtn = document.getElementById("saveBtn");
 saveBtn.addEventListener("click",function(){
-    SaveTodoItem(checkDate(startDate.value));
-    let record = checkDate(startDate.value);
-    let crossDay = checkDate(startDate.value).split('-')[2];
-    while(Number(newEndDate.split('-')[2]) > Number(crossDay)){
-        crossDay++;
-        let newStartDay = `${newEndDate.split('-')[0]}-${newEndDate.split('-')[1]}-${crossDay}`;
-        SaveTodoItem(checkDate(newStartDay),record);
-    }
-    Init();
+    reviewAll(SaveTodoItem,saveObj)
 })
 
+
+// 日期去除0
 function checkDate(date) {
     let array = date.split('-');
     let newArr = array.map(x => {
@@ -293,6 +317,7 @@ function checkDate(date) {
     return newArr.join('-');
 }
 
+// 日期加上0
 function addZero(date) {
     let array = date.split('-');
     let newArr = array.map(x => {
@@ -314,10 +339,30 @@ function EditTodoItem(temp,record){
         if(x.checked){todoLevel = x.getAttribute("value")};
     })
 
+    // 時間不符合
+    if( Split(infoStartDate.value,'-',2) == Split(checkDate(infoEndDate.value),'-',2) || !checkDate(infoEndDate.value)){
+        if(Split(infoStartTime.value,':',0)  > Split(infoEndTime.value,':',0) && infoEndTime.value != ""){
+            alert("請填入正確小時的時間");
+            return
+        }else{
+            if(Split(infoStartTime.value,':',1)  > Split(infoEndTime.value,':',1)){
+                alert("請填入正確分鐘的時間");
+                return
+            }
+        }
+    }
+
+
     // 今天已有代辦事項
     todoList = JSON.parse(localStorage.getItem(temp));
-    let edit = todoList.find(x => x.title == editItem);
+    let edit = todoList.find(x => x.title == editItemTitle && x.level == editItemLevel);
     Object.assign(editObj,edit)
+
+    if(infoTodoItem.value == ""){
+        alert("請填入標題");
+        return
+    }
+
     edit.title = infoTodoItem.value;
     edit.startDate = record || temp,
     edit.startTime = infoStartTime.value;
@@ -329,17 +374,9 @@ function EditTodoItem(temp,record){
     localStorage.setItem(temp, JSON.stringify(todoList));
 }
 
-let editBtn = document.getElementById('editBtn');
+
 editBtn.addEventListener("click",function(){
-    EditTodoItem(checkDate(infoStartDate.value));
-    let record = checkDate(infoStartDate.value);
-    let crossDay = editObj.startDate.split('-')[2];
-    while(Number(editObj.endDate.split('-')[2]) > Number(crossDay)){
-        crossDay++;
-        let newEditObj = `${editObj.endDate.split('-')[0]}-${editObj.endDate.split('-')[1]}-${crossDay}`;
-        EditTodoItem(checkDate(newEditObj),record)
-    }
-    Init();
+    reviewAll(EditTodoItem,editObj)
 })
 
 let deleteObj = {};
@@ -348,7 +385,7 @@ function DeleteTodoItem(temp){
 
     todoList = JSON.parse(localStorage.getItem(temp));
     localStorage.removeItem(temp);
-    let edit = todoList.find(x => x.title == editItem);
+    let edit = todoList.find(x => x.title == editItemTitle && x.level == editItemLevel);
     Object.assign(deleteObj,edit)
     // 刪除所選事件
     todoList.splice(todoList.indexOf(edit),1);
@@ -359,16 +396,8 @@ function DeleteTodoItem(temp){
     }
 }
 
-let deleteBtn = document.getElementById("deleteBtn");
 deleteBtn.addEventListener("click",function(){
-    DeleteTodoItem(infoStartDate.value);
-    let crossDay = deleteObj.startDate.split('-')[2];
-    while(Number(deleteObj.endDate.split('-')[2]) > Number(crossDay)){
-        crossDay++;
-        let newDelObj = `${deleteObj.endDate.split('-')[0]}-${deleteObj.endDate.split('-')[1]}-${crossDay}`;
-        DeleteTodoItem(newDelObj)
-    }
-    Init();
+    reviewAll(DeleteTodoItem,deleteObj)
 })
 
 let table = document.querySelector("table");
@@ -473,10 +502,11 @@ function Sort() {
         let arr = JSON.parse(localStorage.getItem(localStorage.key(i)))
 
         let newArr = [...arr].map(x => {
-            if(x == ""){return }
+            if(x.end == "" && x.start == "" && x.middle == ""){return ["25","25"]}
             let str = (x.end || x.start || x.middle).split(':')
             return str
         })
+        
 
         newArr.sort(function(a,b) {
             if(Number(a[0]) != Number(b[0])){
@@ -485,17 +515,67 @@ function Sort() {
                 return Number(a[1]) - Number(b[1])
             }
         })
-        console.log(newArr)
+        let index = 0
         newArr.map(x => {return x.join(':')}).forEach(x =>{
-            arr.forEach(y =>{
-                if(x == y.end || x == y.start || x == y.middle){
-                    sortedArr.push(y)
-                }
-            })
+            let newItem;
+            if(x == ["25:25"]){
+                newItem = arr.filter(y=> !y.end &&  !y.start && !y.middle)[index];
+                index++;
+            }else{
+                newItem = arr.find(y=> x == y.end || x == y.start || x == y.middle);
+            }
+            sortedArr.push(newItem)
         })
 
         localStorage.setItem(localStorage.key(i),JSON.stringify(sortedArr));
         i++
+    }
+    Init();
+}
+
+function Split(str,x,number){
+    return Number(str.split(`${x}`)[number]);
+}
+
+function reviewAll(callback,obj){
+    let record = checkDate(startDate.value);
+    callback(record);
+
+    let startDay = Split(obj.startDate,'-',2);
+    let endDay = Split(obj.endDate,'-',2);
+    let startMonth = Split(obj.startDate,'-',1);
+    let endMonth = Split(obj.endDate,'-',1);
+    let startYear = Split(obj.startDate,'-',0);
+    let endYear = Split(obj.endDate,'-',0);
+    let dayofMonth = new Date(year,startMonth , 0).getDate();
+
+    if(obj.title != ""){
+        //有跨月份或年分
+        if (startYear != endYear || startMonth != endMonth){
+            while(endYear >= startYear){
+                startDay++;
+                if(startDay-1 != dayofMonth){
+                    let newStartDay = `${startYear}-${startMonth}-${startDay}`;
+                    callback(checkDate(newStartDay),record);
+                }else{
+                    startDay--;
+                }
+                if (startDay==dayofMonth){
+                    if (startYear == endYear && startMonth == endMonth && startDay == endDay){break}
+                    startDay = 0;
+                    if(startMonth+1 > 12){startMonth = 1; startYear++;}
+                    else{startMonth++;}
+                    dayofMonth = endMonth == startMonth && startYear == endYear ? endDay : new Date(startYear,startMonth, 0).getDate();
+                }
+            }
+        }else{
+            // 沒有跨月份
+            while(endDay > startDay){
+                startDay++;
+                let newStartDay = `${startYear}-${startMonth}-${startDay}`;
+                callback(checkDate(newStartDay),record);
+            }
+        }
     }
     Init();
 }
