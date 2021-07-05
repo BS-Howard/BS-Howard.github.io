@@ -145,7 +145,7 @@ function Init() {
                             li.style.backgroundColor = `${item.level}`;
 
                             // span顯示時間
-                            if (Split(item.endDate,'-',2) == day && item.startDate != item.endDate){
+                            if (Split(item.endDate,'-',2) == day && item.startDate != item.endDate && Split(item.endDate,'-',1) == (new Date(year,month,1).getMonth() + 1) && Split(item.endDate,'-',0) == new Date(year,month,1).getFullYear()){
                                 if(item.endTime){span.innerText = `~${item.endTime}`;}
                                 else{span.innerText = `end`;}
                             }else if(Split(item.startDate,'-',2) == day){
@@ -154,8 +154,9 @@ function Init() {
                                     if (item.endTime == ""){span.innerText = `${item.startTime}`;}
                                     else{span.innerText = `${item.startTime}~${item.endTime}`;}
                                 }else{
-                                    if(item.startTime){ span.innerText = `${item.startTime}~`;}
-                                    else{span.innerText = `start`;}
+                                    if ( Split(item.startDate,'-',1) == (new Date(year,month,1).getMonth() + 1) && Split(item.startDate,'-',0) == new Date(year,month,1).getFullYear()){
+                                        if(item.startDate){span.innerText = `${item.startTime}~`;}
+                                        else{span.innerText = `start`;}}
                                 }
                             }else{
                                 span.innerText = "--:--";
@@ -371,6 +372,9 @@ function EditTodoItem(temp,record){
     edit.level = todoLevel;
     edit.remark = infoRemarkItem.value;
     edit.position = infoTodoPosition.value;
+    edit.start = infoStartDate.value == temp? infoStartTime.value : "",
+    edit.end = temp == checkDate(infoEndDate.value)? infoEndTime.value : "",
+    edit.middle = infoStartTime.value,
     localStorage.setItem(temp, JSON.stringify(todoList));
 }
 
