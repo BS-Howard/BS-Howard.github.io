@@ -165,11 +165,11 @@ function Init() {
 
                             // 事件綁定，修改行程
                             li.addEventListener("click",function(e){
-
+                                
                                 // 全域變數
                                 editItemTitle = temp;
                                 editItemLevel = item.level;
-
+                                
                                 $('#infoModal').modal('show');
                                 infoStartDate.value = `${item.startDate}`;
                                 // 增加0在數字前
@@ -301,7 +301,7 @@ function SaveTodoItem(newStartDate,record){
 }
 
 saveBtn.addEventListener("click",function(){
-    reviewAll(SaveTodoItem,saveObj)
+    reviewAll(SaveTodoItem,saveObj,startDate)
 })
 
 
@@ -380,7 +380,7 @@ function EditTodoItem(temp,record){
 
 
 editBtn.addEventListener("click",function(){
-    reviewAll(EditTodoItem,editObj)
+    reviewAll(EditTodoItem,editObj,infoStartDate)
 })
 
 let deleteObj = {};
@@ -401,7 +401,7 @@ function DeleteTodoItem(temp){
 }
 
 deleteBtn.addEventListener("click",function(){
-    reviewAll(DeleteTodoItem,deleteObj)
+    reviewAll(DeleteTodoItem,deleteObj,infoStartDate)
 })
 
 let table = document.querySelector("table");
@@ -541,8 +541,9 @@ function Split(str,x,number){
     return Number(str.split(`${x}`)[number]);
 }
 
-function reviewAll(callback,obj){
-    let record = checkDate(startDate.value);
+function reviewAll(callback,obj,start){
+    let record = checkDate(start.value);
+    
     callback(record);
 
     let startDay = Split(obj.startDate,'-',2);
@@ -552,7 +553,7 @@ function reviewAll(callback,obj){
     let startYear = Split(obj.startDate,'-',0);
     let endYear = Split(obj.endDate,'-',0);
     let dayofMonth = new Date(year,startMonth , 0).getDate();
-
+    
     if(obj.title != ""){
         //有跨月份或年分
         if (startYear != endYear || startMonth != endMonth){
