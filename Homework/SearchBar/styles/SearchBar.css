@@ -1,0 +1,376 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:root {
+  --litepicker-day-width: 50px;
+}
+
+.litepicker {
+  margin-left: -22%;
+}
+
+.container__main {
+  position: absolute;
+  margin: auto;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.container__months {
+  border-radius: 28px !important;
+  padding: 1rem;
+}
+
+#banner {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 9;
+}
+
+header {
+  width: 100%;
+  height: 500px;
+  margin-top: 3rem;
+  background-image: linear-gradient(45deg, #fa0, #dd522f);
+}
+
+header form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  height: 6rem;
+}
+
+header form .searchBar {
+  position: relative;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 88%;
+  max-width: 900px;
+  margin: auto 0;
+  padding: 0.9rem 1.5rem;
+  background-color: #fff;
+  border-radius: 28px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header form .searchBar.toggle {
+  background-color: #f1f1f1;
+  width: 80%;
+}
+
+header form .searchBar .search-position {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header form .searchBar .search-position .sm-search-icon {
+  cursor: pointer;
+}
+
+header form .searchBar .search-position label {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+header form .searchBar .search-position label input {
+  border: none;
+  width: 95%;
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  background-color: transparent;
+  outline: none;
+}
+
+header form .searchBar .lg-search {
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+header form .searchBar .lg-search .search-people {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header form .searchBar .lg-search .search-people .lg-search-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  background-color: #ff385c;
+  color: #fff;
+  border-radius: 50%;
+}
+
+header form .searchBar .lg-search .search-people .lg-search-icon:hover {
+  background-color: #ce1739;
+}
+
+header form .searchBar .lg-search .search-people .lg-search-icon i {
+  margin: auto;
+}
+
+header form .searchBar .lg-search .search-people .lg-search-icon .lg-search-icon-txt {
+  display: none;
+  font-weight: 900;
+  margin-right: 1rem;
+}
+
+header form .searchBar .search-title {
+  margin-left: 1rem;
+  font-weight: 700;
+}
+
+header form .searchBar .sm-search-title {
+  display: none;
+}
+
+header form .sm-cancel {
+  background-color: #fff;
+  border: none;
+  width: 3rem;
+  font-weight: 900;
+  display: none;
+}
+
+header .location {
+  position: relative;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  position: relative;
+}
+
+header .location ul {
+  width: 100%;
+  padding-left: 0;
+  padding: 0.5rem 1rem;
+}
+
+header .location ul li:first-child span {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+header .location ul a {
+  text-decoration: none;
+}
+
+header .location ul a .everywhere {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 1rem auto;
+  height: 3.5rem;
+  padding: 0.9rem 1.5rem;
+  background-color: #fff;
+  border-radius: 28px;
+  border: 1px solid #cacaca;
+  -webkit-box-shadow: 5px 5px 10px 5px #d6d4d4;
+          box-shadow: 5px 5px 10px 5px #d6d4d4;
+  color: #a713a7;
+}
+
+header .location ul a .everywhere p {
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin: auto;
+  margin-left: 0;
+}
+
+header .location ul a .everywhere i {
+  font-size: 1.8rem;
+}
+
+header .location ul .record .place {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1rem 0;
+}
+
+header .location ul .record .place a {
+  text-decoration: none;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .location ul .record .place a .clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  background-color: #f1f1f1;
+  border-radius: 6px;
+}
+
+header .location ul .record .place a .clock i {
+  margin: auto;
+}
+
+header .location ul .record .place a .searchPlace {
+  margin: auto;
+  margin-left: 1rem;
+}
+
+header .people {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  background-color: #fff;
+  width: 25rem;
+  border-radius: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .people .people-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.2rem 0;
+  margin: 0.3rem 2rem;
+}
+
+header .people .people-control:not(:last-child) {
+  border-bottom: 1px solid #ccc9c9;
+}
+
+header .people .people-control .txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 1.2rem;
+}
+
+header .people .people-control .txt strong {
+  font-size: 1.2rem;
+}
+
+header .people .people-control .txt span {
+  color: #686666;
+  font-size: 0.9rem;
+}
+
+header .people .people-control button {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.8rem;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #ccc9c9;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .sm-cancel {
+    display: none !important;
+  }
+  .searchBar {
+    padding: 0rem !important;
+    border-radius: 50px !important;
+  }
+  .searchBar .search-position {
+    width: 50% !important;
+  }
+  .searchBar .search-position:hover {
+    background-color: #e4e4e4 !important;
+  }
+  .searchBar .search-position .sm-search-icon {
+    display: none !important;
+  }
+  .searchBar .search-position .sm-search-title {
+    display: inline !important;
+  }
+  .searchBar .lg-search {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-flex: 1 !important;
+        -ms-flex-positive: 1 !important;
+            flex-grow: 1 !important;
+  }
+  .searchBar .lg-search .search-div {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .searchBar .search-div {
+    padding: 0.5rem 0;
+    border-radius: 50px;
+    cursor: pointer;
+    border-right: 1px solid #c7c6c6;
+  }
+  .searchBar .search-div label {
+    cursor: pointer;
+  }
+  .searchBar .search-div:hover {
+    background-color: #e4e4e4;
+  }
+  .searchBar .search-div:first-child {
+    padding-left: 1rem;
+  }
+  .searchBar .search-div .placeholder {
+    margin-left: 0.9rem;
+    color: #616060;
+    font-size: 1.1rem;
+  }
+}
+/*# sourceMappingURL=SearchBar.css.map */

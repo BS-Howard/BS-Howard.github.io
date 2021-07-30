@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:root {
+  --litepicker-day-width: 50px;
+}
+
+.litepicker {
+  margin-left: -22%;
+}
+
+.container__main {
+  position: absolute;
+  margin: auto;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+.container__months {
+  border-radius: 28px !important;
+  padding: 1rem;
+}
+
+#banner {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 9;
+}
+
+header {
+  width: 100%;
+  height: 500px;
+  margin-top: 3rem;
+  background-image: linear-gradient(45deg, #fa0, rgb(221, 82, 47));
+  form {
+    display: flex;
+    justify-content: space-evenly;
+    height: 6rem;
+    .searchBar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      width: 88%;
+      max-width: 900px;
+      margin: auto 0;
+      padding: 0.9rem 1.5rem;
+      background-color: #fff;
+      border-radius: 28px;
+      align-items: center;
+      &.toggle {
+        background-color: #f1f1f1;
+        width: 80%;
+      }
+      .search-position {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .sm-search-icon {
+          cursor: pointer;
+        }
+        label {
+          flex-grow: 1;
+          input {
+            border: none;
+            width: 95%;
+            font-size: 1.1rem;
+            margin-left: 1rem;
+            background-color: transparent;
+            outline: none;
+          }
+        }
+      }
+      .lg-search {
+        display: none;
+        align-items: center;
+        width: 100%;
+        .search-people {
+          display: flex;
+          justify-content: space-between;
+          .lg-search-icon {
+            display: flex;
+            align-items: center;
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+            background-color: #ff385c;
+            color: #fff;
+            border-radius: 50%;
+            &:hover {
+              background-color: #ce1739;
+            }
+            i {
+              margin: auto;
+            }
+            .lg-search-icon-txt {
+              display: none;
+              font-weight: 900;
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+      .search-title {
+        margin-left: 1rem;
+        font-weight: 700;
+      }
+      .sm-search-title {
+        display: none;
+      }
+    }
+    .sm-cancel {
+      background-color: #fff;
+      border: none;
+      width: 3rem;
+      font-weight: 900;
+      display: none;
+    }
+  }
+  .location {
+    position: relative;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    position: relative;
+    ul {
+      width: 100%;
+      padding-left: 0;
+      padding: 0.5rem 1rem;
+      li:first-child {
+        span {
+          font-size: 0.8rem;
+          font-weight: 700;
+        }
+      }
+      a {
+        text-decoration: none;
+        .everywhere {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          width: 100%;
+          margin: 1rem auto;
+          height: 3.5rem;
+          padding: 0.9rem 1.5rem;
+          background-color: #fff;
+          border-radius: 28px;
+          border: 1px solid rgb(202, 202, 202);
+          box-shadow: 5px 5px 10px 5px rgb(214, 212, 212);
+          color: rgb(167, 19, 167);
+          p {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin: auto;
+            margin-left: 0;
+          }
+          i {
+            font-size: 1.8rem;
+          }
+        }
+      }
+      .record {
+        .place {
+          display: flex;
+          margin: 1rem 0;
+          a {
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            .clock {
+              display: flex;
+              width: 3rem;
+              height: 3rem;
+              background-color: #f1f1f1;
+              border-radius: 6px;
+              i {
+                margin: auto;
+              }
+            }
+            .searchPlace {
+              margin: auto;
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .people {
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    background-color: #fff;
+    width: 25rem;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    .people-control {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid rgb(204, 201, 201);
+      }
+      margin: 0.3rem 2rem;
+      .txt {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2rem;
+        strong {
+          font-size: 1.2rem;
+        }
+        span {
+          color: rgb(104, 102, 102);
+          font-size: 0.9rem;
+        }
+      }
+      button {
+        width: 2rem;
+        height: 2rem;
+        margin: 0 0.8rem;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid rgb(204, 201, 201);
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .sm-cancel {
+    display: none !important;
+  }
+  .searchBar {
+    padding: 0rem !important;
+    border-radius: 50px !important;
+    .search-position {
+      width: 50% !important;
+      &:hover {
+        background-color: rgb(228, 228, 228) !important;
+      }
+      .sm-search-icon {
+        display: none !important;
+      }
+      .sm-search-title {
+        display: inline !important;
+      }
+    }
+    .lg-search {
+      display: flex !important;
+      flex-grow: 1 !important;
+      .search-div {
+        flex-grow: 1;
+      }
+    }
+    .search-div {
+      padding: 0.5rem 0;
+      border-radius: 50px;
+      cursor: pointer;
+      label {
+        cursor: pointer;
+      }
+      &:hover {
+        background-color: rgb(228, 228, 228);
+      }
+      &:first-child {
+        padding-left: 1rem;
+      }
+      border-right: 1px solid rgb(199, 198, 198);
+      .placeholder {
+        margin-left: 0.9rem;
+        color: rgb(97, 96, 96);
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
