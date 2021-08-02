@@ -1,0 +1,232 @@
+[
+    {
+        "id": 1, 
+        "picture": [
+            "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "address": "魚池鄉",
+        "houseType": "飯店房間",
+        "Title": "雙人套房有浴缸",
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "facility": {
+            "AirConditioner": true,
+            "Kitchen": false,
+            "wifi": true,
+            "WashingMachine": true
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "taxFee": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "comment": {
+            "star": 3.6,
+            "TotalComments": 120
+        }
+    },
+    {
+        "id": 2, 
+        "picture": [
+            "https://images.pexels.com/photos/276551/pexels-photo-276551.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "address": "魚池鄉",
+        "houseType": "飯店房間",
+        "Title": "雙人套房有浴缸",
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "facility": {
+            "AirConditioner": true,
+            "Kitchen": false,
+            "wifi": true,
+            "WashingMachine": true
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "taxFee": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "comment": {
+            "star": 3.6,
+            "TotalComments": 120
+        }
+    },
+    {
+        "id": 3, 
+        "picture": [
+            "https://images.pexels.com/photos/6523302/pexels-photo-6523302.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "address": "魚池鄉",
+        "houseType": "飯店房間",
+        "Title": "雙人套房有浴缸",
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "facility": {
+            "AirConditioner": true,
+            "Kitchen": false,
+            "wifi": true,
+            "WashingMachine": true
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "taxFee": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "comment": {
+            "star": 3.6,
+            "TotalComments": 120
+        }
+    },
+    {
+        "id": 4, 
+        "picture": [
+            "https://images.pexels.com/photos/1669799/pexels-photo-1669799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "address": "魚池鄉",
+        "houseType": "飯店房間",
+        "Title": "雙人套房有浴缸",
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "facility": {
+            "AirConditioner": true,
+            "Kitchen": false,
+            "wifi": true,
+            "WashingMachine": true
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "taxFee": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "comment": {
+            "star": 3.6,
+            "TotalComments": 120
+        }
+    },
+    {
+        "id": 5, 
+        "picture": [
+            "https://images.pexels.com/photos/2029670/pexels-photo-2029670.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "address": "魚池鄉",
+        "houseType": "飯店房間",
+        "Title": "雙人套房有浴缸",
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "facility": {
+            "AirConditioner": true,
+            "Kitchen": false,
+            "wifi": true,
+            "WashingMachine": true
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "taxFee": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "comment": {
+            "star": 3.6,
+            "TotalComments": 120
+        }
+    }
+]

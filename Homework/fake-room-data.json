@@ -1,0 +1,422 @@
+[
+    {
+        "id": 1,
+        "title": "〈LOFT·海〉1-4人房@北車3分鐘 可下廚(附餐具)×高速Wi-Fi×乾濕分離衛浴×獨立洗脫烘",
+        "pictures": [
+            "https://images.pexels.com/photos/584399/living-room-couch-interior-room-584399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64 string"
+        ],
+        "wishList": {
+            "id": 1,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "Honor": [
+            {
+                "type": 1,
+                "description": "此房東承諾遵守 Airbnb 的深度清潔五步驟。"
+            },
+            {
+                "type": 2,
+                "description": "使用密碼鑰匙盒自助入住。"
+            }
+        ],
+        "Description": {
+            "HouseDescription": "welcome to Taipei long stay",
+            "SpaceDescription": "24小時保全電梯大樓 方便進出 安全可靠 可使用整個公寓 不會與房東或其他房客同住｡",
+            "GuestPermission": "入住五晚， 我们提供管家专人负责，不能指定时段,时间由房东安排,免费清洁打扫一次",
+            "Others": "我们家是严禁有访客，如有访客视同入住，需加收加人费用*(^o^)/"
+        },
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "tax": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "BedroomDetail": [
+            {
+                "picture": "https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6970068/pexels-photo-6970068.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6588577/pexels-photo-6588577.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6758770/pexels-photo-6758770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6585612/pexels-photo-6585612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/5998055/pexels-photo-5998055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            }
+        ],
+        "facility": {
+            "provide": [
+                1,
+                3
+            ],
+            "notProvide": [
+                1,
+                2
+            ]
+        },
+        "rank": {
+            "star": 4.7,
+            "CleanScore": 4.3,
+            "CommunicationScore": 5.0,
+            "ExperienceScore": 4.8,
+            "CheapPriceScore": 4.3,
+            "LocationScore": 4.8,
+            "AccuracyScore": 5.0
+        },
+        "comments": [
+            {
+                "authorId": 12,
+                "name": "角藍",
+                "date": "2021-09-01",
+                "content": "非常好的一次住宿體驗,Frank回覆消息也都很及時｡"
+            },
+            {
+                "authorId": 12,
+                "name": "角藍",
+                "date": "2021-09-01",
+                "content": "非常好的一次住宿體驗,Frank回覆消息也都很及時｡"
+            }
+        ],
+        "Location": {
+            "country": "台灣",
+            "City": "台北",
+            "Town": "中正區"
+        },
+        "Owner": {
+            "id": 15,
+            "name": "Frank",
+            "registerTime": "2014-09-24",
+            "totalComments": 125,
+            "isVerified": true,
+            "about": "Hello, 我是Frank, 歡迎來到我的家鄉台北"
+        },
+        "HouseRule": {
+            "checkinTime": "07:00-12:00",
+            "checkoutTime": null,
+            "AllowChild": true,
+            "AllowBaby": false,
+            "AllowPet": true,
+            "AllowSmoke": false,
+            "AllowParty": true,
+            "CashPledge": 500,
+            "other": "其他規則"
+        },
+        "CancelPolicy": 1
+    },
+    {
+        "id": 12,
+        "title": "〈LOFT·海〉1-4人房@北車3分鐘 可下廚(附餐具)×高速Wi-Fi×乾濕分離衛浴×獨立洗脫烘",
+        "pictures": [
+            "https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64 string"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "Honor": [
+            {
+                "type": 1,
+                "description": "此房東承諾遵守 Airbnb 的深度清潔五步驟。"
+            },
+            {
+                "type": 2,
+                "description": "使用密碼鑰匙盒自助入住。"
+            }
+        ],
+        "Description": {
+            "HouseDescription": "welcome to Taipei long stay",
+            "SpaceDescription": "24小時保全電梯大樓 方便進出 安全可靠 可使用整個公寓 不會與房東或其他房客同住｡",
+            "GuestPermission": "入住五晚， 我们提供管家专人负责，不能指定时段,时间由房东安排,免费清洁打扫一次",
+            "Others": "我们家是严禁有访客，如有访客视同入住，需加收加人费用*(^o^)/"
+        },
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "tax": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "BedroomDetail": [
+            {
+                "picture": "https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6970068/pexels-photo-6970068.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6588577/pexels-photo-6588577.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6758770/pexels-photo-6758770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6585612/pexels-photo-6585612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/5998055/pexels-photo-5998055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            }
+        ],
+        "facility": {
+            "provide": [
+                1,
+                3
+            ],
+            "notProvide": [
+                1,
+                2
+            ]
+        },
+        "rank": {
+            "star": 4.7,
+            "CleanScore": 4.3,
+            "CommunicationScore": 5.0,
+            "ExperienceScore": 4.8,
+            "CheapPriceScore": 4.3,
+            "LocationScore": 4.8,
+            "AccuracyScore": 5.0
+        },
+        "comments": [
+            {
+                "authorId": 12,
+                "name": "角藍",
+                "date": "2021-09-01",
+                "content": "非常好的一次住宿體驗,Frank回覆消息也都很及時｡"
+            },
+            {
+                "authorId": 12,
+                "name": "角藍",
+                "date": "2021-09-01",
+                "content": "非常好的一次住宿體驗,Frank回覆消息也都很及時｡"
+            }
+        ],
+        "Location": {
+            "country": "台灣",
+            "City": "台北",
+            "Town": "中正區"
+        },
+        "Owner": {
+            "id": 15,
+            "name": "Frank",
+            "registerTime": "2014-09-24",
+            "totalComments": 125,
+            "isVerified": true,
+            "about": "Hello, 我是Frank, 歡迎來到我的家鄉台北"
+        },
+        "HouseRule": {
+            "checkinTime": "07:00-12:00",
+            "checkoutTime": null,
+            "AllowChild": true,
+            "AllowBaby": false,
+            "AllowPet": true,
+            "AllowSmoke": false,
+            "AllowParty": true,
+            "CashPledge": 500,
+            "other": "其他規則"
+        },
+        "CancelPolicy": 1
+    },
+    {
+        "id": 12,
+        "title": "〈LOFT·海〉1-4人房@北車3分鐘 可下廚(附餐具)×高速Wi-Fi×乾濕分離衛浴×獨立洗脫烘",
+        "pictures": [
+            "https://images.pexels.com/photos/271795/pexels-photo-271795.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+            "base64 string"
+        ],
+        "wishList": {
+            "id": 12,
+            "name": "台北",
+            "cover": "https://images.pexels.com/photos/1717859/pexels-photo-1717859.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+        },
+        "Honor": [
+            {
+                "type": 1,
+                "description": "此房東承諾遵守 Airbnb 的深度清潔五步驟。"
+            },
+            {
+                "type": 2,
+                "description": "使用密碼鑰匙盒自助入住。"
+            }
+        ],
+        "Description": {
+            "HouseDescription": "welcome to Taipei long stay",
+            "SpaceDescription": "24小時保全電梯大樓 方便進出 安全可靠 可使用整個公寓 不會與房東或其他房客同住｡",
+            "GuestPermission": "入住五晚， 我们提供管家专人负责，不能指定时段,时间由房东安排,免费清洁打扫一次",
+            "Others": "我们家是严禁有访客，如有访客视同入住，需加收加人费用*(^o^)/"
+        },
+        "Space": {
+            "CustomerNumber": 4,
+            "Bedroom": 2,
+            "Bed": 3,
+            "Bathroom": 4
+        },
+        "Price": {
+            "origin": 1500,
+            "sweetPrice": 1200,
+            "Fee": {
+                "CleanFee": 500,
+                "ServiceFee": 200,
+                "tax": 230
+            },
+            "Discount": {
+                "Week": 10,
+                "Month": 0,
+                "EarlyBird": 10,
+                "NightBird": 5
+            }
+        },
+        "BedroomDetail": [
+            {
+                "picture": "https://images.pexels.com/photos/545034/pexels-photo-545034.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6970068/pexels-photo-6970068.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6588577/pexels-photo-6588577.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6758770/pexels-photo-6758770.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/6585612/pexels-photo-6585612.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "單人床",
+                "BedCount": 2
+            },
+            {
+                "picture": "https://images.pexels.com/photos/5998055/pexels-photo-5998055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+                "BedType": "雙人床",
+                "BedCount": 2
+            }
+        ],
+        "facility": {
+            "provide": [
+                1,
+                3
+            ],
+            "notProvide": [
+                1,
+                2
+            ]
+        },
+        "rank": {
+            "star": 4.7,
+            "CleanScore": 4.3,
+            "CommunicationScore": 5.0,
+            "ExperienceScore": 4.8,
+            "CheapPriceScore": 4.3,
+            "LocationScore": 4.8,
+            "AccuracyScore": 5.0
+        },
+        "comments": [
+            {
+                "authorId": 12,
+                "name": "角藍",
+                "date": "2021-09-01",
+                "content": "非常好的一次住宿體驗,Frank回覆消息也都很及時｡"
+            },
+            {
+                "authorId": 12,
+                "name": "角藍",
+                "date": "2021-09-01",
+                "content": "非常好的一次住宿體驗,Frank回覆消息也都很及時｡"
+            }
+        ],
+        "Location": {
+            "country": "台灣",
+            "City": "台北",
+            "Town": "中正區"
+        },
+        "Owner": {
+            "id": 15,
+            "name": "Frank",
+            "registerTime": "2014-09-24",
+            "totalComments": 125,
+            "isVerified": true,
+            "about": "Hello, 我是Frank, 歡迎來到我的家鄉台北"
+        },
+        "HouseRule": {
+            "checkinTime": "07:00-12:00",
+            "checkoutTime": null,
+            "AllowChild": true,
+            "AllowBaby": false,
+            "AllowPet": true,
+            "AllowSmoke": false,
+            "AllowParty": true,
+            "CashPledge": 500,
+            "other": "其他規則"
+        },
+        "CancelPolicy": 1
+    }
+]
