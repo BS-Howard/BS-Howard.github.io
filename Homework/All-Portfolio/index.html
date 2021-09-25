@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Howard Huang | Web Developer</title>
+  <!-- icon -->
+  <link rel="shortcut icon" href="./pic/Howard-Icon-new.png" type="image/x-icon">
+  <!-- style -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/3524cb55bc.js" crossorigin="anonymous"></script>
+  <!-- bootstrap5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- google-font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="d-flex justify-content-between" id="navbar">
+    <a class="navbar-brand ms-2" href="#"><img src="./pic/Howard-Logo-new.png" alt="logo"></a>
+    <button class="btn shadow-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">
+          <img src="./pic/Howard-Logo-new.png" alt="logo">
+        </h5>
+      </div>
+      <div class="offcanvas-body">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#skill">Skills</a>
+          </li>
+          <li>
+            <a href="#project">Project</a>
+          </li>
+          <li>
+            <a href="#info">More Info</a>
+          </li>
+          <li>
+            <a href="#email">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="ms-2 d-flex align-items-center justify-content-around">
+        <span>Learn More About Me</span>
+        <a href="https://github.com/BS-Howard" target="blank">
+          <i class="fab fa-github text-dark my-2"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- carousel -->
+  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100">
+      </div>
+    </div>
+    <a href="#about" id="arrow" class="animated bounce infinite slow">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </div>
+
+  <!-- about -->
+  <section id="about">
+    <h2>About Howard</h2>
+    <span>A passionate front-end web developer who cares about users' needs and has been well trained with full-stack knowledge and skills.</span>
+  </section>
+
+  <!-- skill -->
+  <section id="skill">
+    <div id="carouselSkill" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active front-end">
+          <h3 class="pt-4">Front-End Skills</h3>
+          <div class="row pt-3">
+            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="Vue" data-bs-placement="bottom">
+              <img src="/pic/skills/Vue.png" alt="Vue">
+            </div>
+            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="JavaScript" data-bs-placement="bottom">
+              <img src="/pic/skills/JavaScript.png" alt="JavaScript">
+            </div>
+            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="Bootstrap" data-bs-placement="bottom">
+              <img src="/pic/skills/Bootstrap.png" alt="Bootstrap">
+            </div>
+            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="Sass" data-bs-placement="bottom">
+              <img src="/pic/skills/Sass.png" alt="Sass">
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <h3 class="pt-4">Back-End Skills</h3>
+        </div>
+        <div class="carousel-item">
+          <h3 class="pt-4">Tools & Others</h3>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselSkill" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselSkill" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- project -->
+  <section id="project">
+    <h2>Recent Project</h2>
+    <div id="airbnb"></div>
+  </section>
+
+  <!-- info -->
+  <section id="info">
+    <h2>Discover More</h2>
+    <a href="https://github.com/BS-Howard" target="blank">
+      <i class="fab fa-github left"></i>
+      GitHub
+    </a>
+  </section>
+
+  <!-- email -->
+  <section id="email">
+    <form class="needs-validation" novalidate>
+      <h2>Get In Touch</h2>
+      <div class="mb-3">
+        <label class="mb-2" for="senderName">Name</label>
+        <input type="text" class="form-control shadow-none" id="senderName" placeholder="your name" required autocomplete="off">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Please provide your name.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="mb-2" for="senderEmail">Email</label>
+        <input type="email" class="form-control shadow-none" id="senderEmail" placeholder="your email" required autocomplete="off">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Please provide your email.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="mb-2" for="senderMessage">Message</label>
+        <textarea type="text" class="form-control shadow-none" id="senderMessage" placeholder="message" required autocomplete="off"></textarea>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="invalid-feedback">
+          Please write some messages.
+        </div>
+      </div>
+      <button class="btn btn-dark sendEmail w-100 my-3" type="submit">send</button>
+    </form>
+  </section>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <script src="./index.js"></script>
+</body>
+</html>

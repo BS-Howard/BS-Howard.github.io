@@ -1,0 +1,214 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: 'Amaranth', sans-serif;
+  color: #565656;
+}
+
+body {
+  position: relative;
+}
+
+nav {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+nav.active {
+  background-color: #d6d6d6;
+}
+
+nav i {
+  font-size: 1.5rem;
+}
+
+nav img {
+  width: 8rem;
+}
+
+nav .offcanvas {
+  width: 30vh;
+  background: #bdbdbd;
+}
+
+nav .offcanvas .offcanvas-body ul {
+  padding: 0;
+}
+
+nav .offcanvas .offcanvas-body ul li {
+  margin: .5rem 0;
+}
+
+nav .offcanvas .offcanvas-body ul a {
+  display: inline-block;
+  text-decoration: none;
+  color: #000;
+  padding: 1rem;
+  width: 100%;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+nav .offcanvas .offcanvas-body ul a:hover {
+  background-color: #828282bf;
+}
+
+#carousel {
+  position: relative;
+}
+
+#carousel img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh;
+}
+
+#carousel #arrow {
+  position: absolute;
+  bottom: 3%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: rgba(0, 0, 0, 0.762);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+}
+
+#carousel #arrow i {
+  font-size: 2rem;
+}
+
+#about {
+  padding: 0 1rem;
+  padding-top: 5.5rem;
+  margin-top: -4.5rem;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 2.5rem;
+}
+
+#skill {
+  padding-top: 5.5rem;
+  margin-top: -4.5rem;
+}
+
+#skill .carousel {
+  height: 40vh;
+  background-image: url("/pic/skills/city.jpeg");
+  background-position: center;
+}
+
+#skill h3 {
+  text-align: center;
+  color: #fff;
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+#skill .carousel-item {
+  padding: 0 4rem;
+  margin: auto;
+  height: 40vh;
+}
+
+#skill .carousel-item .item {
+  padding: 0;
+  text-align: center;
+}
+
+#skill .carousel-item .item img {
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.775);
+  border-radius: 8px;
+}
+
+#project {
+  text-align: center;
+  padding: 0 1rem;
+  padding-top: 5.5rem;
+  margin-top: -4.5rem;
+}
+
+#project h2 {
+  font-size: 2.5rem;
+}
+
+#project #airbnb {
+  height: 40vh;
+  background-image: url("https://images.pexels.com/photos/409127/pexels-photo-409127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  border-radius: 8px;
+  -webkit-box-shadow: 5px 5px 10px #7d7d7d;
+          box-shadow: 5px 5px 10px #7d7d7d;
+}
+
+#info {
+  height: 40vh;
+  text-align: center;
+  padding: 0 1rem;
+  background-image: url("https://images.pexels.com/photos/409127/pexels-photo-409127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-position: center;
+  padding-top: 6.5rem;
+  margin-top: 2.5rem;
+}
+
+#info h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+#info a {
+  width: 50vw;
+  display: inline-block;
+  text-decoration: none;
+  background-color: white;
+  color: #000000;
+  font-size: 1.5rem;
+  padding: .2rem 1.5rem;
+  margin: 1rem 0;
+}
+
+#info a i {
+  color: #000;
+  margin-right: 1rem;
+}
+
+#email {
+  padding: 0 1rem;
+  text-align: center;
+  padding-top: 5.5rem;
+  margin-top: -4.5rem;
+}
+
+#email h2 {
+  font-size: 2.5rem;
+}
+
+#email textarea {
+  height: 20vh;
+}
+/*# sourceMappingURL=style.css.map */
