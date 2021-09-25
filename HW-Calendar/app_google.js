@@ -41,6 +41,7 @@ let date = today.getDate();
 
 window.addEventListener("load",function(){
     Init();
+    initMap();
 })
 
 // 初始化
@@ -116,13 +117,50 @@ function Init() {
                                 <li>標題: ${item.title}</li>
                                 <li>開始日期: ${item.startDate} & 時間: ${item.startTime == "" ? "無備註" : item.startTime}</li>
                                 <li>結束日期: ${item.endDate == "" ? "無備註" : item.endDate} & 時間: ${item.endTime == "" ? "無備註" : item.endTime}</li>
-                                <li>地點: ${item.position == "" ? "無備註" : item.position}</li>
+                                <li>地點: <span class="searchLocation">${item.position == "" ? "無備註" : item.position}</span></li>
                                 <li>備註: ${item.remark == "" ? "無備註" : item.remark}</li>
                                 <li>重要程度: ${item.level == "#039be5" ? "普通" : (item.level == "#f8db36" ? "重要" : "非常重要")}</li>
                                 `;
                                 schedule.appendChild(ul);
                             })
                         }
+
+                        //google map
+                        var sideMap = null;
+                        var sideMarker = null;
+                        document.querySelectorAll('.schedule ul').forEach(x=>{
+                            x.addEventListener('click',()=>{
+                                sideGeocoder = new google.maps.Geocoder();
+                                var address = x.querySelector('.searchLocation').innerText;
+                                if (address == "無備註") return
+                                sideGeocoder.geocode({ 'address': address }, function (results) {
+                                    sideMap = new google.maps.Map(document.getElementById('side-map'), {
+                                        center: results[0].geometry.location,
+                                        zoom: 17,
+                                        mapTypeId: 'terrain'
+                                    });
+                                    sideMarker = new google.maps.Marker({
+                                        position: results[0].geometry.location,
+                                        map: sideMap
+                                    });
+                                });
+                            })
+                        })
+
+                        //初始化map
+                        let initAddress = document.querySelector('.schedule ul .searchLocation').innerText;
+                        sideGeocoder = new google.maps.Geocoder();
+                        sideGeocoder.geocode({ 'address': initAddress }, function (results) {
+                            sideMap = new google.maps.Map(document.getElementById('side-map'), {
+                                center: results[0].geometry.location,
+                                zoom: 17,
+                                mapTypeId: 'terrain'
+                            });
+                            sideMarker = new google.maps.Marker({
+                                position: results[0].geometry.location,
+                                map: sideMap
+                            });
+                        });
                     })
 
                     // 今天日期標註
@@ -584,3 +622,32 @@ function reviewAll(callback,obj,start){
     }
     Init();
 }
+
+//google map
+var map = null;
+var marker = null;
+
+function initMap(){
+    var center = { lat: 24.7571075, lng: 120.952429 };
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: center,
+        zoom: 13,
+        mapTypeId: 'terrain'
+    });
+    marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+}
+
+document.getElementById('search').addEventListener('click',()=>{
+    geocoder = new google.maps.Geocoder();
+    var address = document.getElementById('todo-position').value;
+    geocoder.geocode({ 'address': address }, function (results) {
+        map.setCenter(results[0].geometry.location);
+        marker = new google.maps.Marker({
+            position: results[0].geometry.location,
+            map: map
+        });
+    });
+});

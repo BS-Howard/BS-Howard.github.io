@@ -22,7 +22,7 @@ nav {
 }
 
 nav.active {
-  background-color: #d6d6d6;
+  background-color: #b0bec5;
 }
 
 nav i {
@@ -34,7 +34,7 @@ nav img {
 }
 
 nav .offcanvas {
-  width: 30vh;
+  width: 50vw;
   background: #bdbdbd;
 }
 
@@ -84,7 +84,6 @@ nav .offcanvas .offcanvas-body ul a:hover {
   background-position: center;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  color: rgba(0, 0, 0, 0.762);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,6 +95,7 @@ nav .offcanvas .offcanvas-body ul a:hover {
 
 #carousel #arrow i {
   font-size: 2rem;
+  color: #fff;
 }
 
 #about {
@@ -210,5 +210,31 @@ nav .offcanvas .offcanvas-body ul a:hover {
 
 #email textarea {
   height: 20vh;
+}
+
+footer {
+  height: 8vh;
+  background-color: #949494;
+  text-align: center;
+  line-height: 8vh;
+}
+
+footer .copyright {
+  color: white;
+}
+
+@media screen and (min-width: 768px) {
+  nav .offcanvas {
+    width: 20vw;
+  }
+  #skill .carousel-item .item img {
+    width: 5rem;
+    height: 5rem;
+  }
+  #email {
+    width: 70vw;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

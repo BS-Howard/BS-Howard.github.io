@@ -19,7 +19,7 @@ nav{
     width: 100%;
     transition: .3s;
     &.active{
-        background-color: #d6d6d6;
+        background-color: #b0bec5;
     }
     i{
         font-size: 1.5rem;
@@ -28,7 +28,7 @@ nav{
         width: 8rem;
     }
     .offcanvas{
-        width: 30vh;
+        width: 50vw;
         background: #bdbdbd;
         .offcanvas-body{
             ul{
@@ -71,12 +71,12 @@ nav{
         background-size: cover;
         background-position: center;
         transform: translateX(-50%);
-        color: rgba(0, 0, 0, 0.762);
         display: flex;
         justify-content: center;
         text-decoration: none;
         i{
             font-size: 2rem;
+            color: #fff;
         }
     }
 }
@@ -179,5 +179,38 @@ nav{
     }
     textarea{
         height: 20vh;
+    }
+}
+
+footer{
+    height: 8vh;
+    background-color: #949494;
+    text-align: center;
+    line-height: 8vh;
+    .copyright{
+        color: rgb(255, 255, 255);
+    }
+}
+
+@media screen and (min-width:768px) {
+    nav{
+        .offcanvas{
+            width: 20vw;
+        }
+    }
+    #skill{
+        .carousel-item{
+            .item{
+                img{
+                    width: 5rem;
+                    height: 5rem;
+                }
+            }
+        }
+    }
+    #email{
+        width: 70vw;
+        margin: 0 auto;
+        margin-bottom: 2rem;
     }
 }

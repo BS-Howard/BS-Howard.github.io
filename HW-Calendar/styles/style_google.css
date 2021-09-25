@@ -223,6 +223,7 @@
 }
 
 .main .side-nav .schedule ul {
+  cursor: pointer;
   width: 18rem;
   margin-left: 1rem;
   margin-right: 0.5rem;

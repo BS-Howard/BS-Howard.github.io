@@ -67,7 +67,7 @@
             <!-- 關閉按鈕 -->
             <i class="fas fa-times closeBtn" ></i>
             <div class="google-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8933.79003527013!2d120.9489181880148!3d24.760822431644378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34684a5cb60622fd%3A0xb0ead5088c97b0db!2z5Lit6I-v5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1625237363150!5m2!1szh-TW!2stw" width="280" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div style="height: 30vh; width: 300px;" class="mb-3" id="side-map"></div>
             </div>
             <div class="schedule"></div>
         </div>
@@ -75,7 +75,7 @@
     
     <!-- Modal Add -->
     <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="inputModalLabel">Add</h5>
@@ -108,25 +108,31 @@
                         </div>
                         <br>
 
-                        <label for="todo-item">標題 : </label>
-                        <div class="d-flex align-items-center">
-                            <input id="todo-item" type="text" class="w-100 form-control" required />
-                            <i class="fas fa-microphone mx-3 microphone"></i>
+                        <div class="d-flex">
+                            <div class="w-50 mr-4">
+                                <label for="todo-item">標題 : </label>
+                                <div class="d-flex align-items-center">
+                                    <input id="todo-item" type="text" class="w-100 form-control" required />
+                                    <i class="fas fa-microphone ml-2 microphone"></i>
+                                </div>
+                            </div>
+                            <div class="w-50">
+                                <label for="remark-item">備註 : </label>
+                                <div class="d-flex align-items-center">
+                                    <input id="remark-item" type="text" class="w-100 form-control" />
+                                    <i class="fas fa-microphone ml-2  microphone"></i>
+                                </div>
+                            </div>
                         </div>
                         <br>
                         
                         <label for="todo-position">地點 : </label>
                         <div class="d-flex align-items-center">
-                            <input id="todo-position" type="text" class="w-100 form-control"/>
-                            <i class="fas fa-microphone mx-3 microphone"></i>
+                            <input id="todo-position" type="text" class=" form-control" placeholder="輸入地點"/>
+                            <i class="fas fa-microphone mx-2 microphone"></i>
+                            <button type="button" class="btn btn-danger w-25" id="search">搜尋</button>
                         </div>
-                        <br>
-
-                        <label for="remark-item">備註 : </label>
-                        <div class="d-flex align-items-center">
-                            <input id="remark-item" type="text" class="w-100 form-control" />
-                            <i class="fas fa-microphone mx-3 microphone"></i>
-                        </div>
+                        <div style="height: 40vh;" class="w-100 mt-3" id="map"></div>
                         <br>
 
                         <label class="mr-3">重要程度 : </label>
@@ -186,23 +192,27 @@
                     </div>
                     <br>
 
-                    <label for="info-todo-item">標題 : </label>
-                    <div class="d-flex align-items-center">
-                        <input id="info-todo-item" type="text" class="w-100 form-control" required />
-                        <i class="fas fa-microphone mx-3 microphone"></i>
+                    <div class="d-flex">
+                        <div class="w-50 mr-4">
+                            <label for="info-todo-item">標題 : </label>
+                            <div class="d-flex align-items-center">
+                                <input id="info-todo-item" type="text" class="w-100 form-control" required />
+                                <i class="fas fa-microphone ml-2 microphone"></i>
+                            </div>
+                        </div>
+                        <div class="w-50">
+                            <label for="info-remark-item">備註 : </label>
+                            <div class="d-flex align-items-center">
+                                <input id="info-remark-item" type="text" class="w-100 form-control" />
+                                <i class="fas fa-microphone ml-2 microphone"></i>
+                            </div>
+                        </div>
                     </div>
                     <br>
                     
                     <label for="info-todo-position">地點 : </label>
                     <div class="d-flex align-items-center">
                         <input id="info-todo-position" type="text" class="w-100 form-control"/>
-                        <i class="fas fa-microphone mx-3 microphone"></i>
-                    </div>
-                    <br>
-
-                    <label for="info-remark-item">備註 : </label>
-                    <div class="d-flex align-items-center">
-                        <input id="info-remark-item" type="text" class="w-100 form-control" />
                         <i class="fas fa-microphone mx-3 microphone"></i>
                     </div>
                     <br>
@@ -228,7 +238,8 @@
         </div>
     </div>
 
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ3Pa3s9Xx7yOzq1Nijw7dXlmtUj9e1Rg"
+    type="text/javascript"></script>
     <!-- app -->
     <script src="app_google.js"></script>
     <!-- bootstrap -->
