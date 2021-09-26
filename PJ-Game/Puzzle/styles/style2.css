@@ -22,9 +22,11 @@ body {
 }
 
 .wrap .main h1 {
-  color: #e4fde1;
+  color: #4c4c4c;
   text-align: center;
   font-size: 3.5rem;
+  margin-top: 1rem;
+  font-weight: 900;
 }
 
 .wrap .main .btn {
@@ -43,13 +45,14 @@ body {
 .wrap .main .btn button {
   cursor: pointer;
   padding: 0.2rem 0;
-  background-color: #f1a6d4;
+  background-color: #8092d6;
   width: 6rem;
   margin: 0 0.3rem;
   border-radius: 0.5rem;
 }
 
 .wrap .main .btn .custom-file {
+  cursor: pointer;
   margin: 0 1rem;
   width: 25%;
 }
@@ -65,7 +68,8 @@ body {
 .wrap .main .btn h3 {
   width: 12rem;
   font-size: 1.5rem;
-  color: #f1a6d4;
+  color: #4c4c4c;
+  font-weight: 700;
 }
 
 .wrap .main #container {
@@ -77,6 +81,7 @@ body {
   line-height: 500px;
   font-size: 1.5rem;
   outline: 1px solid #000;
+  font-weight: 700;
 }
 
 .wrap .main #container ul {
