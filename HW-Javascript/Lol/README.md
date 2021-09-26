@@ -1,4 +1,4 @@
-# **前端作品 - App使用時間(拉霸機)**
+# **前端作品 - Lol英雄人物介紹(Ajax)**
 
 ![Github](./Lol-record.gif)
 
