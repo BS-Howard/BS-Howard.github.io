@@ -1,8 +1,14 @@
+*{
+  padding: 0;
+  margin: 0;
+}
 .container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: linear-gradient(rgb(126, 213, 76),rgb(96, 133, 89));
+  height: 100vh;
   #score {
     text-align: center;
     font-size: 3rem;
