@@ -18,6 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amaranth&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <!-- swiper -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 </head>
 <body>
   <!-- navbar -->
@@ -69,10 +71,13 @@
   <div id="carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100">
+        <img src="./pic/photo/photo-3.jpg" class="d-block w-100">
+        <span class="dev">Looking For Web Developer?</span>
+        <span class="check">Check out my portfolio</span>
       </div>
       <div class="carousel-item">
-        <img src="https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block w-100">
+        <img src="./pic/photo/photo-2.jpg" class="d-block w-100">
+        <span class="adventure">Love Adventure , Embrace Challenges</span>
       </div>
     </div>
     <a href="#about" id="arrow" class="animated bounce infinite slow">
@@ -82,8 +87,8 @@
 
   <!-- about -->
   <section id="about">
-    <h2>About Howard</h2>
-    <span>A passionate front-end web developer who cares about users' needs and has been well trained with full-stack knowledge and skills.</span>
+    <h2>About Me</h2>
+    <span>A passionate web developer who cares about users' needs and has been well trained with full-stack knowledge and skills.</span>
   </section>
 
   <!-- skill -->
@@ -93,25 +98,83 @@
         <div class="carousel-item active front-end">
           <h3 class="pt-4">Front-End Skills</h3>
           <div class="row pt-3">
-            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="Vue" data-bs-placement="bottom">
-              <img src="/pic/skills/Vue.png" alt="Vue">
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Vue" data-bs-placement="bottom">
+              <img src="./pic/skills/Vue.png" alt="Vue">
             </div>
-            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="JavaScript" data-bs-placement="bottom">
-              <img src="/pic/skills/JavaScript.png" alt="JavaScript">
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="JavaScript" data-bs-placement="bottom">
+              <img src="./pic/skills/JavaScript.png" alt="JavaScript">
             </div>
-            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="Bootstrap" data-bs-placement="bottom">
-              <img src="/pic/skills/Bootstrap.png" alt="Bootstrap">
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Bootstrap" data-bs-placement="bottom">
+              <img src="./pic/skills/Bootstrap.png" alt="Bootstrap">
             </div>
-            <div class="col-3 item" tabindex="0" data-bs-toggle="tooltip" title="Sass" data-bs-placement="bottom">
-              <img src="/pic/skills/Sass.png" alt="Sass">
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Sass" data-bs-placement="bottom">
+              <img src="./pic/skills/Sass.png" alt="Sass">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="Css" data-bs-placement="bottom">
+              <img src="./pic/skills/Css.png" alt="Css">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="Html" data-bs-placement="bottom">
+              <img src="./pic/skills/Html.png" alt="Html">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="Jquery" data-bs-placement="bottom">
+              <img src="./pic/skills/Jquery.png" alt="Jquery">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="Webpack" data-bs-placement="bottom">
+              <img src="./pic/skills/Webpack.png" alt="Webpack">
             </div>
           </div>
         </div>
         <div class="carousel-item">
           <h3 class="pt-4">Back-End Skills</h3>
+          <div class="row pt-3">
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Csharp" data-bs-placement="bottom">
+              <img src="./pic/skills/Csharp.png" alt="Csharp">
+            </div>
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Mvc" data-bs-placement="bottom">
+              <img src="./pic/skills/Mvc.png" alt="Mvc">
+            </div>
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title=".net Core" data-bs-placement="bottom">
+              <img src="./pic/skills/Core.png" alt=".net Core">
+            </div>
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="SQL" data-bs-placement="bottom">
+              <img src="./pic/skills/SQL.png" alt="SQL">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="VisualStudio" data-bs-placement="bottom">
+              <img src="./pic/skills/VisualStudio.png" alt="VisualStudio">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="VisualStudioCode" data-bs-placement="bottom">
+              <img src="./pic/skills/VisualStudioCode.png" alt="VisualStudioCode">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="Postman" data-bs-placement="bottom">
+              <img src="./pic/skills/Postman.png" alt="Postman">
+            </div>
+            <div class="col-3 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="Swagger" data-bs-placement="bottom">
+              <img src="./pic/skills/Swagger.png" alt="Swagger">
+            </div>
+          </div>
         </div>
         <div class="carousel-item">
           <h3 class="pt-4">Tools & Others</h3>
+          <div class="row pt-3">
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Docker" data-bs-placement="bottom">
+              <img src="./pic/skills/Docker.png" alt="Docker">
+            </div>
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Azure" data-bs-placement="bottom">
+              <img src="./pic/skills/Azure.png" alt="Azure">
+            </div>
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Jira" data-bs-placement="bottom">
+              <img src="./pic/skills/Jira.png" alt="Jira">
+            </div>
+            <div class="col-3 item mb-2" tabindex="0" data-bs-toggle="tooltip" title="Git" data-bs-placement="bottom">
+              <img src="./pic/skills/Git.png" alt="Git">
+            </div>
+            <div class="col-6 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="AutoCad" data-bs-placement="bottom">
+              <img src="./pic/skills/Autocad.png" alt="AutoCad">
+            </div>
+            <div class="col-6 item mt-2 mt-md-3" tabindex="0" data-bs-toggle="tooltip" title="SignalR" data-bs-placement="bottom">
+              <img src="./pic/skills/SignalR.png" alt="SignalR" >
+            </div>
+          </div>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselSkill" data-bs-slide="prev">
@@ -128,7 +191,148 @@
   <!-- project -->
   <section id="project">
     <h2>Recent Project</h2>
-    <div id="airbnb" class="col-md-6"></div>
+    <div class="airbnb my-5">
+      <h3>Airelax(similar to Airbnb)</h3>
+      <div class="row">
+        <a href="https://airelax.azurewebsites.net" class="col-md-6 main-project" target="blank">
+          <img src="./pic/project/Airelax.PNG" alt="Airelax">
+        </a>
+        <div class="col-md-6">
+          <ul class="text-start row ">
+            <h4>Features:</h4>
+            <li class="col-6">House Quering</li>
+            <li class="col-6">House Shelves</li>
+            <li class="col-6">Member Center</li>
+            <li class="col-6">JWT Authentication</li>
+            <li class="col-6">Third party login (Line, Google, FB)</li>
+            <li class="col-6">Payment Flow</li>
+            <li class="col-6">Google Map Api</li>
+            <li class="col-6">SignalR</li>
+          </ul>
+          <ul class="text-start row">
+            <h4>Tools:</h4>
+            <li class="col-6">.net 5 Web Api - Backend</li>
+            <li class="col-6">.net 5 MVC - Frontend</li>
+            <li class="col-6">Vue.js - Frontend</li>
+            <li class="col-6">SQL Server - Database</li>
+            <li class="col-6">Entity Framework - ORM</li>
+            <li class="col-6">Git - Teamwork</li>
+            <li class="col-6">Docker - Containerization</li>
+            <li class="col-6">GitHub and Github Action - CI/CD</li>
+            <li class="col-6">Confluence - project file wiki</li>
+            <li class="col-6">Jira - progress management tool</li>
+            <li class="col-6">Sonarcloud - code analysis tool</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="calendar my-5">
+      <h3>Calendar (Google Style)</h3>
+      <div class="row">
+        <a href="https://bs-howard.github.io/HW-Calendar/Index_google.html" class="col-md-6 main-project" target="blank">
+          <img src="./pic/project/Calendar.PNG" alt="Calendar">
+        </a>
+        <ul class="text-start col-md-6 ps-4">
+          <li>Using <strong>" LocalStorage "</strong> to record all schedules</li>
+          <li>You can add or modify your schedules, and sort them by start time</li>
+          <li>Combined with <strong>" Google voice service "</strong>. You can use voice to input the words by tapping the microphone</li>
+          <li>Integrating with <strong>" Google Map API "</strong></li>
+          <li>Not only can record the schedule of the day, but also record the schedule within an interval</li>
+          <li>After adding an schedule, you can click the date button to check all the schedules of the day. By clicking on a different schedule, the map above will show the location of the schedule</li>
+        </ul>
+      </div>
+    </div> 
+    <div class="mask my-5">
+      <h3>Mask Map</h3>
+      <div class="row align-items-center">
+        <a href="https://bs-howard.github.io/HW-Map/Mask/index.html" class="col-md-6 main-project" target="blank">
+          <img src="./pic/project/Mask.PNG" alt="Mask">
+        </a>
+        <ul class="text-start col-md-6 ps-4">
+          <li>Using <strong>" Ajax "</strong> to get data</li>
+          <li>Using <strong>" Async/Await "</strong> to do asynchronous processing</li>
+          <li>Render the screen through the <strong>" Leaflet map "</strong></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="JS my-5 col-md-6">
+        <div class="category"> - JS Project</div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Javascript/Calculator/index.html" target="blank">
+              <h3>Calculator</h3>
+              <img src="./pic/project/Calculator.PNG" alt="Calculator">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Javascript/Labar/index.html" target="blank">
+              <h3>Labar</h3>
+              <img src="./pic/project/Labar.PNG" alt="Labar">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Javascript/Lol/index.html" target="blank">
+              <h3>Lol</h3>
+              <img src="./pic/project/Lol.PNG" alt="Lol">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Pokemon/index.html" target="blank">
+              <h3>Pokemon</h3>
+              <img src="./pic/project/Pokemon.PNG" alt="Pokemon">
+            </a>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="game my-5 col-md-6">
+        <div class="category"> - JS Game</div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <a class="swiper-slide" href="https://bs-howard.github.io/PJ-Game/Puzzle/index-ver2.html" target="blank">
+              <h3>Puzzle</h3>
+              <img src="./pic/project/Puzzle.PNG" alt="Puzzle">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/PJ-Game/Snake/2snake.html" target="blank">
+              <h3>Snake</h3>
+              <img src="./pic/project/Snake.PNG" alt="Snake">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/JS30-Project/30-%20Whack%20A%20Mole/index-FINISHED.html" target="blank">
+              <h3>Hamster</h3>
+              <img src="./pic/project/Mole.PNG" alt="Mole">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Javascript/GuessAB/index.html" target="blank">
+              <h3>GuessAB</h3>
+              <img src="./pic/project/GuessAB.PNG" alt="GuessAB">
+            </a>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="carve my-5">
+        <div class="category"> - Css & Rwd</div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Line-RWD/Line-Rwd.html" target="blank">
+              <h3>BuildSchool</h3>
+              <img src="./pic/project/BuildSchool.PNG" alt="BuildSchool">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Line-RWD/Line-Rwd.html" target="blank">
+              <h3>Line</h3>
+              <img src="./pic/project/Line.PNG" alt="Line">
+            </a>
+            <a class="swiper-slide" href="https://bs-howard.github.io/HW-Toyato/Toyato.html" target="blank">
+              <h3>Toyota</h3>
+              <img src="./pic/project/Toyota.PNG" alt="Toyota">
+            </a>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- info -->
@@ -186,6 +390,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   
   <script src="./index.js"></script>
 </body>

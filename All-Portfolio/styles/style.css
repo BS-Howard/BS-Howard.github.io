@@ -98,6 +98,33 @@ nav .offcanvas .offcanvas-body ul a:hover {
   color: #fff;
 }
 
+#carousel .dev {
+  position: absolute;
+  top: 58%;
+  left: 20%;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+#carousel .check {
+  position: absolute;
+  bottom: 15%;
+  right: 5%;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+#carousel .adventure {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
 #about {
   padding: 0 1rem;
   padding-top: 5.5rem;
@@ -109,14 +136,19 @@ nav .offcanvas .offcanvas-body ul a:hover {
   font-size: 2.5rem;
 }
 
+#about span {
+  font-size: 1.4rem;
+}
+
 #skill {
   padding-top: 5.5rem;
   margin-top: -4.5rem;
+  overflow: hidden;
 }
 
 #skill .carousel {
   height: 40vh;
-  background-image: url("/pic/skills/city.jpeg");
+  background-image: url("../pic/skills/city.jpeg");
   background-position: center;
 }
 
@@ -124,7 +156,7 @@ nav .offcanvas .offcanvas-body ul a:hover {
   text-align: center;
   color: #fff;
   font-size: 2.5rem;
-  margin: 1rem 0;
+  margin-bottom: 1rem;
 }
 
 #skill .carousel-item {
@@ -157,13 +189,58 @@ nav .offcanvas .offcanvas-body ul a:hover {
   font-size: 2.5rem;
 }
 
-#project #airbnb {
+#project h3 {
+  font-size: 1.3rem;
+}
+
+#project .main-project img {
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
   height: 40vh;
-  background-image: url("https://images.pexels.com/photos/409127/pexels-photo-409127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-position: center;
-  border-radius: 8px;
-  -webkit-box-shadow: 5px 5px 10px #7d7d7d;
-          box-shadow: 5px 5px 10px #7d7d7d;
+}
+
+#project .category {
+  text-align: start;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+#project ul li {
+  font-size: 1.2rem;
+  list-style: disc;
+  margin: .5rem 0;
+}
+
+#project .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+#project .swiper .swiper-slide {
+  text-decoration: none;
+  text-align: center;
+  background: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#project .swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  height: 45vh;
+}
+
+#project .swiper .swiper-button-prev,
+#project .swiper .swiper-button-next {
+  color: #474545;
 }
 
 #info {
@@ -190,6 +267,12 @@ nav .offcanvas .offcanvas-body ul a:hover {
   font-size: 1.5rem;
   padding: .2rem 1.5rem;
   margin: 1rem 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+#info a:hover {
+  background-color: #cecdcd;
 }
 
 #info a i {
@@ -227,6 +310,9 @@ footer .copyright {
   nav .offcanvas {
     width: 20vw;
   }
+  #skill .carousel {
+    height: 44vh;
+  }
   #skill .carousel-item .item img {
     width: 5rem;
     height: 5rem;
@@ -235,6 +321,44 @@ footer .copyright {
     width: 70vw;
     margin: 0 auto;
     margin-bottom: 2rem;
+  }
+  #project {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  #project .airbnb h3,
+  #project .mask h3,
+  #project .calendar h3 {
+    text-align: start;
+  }
+  #project h3 {
+    font-size: 2rem;
+  }
+  #project .main-project img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    height: 100%;
+  }
+  #project .swiper .swiper-slide img {
+    height: 55vh;
+    -o-object-fit: fill;
+       object-fit: fill;
+  }
+  #project .carve img {
+    height: 80vh !important;
+  }
+  #carousel .dev {
+    top: 30%;
+    left: 5%;
+  }
+  #carousel .check {
+    top: 45%;
+    left: 20%;
+  }
+  #carousel .adventure {
+    top: 15%;
+    left: 5%;
+    font-size: 3rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

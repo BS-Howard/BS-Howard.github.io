@@ -79,6 +79,30 @@ nav{
             color: #fff;
         }
     }
+    .dev{
+        position: absolute;
+        top: 58%;
+        left: 20%;
+        color: #fff;
+        font-size: 3rem;
+        font-weight: 900;
+    }
+    .check{
+        position: absolute;
+        bottom: 15%;
+        right: 5%;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    .adventure{
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        color: #fff;
+        font-size: 3rem;
+        font-weight: 900;
+    }
 }
 
 #about{
@@ -89,21 +113,25 @@ nav{
     h2{
         font-size: 2.5rem;
     }
+    span{
+        font-size: 1.4rem;
+    }
 }
 
 #skill{
     padding-top: 5.5rem;
     margin-top: -4.5rem;
+    overflow: hidden;
     .carousel{
         height: 40vh;
-        background-image: url("/pic/skills/city.jpeg");
+        background-image: url("../pic/skills/city.jpeg");
         background-position: center;
     }
     h3{
         text-align: center;
         color: #fff;
         font-size: 2.5rem;
-        margin: 1rem 0;
+        margin-bottom: 1rem;
     }
     .carousel-item{
         padding: 0 4rem;
@@ -132,12 +160,49 @@ nav{
     h2{
         font-size: 2.5rem;
     }
-    #airbnb{
-        height: 40vh;
-        background-image: url("https://images.pexels.com/photos/409127/pexels-photo-409127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-        background-position: center;
-        border-radius: 8px;
-        box-shadow: 5px 5px 10px #7d7d7d;
+    h3{
+        font-size: 1.3rem;
+    }
+    .main-project{
+        img{
+            width: 100%;
+            object-fit: fill;
+            height: 40vh;
+        }
+    }
+    .category{
+        text-align: start;
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-top: 1rem;
+    }
+    ul{
+        li{
+            font-size: 1.2rem;
+            list-style: disc;
+            margin: .5rem 0;
+        }
+    }
+    .swiper {
+        width: 100%;
+        height: 100%;
+        .swiper-slide {
+            text-decoration: none;
+            text-align: center;
+            background: rgb(255, 255, 255);
+            justify-content: center;
+            align-items: center;
+            img {
+                display: block;
+                width: 100%;
+                object-fit: fill;
+                height: 45vh;
+            }
+        }
+        .swiper-button-prev,
+        .swiper-button-next{
+            color: rgb(71, 69, 69);
+        }
     }
 }
 
@@ -162,6 +227,10 @@ nav{
         font-size: 1.5rem;
         padding: .2rem 1.5rem;
         margin: 1rem 0;
+        transition: .3s;
+        &:hover{
+            background-color: rgb(206, 205, 205);
+        }
         i{
             color: #000;
             margin-right: 1rem;
@@ -199,6 +268,9 @@ footer{
         }
     }
     #skill{
+        .carousel{
+            height: 44vh;
+        }
         .carousel-item{
             .item{
                 img{
@@ -212,5 +284,53 @@ footer{
         width: 70vw;
         margin: 0 auto;
         margin-bottom: 2rem;
+    }
+    #project{
+        padding-left: 4rem;
+        padding-right: 4rem;
+        .airbnb,
+        .mask,
+        .calendar{
+            h3{
+                text-align: start;
+            }
+        }
+        h3{
+            font-size: 2rem;
+        }
+        .main-project{
+            img{
+                object-fit: contain;
+                height: 100%;
+            }
+        }
+        .swiper{
+            .swiper-slide{
+                img{
+                    height: 55vh;
+                    object-fit: fill;
+                }
+            }
+        }
+        .carve{
+            img{
+                height: 80vh !important;
+            }
+        }
+    }
+    #carousel{
+        .dev{
+            top: 30%;
+            left: 5%;
+        }
+        .check{
+            top: 45%;
+            left: 20%;
+        }
+        .adventure{
+            top: 15%;
+            left: 5%;
+            font-size: 3rem;
+        }
     }
 }
