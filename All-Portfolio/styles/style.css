@@ -100,10 +100,10 @@ nav .offcanvas .offcanvas-body ul a:hover {
 
 #carousel .dev {
   position: absolute;
-  top: 58%;
+  top: 62%;
   left: 20%;
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
 }
 
@@ -121,7 +121,7 @@ nav .offcanvas .offcanvas-body ul a:hover {
   top: 15%;
   left: 5%;
   color: #fff;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 900;
 }
 
@@ -350,10 +350,11 @@ footer .copyright {
   #carousel .dev {
     top: 30%;
     left: 5%;
+    font-size: 3rem;
   }
   #carousel .check {
     top: 45%;
-    left: 20%;
+    left: 25%;
   }
   #carousel .adventure {
     top: 15%;

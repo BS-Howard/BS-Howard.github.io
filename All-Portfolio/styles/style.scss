@@ -81,10 +81,10 @@ nav{
     }
     .dev{
         position: absolute;
-        top: 58%;
+        top: 62%;
         left: 20%;
         color: #fff;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
     }
     .check{
@@ -100,7 +100,7 @@ nav{
         top: 15%;
         left: 5%;
         color: #fff;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
     }
 }
@@ -140,7 +140,6 @@ nav{
         .item{
             padding: 0;
             text-align: center;
-            
             img{
                 cursor: pointer;
                 width: 3rem;
@@ -322,10 +321,11 @@ footer{
         .dev{
             top: 30%;
             left: 5%;
+            font-size: 3rem;
         }
         .check{
             top: 45%;
-            left: 20%;
+            left: 25%;
         }
         .adventure{
             top: 15%;
