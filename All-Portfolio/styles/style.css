@@ -193,11 +193,37 @@ nav .offcanvas .offcanvas-body ul a:hover {
   font-size: 1.3rem;
 }
 
+#project h4 {
+  font-weight: 900;
+}
+
+#project .main-project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#project .main-project:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(93, 93, 93, 0.299);
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
 #project .main-project img {
   width: 100%;
   -o-object-fit: fill;
      object-fit: fill;
   height: 40vh;
+  margin: auto;
 }
 
 #project .category {
@@ -361,5 +387,9 @@ footer .copyright {
     left: 5%;
     font-size: 3rem;
   }
+}
+
+.row {
+  --bs-gutter-x: 0 !important;
 }
 /*# sourceMappingURL=style.css.map */
